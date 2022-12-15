@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -5,77 +6,112 @@ public class Main {
     public static void main(String[] args) {
 
         boolean sistemaEgressos = true;
-        boolean numeroInvalido = false;
+        Scanner scan = new Scanner (System.in);
+        String resposta;
 
-        while(sistemaEgressos){
+        ArrayList<Coordenador> listaCoord = new ArrayList<Coordenador>();
+
+
+        while(sistemaEgressos) {
             System.out.println("Bem-vindo ao sistema de egressos do curso!");
             System.out.println("Como você deseja realizar o seu login?");
             System.out.println("1 - coordenador");
             System.out.println("2 - administrador");
             System.out.println("qualquer outra coisa - sair do programa");
 
-            Scanner scan = new Scanner (System.in);
-            String resposta = scan.nextLine();
+            resposta = scan.nextLine();
 
             if (Objects.equals(resposta, "1")) {
-
                 //login
                 System.out.println("-login coordenador-");
+                System.out.println("1 - entrar");
+                System.out.println("2 - criar cadastro");
+                resposta = scan.nextLine();
+
+                //número inválido
+                if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
+                    do {
+                        System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
+                        System.out.println("1 - entrar");
+                        System.out.println("2 - criar cadastro");
+                        resposta = scan.nextLine();
+
+                    } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
+                }
+
                 System.out.println("nome: ");
                 while (scan.hasNextInt()) scan.next();
-                Coordenador.nome = scan.nextLine();
+                Coordenador.nomeCoordenador = scan.nextLine();
                 System.out.println("senha: ");
                 while (scan.hasNextInt()) scan.next();
                 Coordenador.senha = scan.nextLine();
 
-                while (!numeroInvalido) {
+                if (resposta.equals("1")) {
+                    System.out.println("checar se existe");
 
-                    System.out.println("Digite a operação que você deseja realizar");
-                    System.out.println("1 - criar curso");
-                    System.out.println("2 - gerenciar curso");
-                    System.out.println("3 - cadastrar egresso");
-                    System.out.println("4 - editar egresso");
-                    System.out.println("5 - consultar egresso");
-                    System.out.println("6 - logoff");
+                }
+                else{
+                    Coordenador coordenador = new Coordenador();
+                    listaCoord.add(coordenador);
+                    System.out.println("-adicionado-");
+                    System.out.println("A lista tem " + listaCoord.size() + " coordenadores");
+                }
 
-                    while (scan.hasNextInt()) scan.next();
-                    resposta = scan.nextLine();
+                //opções coordenador
+                System.out.println("Digite a operação que você deseja realizar");
+                System.out.println("1 - criar curso");
+                System.out.println("2 - gerenciar curso");
+                System.out.println("3 - cadastrar egresso");
+                System.out.println("4 - editar egresso");
+                System.out.println("5 - consultar egresso");
+                System.out.println("6 - logoff");
 
-                    if (Objects.equals(resposta, "1")) {
+                //scan
+                resposta = scan.nextLine();
 
-                        System.out.println("-criar curso-");
+                //número inválido
+                if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6"))) {
+                    do {
+                        System.out.println("Comando inválido, igite '1' '2' '3' '4' '5' ou '6' para escolher a opção: ");
+                        System.out.println("1 - criar curso");
+                        System.out.println("2 - gerenciar curso");
+                        System.out.println("3 - cadastrar egresso");
+                        System.out.println("4 - editar egresso");
+                        System.out.println("5 - consultar egresso");
+                        System.out.println("6 - logoff");
+                        resposta = scan.nextLine();
 
-                    } else if (Objects.equals(resposta, "2")) {
+                    } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6")));
+                }
 
-                        System.out.println("-gerenciar curso-");
+                if (Objects.equals(resposta, "1")) {
 
+                    System.out.println("-criar curso-");
 
-                    } else if (Objects.equals(resposta, "3")) {
+                } else if (Objects.equals(resposta, "2")) {
 
-                        System.out.println("-cadastrar egresso-");
+                    System.out.println("-gerenciar curso-");
 
-                    } else if (Objects.equals(resposta, "4")) {
+                } else if (Objects.equals(resposta, "3")) {
 
-                        System.out.println("-editar egresso-");
+                    System.out.println("-cadastrar egresso-");
 
-                    } else if (Objects.equals(resposta, "5")) {
+                } else if (Objects.equals(resposta, "4")) {
 
-                        System.out.println("-consultar egresso-");
+                    System.out.println("-editar egresso-");
 
-                    } else if (Objects.equals(resposta, "6")) {
+                } else if (Objects.equals(resposta, "5")) {
 
-                        System.out.println("-logoff-");
+                    System.out.println("-consultar egresso-");
 
-                    } else {
-                        System.out.println("número inválido");
-                        numeroInvalido = true;
-                    }
+                } else{
+
+                    System.out.println("-logoff-");
 
                 }
 
             } else if (Objects.equals(resposta, "2")) {
                 System.out.println("-login administrador-");
-
 
 
             } else {
