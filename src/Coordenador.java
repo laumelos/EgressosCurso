@@ -9,13 +9,12 @@ public class Coordenador {
     //ArrayList<String> cursos;
     //ArrayList <String> egressos;
 
-    public void CriarCoordenador(){
+    public static void CriarCoordenador(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Nome: ");
         nomeCoordenador = scan.nextLine();
 
         System.out.println("senha: ");
         senha = scan.nextLine();
-
     }
 }

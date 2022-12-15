@@ -39,12 +39,7 @@ public class Main {
                     } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
                 }
 
-                System.out.println("nome: ");
-                while (scan.hasNextInt()) scan.next();
-                Coordenador.nomeCoordenador = scan.nextLine();
-                System.out.println("senha: ");
-                while (scan.hasNextInt()) scan.next();
-                Coordenador.senha = scan.nextLine();
+                Coordenador.CriarCoordenador();
 
                 if (resposta.equals("1")) {
                     System.out.println("checar se existe");
