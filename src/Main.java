@@ -84,17 +84,18 @@ public class Main {
                     if (Objects.equals(resposta, "1")) {
 
                         System.out.println("-criar curso-");
-                        Coordenador.CriarCurso();
+                        Cursos.CriarCurso();
 
                     } else if (Objects.equals(resposta, "2")) {
 
                         System.out.println("-gerenciar curso-");
-                        Coordenador.GerenciarCurso();
+                        Cursos.GerenciarCurso();
 
 
                     } else if (Objects.equals(resposta, "3")) {
 
                         System.out.println("-cadastrar egresso-");
+                        Egressos.CriarEgresso();
 
                     } else if (Objects.equals(resposta, "4")) {
 

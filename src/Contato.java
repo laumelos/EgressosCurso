@@ -1,91 +1,95 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Contato {
-    int telefone;
-    String email;
-    String redeSocial;
+    protected static int telefone;
+    protected static String email;
+    protected static String redeSocial;
 
-    public Contato(int telefone, String email, String redeSocial) {
-        this.telefone = telefone;
-        this.email = email;
-        this.redeSocial = redeSocial;
-    }
-
-    public void CriarContato() {
+    public static void CriarContato() {
 
         Scanner scan = new Scanner(System.in);
 
         boolean maisContato = true;
-        boolean numeroInvalido = false;
         String resposta;
 
-        while (!numeroInvalido) {
 
-            System.out.println("Tipo de contato a ser adicionado: ");
-            System.out.println("1 - telefone");
-            System.out.println("2 - email");
-            System.out.println("3 - rede social");
 
-            while (scan.hasNextInt()) scan.next();
-            resposta = scan.nextLine();
+        System.out.println("Tipo de contato a ser adicionado: ");
+        System.out.println("1 - telefone");
+        System.out.println("2 - email");
+        System.out.println("3 - rede social");
 
-            if (resposta == "1") {
-                System.out.println("telefone: ");
-                while (scan.hasNextInt()) scan.next();
-                this.telefone = scan.nextInt();
-            } else if (resposta == "2") {
-                System.out.println("email: ");
-                while (scan.hasNextInt()) scan.next();
-                this.email = scan.nextLine();
-            } else if (resposta == "3") {
-                System.out.println("rede social: ");
-                while (scan.hasNextInt()) scan.next();
-                this.redeSocial = scan.nextLine();
-            } else {
-                System.out.println("número inválido");
-                numeroInvalido = true;
-            }
-
+        resposta = scan.nextLine();
+        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3"))){
+            do {
+                System.out.println("Comando inválido, digite '1', '2' ou '3' para escolher a opção: ");
+                resposta = scan.nextLine();
+            }while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3")));
         }
 
-        while (maisContato) {
+
+        if (Objects.equals(resposta, "1")) {
+            System.out.println("telefone: ");
+            telefone = scan.nextInt();
+            System.out.println("-cadastrado-");
+
+        } else if (Objects.equals(resposta, "2")) {
+            System.out.println("email: ");
+            email = scan.nextLine();
+            System.out.println("-cadastrado-");
+
+        } else if (Objects.equals(resposta, "3")) {
+            System.out.println("rede social: ");
+            redeSocial = scan.nextLine();
+            System.out.println("-cadastrado-");
+
+        } else {
+            System.out.println("número inválido");
+        }
+
+
+        do {
             System.out.println("adicionar outro contato do egresso? (s/n): ");
             while (scan.hasNextInt()) scan.next();
             resposta = scan.nextLine();
-            if (resposta == "n"){
+            if (Objects.equals(resposta, "n")){
                 maisContato = false;
             }
             else{
-                numeroInvalido = false;
+                System.out.println("Tipo de contato a ser adicionado: ");
+                System.out.println("1 - telefone");
+                System.out.println("2 - email");
+                System.out.println("3 - rede social");
 
-                while (!numeroInvalido) {
+                resposta = scan.nextLine();
+                if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3"))){
+                    do {
+                        System.out.println("Comando inválido, digite '1', '2' ou '3' para escolher a opção: ");
+                        resposta = scan.nextLine();
+                    }while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3")));
+                }
 
-                    System.out.println("Tipo de contato a ser adicionado: ");
-                    System.out.println("1 - telefone");
-                    System.out.println("2 - email");
-                    System.out.println("3 - rede social");
 
-                    while (scan.hasNextInt()) scan.next();
-                    resposta = scan.nextLine();
+                if (Objects.equals(resposta, "1")) {
+                    System.out.println("telefone: ");
+                    telefone = scan.nextInt();
+                    System.out.println("-cadastrado-");
 
-                    if (resposta == "1") {
-                        System.out.println("telefone: ");
-                        while (scan.hasNextInt()) scan.next();
-                        this.telefone = scan.nextInt();
-                    } else if (resposta == "2") {
-                        System.out.println("email: ");
-                        while (scan.hasNextInt()) scan.next();
-                        this.email = scan.nextLine();
-                    } else if (resposta == "3") {
-                        System.out.println("rede social: ");
-                        while (scan.hasNextInt()) scan.next();
-                        this.redeSocial = scan.nextLine();
-                    } else {
-                        System.out.println("número inválido");
-                        numeroInvalido = true;
-                    }
+                } else if (Objects.equals(resposta, "2")) {
+                    System.out.println("email: ");
+                    email = scan.nextLine();
+                    System.out.println("-cadastrado-");
+
+                } else if (Objects.equals(resposta, "3")) {
+                    System.out.println("rede social: ");
+                    redeSocial = scan.nextLine();
+                    System.out.println("-cadastrado-");
+
+                } else {
+                    System.out.println("número inválido");
                 }
             }
-        }
+        }while (maisContato);
     }
 }

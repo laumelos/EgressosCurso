@@ -2,44 +2,35 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Egressos {
-    int cpf;
-    String nome;
-    String dataConclusao;
-    String contato;
+    static int cpf;
+    static String nomeEgresso;
+    static String dataConclusao;
+    static String contato;
     ArrayList <String> formacoes;
     ArrayList <String> ocupacoes;
     String depoimentos;
 
     ArrayList<Contato> listaContato = new ArrayList<Contato>();
 
-    public Egressos(int cpf, String nome, String dataConclusao, String contato, ArrayList<String> formacoes, ArrayList<String> ocupacoes, String depoimentos) {
-        this.cpf = cpf;
-        this.nome = nome;
-        this.dataConclusao = dataConclusao;
-        this.contato = contato;
-        this.formacoes = formacoes;
-        this.ocupacoes = ocupacoes;
-        this.depoimentos = depoimentos;
-    }
-
-    public void CriarEgresso() {
+    public static void CriarEgresso() {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("nome do egresso: ");
         while (scan.hasNextInt()) scan.next();
-        this.nome = scan.nextLine();
+        Egressos.nomeEgresso = scan.nextLine();
 
         System.out.println("cpf do egresso: ");
         while (!scan.hasNextInt()) scan.next();
-        this.cpf = scan.nextInt();
+        Egressos.cpf = scan.nextInt();
 
         System.out.println("data de conclusão do egresso: ");
         while (scan.hasNextInt()) scan.next();
-        this.nome = scan.nextLine();
+        Egressos.dataConclusao = scan.nextLine();
 
+        System.out.println("contato do egresso: ");
+        Contato.CriarContato();
 
-
-
-
+        System.out.println("-adicionado-");
+        System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
     }
 }
