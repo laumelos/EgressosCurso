@@ -3,10 +3,11 @@ import java.util.Scanner;
 
 public class Egressos {
     static int cpf;
+    String formacoes;
     static String nomeEgresso;
     static String dataConclusao;
     static String contato;
-    ArrayList <String> formacoes;
+    //ArrayList <Cursos> listaCursos;
     ArrayList <String> ocupacoes;
     String depoimentos;
 
@@ -31,6 +32,8 @@ public class Egressos {
         Contato.CriarContato();
 
         System.out.println("-adicionado-");
+        Egressos criarEgresso = new Egressos();
+        Coordenador.listaEgressos.add(criarEgresso);
         System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
     }
 }

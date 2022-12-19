@@ -3,13 +3,13 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Coordenador {
-    public static String nomeCoordenador;
-    public static String senha;
+    public String nomeCoordenador;
+    public String senha;
     static ArrayList<Cursos> listaCursos = new ArrayList<Cursos>();
     static ArrayList<Egressos> listaEgressos = new ArrayList<Egressos>();
 
 
-    public static void CriarCoordenador(){
+    public void CriarCoordenador(){
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Nome: ");
@@ -19,6 +19,19 @@ public class Coordenador {
         senha = scan.nextLine();
     }
 
+    public String getNomeCoordenador() {
+        return nomeCoordenador;
+    }
 
+    public void setNomeCoordenador(String nomeCoordenador) {
+        this.nomeCoordenador = nomeCoordenador;
+    }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }
