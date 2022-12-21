@@ -34,4 +34,12 @@ public class Coordenador {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+        return "Coordenador{" +
+                "nomeCoordenador='" + nomeCoordenador + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
+    }
 }

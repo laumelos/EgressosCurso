@@ -22,6 +22,7 @@ public class Main {
             resposta = scan.nextLine();
 
             if (Objects.equals(resposta, "1")) {
+
                 //login
                 System.out.println("-login coordenador-");
 
@@ -32,7 +33,12 @@ public class Main {
 
                     //checar se coord está cadastrado
                     for (Coordenador coordenador:listaCoord){
-                        if (Objects.equals(coordenador.getNomeCoordenador(), criarCoordenador.nomeCoordenador)){
+
+                        System.out.println(listaCoord);
+
+
+                        if (listaCoord.get().nomeCoordenador.contains("laura")){
+
                             System.out.println("-login realizado-");
                             listaCoord.add(coordenador);
 
@@ -81,7 +87,8 @@ public class Main {
                                 } else if (Objects.equals(resposta, "3")) {
 
                                     System.out.println("-cadastrar egresso-");
-                                    Egressos.CriarEgresso();
+                                    Egressos criarEgresso = new Egressos();
+                                    criarEgresso.CriarEgresso();
 
                                 } else if (Objects.equals(resposta, "4")) {
 
@@ -118,13 +125,18 @@ public class Main {
 
                 if (Administrador.verificarAdm == true){
                     System.out.println("-login realizado-");
+                    System.out.println("-criar coordenador-");
 
                     //criar coordenador
                     Coordenador criarCoordenador = new Coordenador();
                     criarCoordenador.CriarCoordenador();
+                    System.out.println("ANTES " + listaCoord.size());
 
-                    Coordenador coordenador = new Coordenador();
-                    listaCoord.add(coordenador);
+                    listaCoord.add(criarCoordenador);
+                    System.out.println(listaCoord);
+
+                    System.out.println("ADD? " + listaCoord.size());
+
                     System.out.println("-adicionado-");
                     System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");
                 }else{

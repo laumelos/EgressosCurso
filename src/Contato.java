@@ -1,16 +1,18 @@
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Contato {
-    protected static int telefone;
-    protected static String email;
-    protected static String redeSocial;
+    public String telefone;
+    public String email;
+    public String redeSocial;
+    ArrayList<String> listaContato = new ArrayList<String>();
 
-    public static void CriarContato() {
+
+    public void CriarContato() {
 
         Scanner scan = new Scanner(System.in);
 
-        //boolean maisContato = true;
         boolean respostaMaisContato = true;
         String resposta;
 
@@ -29,18 +31,21 @@ public class Contato {
 
         if (Objects.equals(resposta, "1")) {
             System.out.println("telefone: ");
-            telefone = scan.nextInt();
+            telefone = scan.nextLine();
+            listaContato.add(telefone);
             System.out.println("-cadastrado-");
 
         } else if (Objects.equals(resposta, "2")) {
             System.out.println("email: ");
             email = scan.nextLine();
+            listaContato.add(email);
             System.out.println("-cadastrado-");
 
         } else{
             System.out.println("rede social: ");
-        redeSocial = scan.nextLine();
-        System.out.println("-cadastrado-");}
+            redeSocial = scan.nextLine();
+            listaContato.add(redeSocial);
+            System.out.println("-cadastrado-");}
 
 
         do {
@@ -79,17 +84,20 @@ public class Contato {
 
                 if (Objects.equals(resposta, "1")) {
                     System.out.println("telefone: ");
-                    telefone = scan.nextInt();
+                    telefone = scan.nextLine();
+                    listaContato.add(telefone);
                     System.out.println("-cadastrado-");
 
                 } else if (Objects.equals(resposta, "2")) {
                     System.out.println("email: ");
                     email = scan.next();
+                    listaContato.add(email);
                     System.out.println("-cadastrado-");
 
                 } else {
                     System.out.println("rede social: ");
                     redeSocial = scan.next();
+                    listaContato.add(redeSocial);
                     System.out.println("-cadastrado-");
                 }
             }
