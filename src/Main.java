@@ -32,15 +32,13 @@ public class Main {
                 if (resposta.equals("1")) {
 
                     //checar se coord está cadastrado
-                    for (Coordenador coordenador:listaCoord){
+                    for (int x = 0; x < listaCoord.size(); x++){
+                        System.out.println(listaCoord.get(x).nomeCoordenador);
+                        System.out.println(criarCoordenador.nomeCoordenador);
 
-                        System.out.println(listaCoord);
-
-
-                        if (listaCoord.get().nomeCoordenador.contains("laura")){
+                        if (listaCoord.get(x).nomeCoordenador.contains(criarCoordenador.nomeCoordenador) && (listaCoord.get(x).senha.contains(criarCoordenador.senha))) {
 
                             System.out.println("-login realizado-");
-                            listaCoord.add(coordenador);
 
                             boolean operacaoCoord = true;
                             do {
@@ -105,13 +103,15 @@ public class Main {
                                 }
                             }while (!(Objects.equals(resposta, "6")));
                         }
-                        else if (listaCoord.size() == 0){
-                            System.out.println("-falha no login, nenhum coordenador cadastrado-");
-                        }
-                        else{
+                        else if (x == listaCoord.size() - 1){
                             System.out.println("-falha no login, coordenador não cadastrado-");
-
+                        //else if (listaCoord.isEmpty()){
+                        //System.out.println("-falha no login, nenhum coordenador cadastrado-");
                         }
+                        //else if (x == listaCoord.size() - 1){
+                        //System.out.println("-falha no login, coordenador não cadastrado-");
+
+                        //}
                     }
                 }
 
@@ -130,12 +130,8 @@ public class Main {
                     //criar coordenador
                     Coordenador criarCoordenador = new Coordenador();
                     criarCoordenador.CriarCoordenador();
-                    System.out.println("ANTES " + listaCoord.size());
 
                     listaCoord.add(criarCoordenador);
-                    System.out.println(listaCoord);
-
-                    System.out.println("ADD? " + listaCoord.size());
 
                     System.out.println("-adicionado-");
                     System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");

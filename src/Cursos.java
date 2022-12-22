@@ -8,7 +8,6 @@ public class Cursos {
     public String instituicao;
     public String depoimentoCurso;
 
-
     public void CriarCurso(){
         Scanner scan = new Scanner(System.in);
         String resposta;
@@ -60,13 +59,10 @@ public class Cursos {
             depoimentoCurso = scan.nextLine();
         }
 
-
         Cursos curso = new Cursos();
         Coordenador.listaCursos.add(curso);
         System.out.println("-adicionado-");
         System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
-
-
 
         do {
             System.out.println("adicionar outro curso?");
@@ -85,11 +81,9 @@ public class Cursos {
                 } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
             }
 
-
             if (resposta.equals("2")) {
                 respostaMaisCurso = false;
             } else {
-
 
                 System.out.println("Escolha o tipo do curso: ");
                 System.out.println("1 - curso Complementar");
@@ -102,7 +96,7 @@ public class Cursos {
                 //número inválido
                 if (!(Objects.equals(tipoCurso, "1") || Objects.equals(tipoCurso, "2") || Objects.equals(tipoCurso, "3") || Objects.equals(tipoCurso, "4"))) {
                     do {
-                        System.out.println("Comando inválido, igite '1' '2' '3' ou '4' para escolher a opção: ");
+                        System.out.println("Comando inválido, digite '1' '2' '3' ou '4' para escolher a opção: ");
                         System.out.println("1 - curso Complementar");
                         System.out.println("2 - Especialização");
                         System.out.println("3 - Graduação");
@@ -139,7 +133,6 @@ public class Cursos {
                 Coordenador.listaCursos.add(curso);
                 System.out.println("-adicionado-");
                 System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
-
 
             }
         }while(respostaMaisCurso);
