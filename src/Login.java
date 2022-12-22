@@ -5,8 +5,6 @@ public class Login {
     public String senha;
 
     public void FazerLogin() {
-        this.FazerLogin();
-
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Nome: ");

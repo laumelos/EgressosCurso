@@ -33,10 +33,10 @@ public class Main {
 
                     //checar se coord está cadastrado
                     for (int x = 0; x < listaCoord.size(); x++){
-                        System.out.println(listaCoord.get(x).nomeCoordenador);
-                        System.out.println(criarCoordenador.nomeCoordenador);
+                        System.out.println(listaCoord.get(x).getNomeCoordenador());
+                        System.out.println(criarCoordenador.getNomeCoordenador());
 
-                        if (listaCoord.get(x).nomeCoordenador.contains(criarCoordenador.nomeCoordenador) && (listaCoord.get(x).senha.contains(criarCoordenador.senha))) {
+                        if (listaCoord.get(x).getNomeCoordenador().contains(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(x).getSenhaCoordenador().contains(criarCoordenador.getSenhaCoordenador()))) {
 
                             System.out.println("-login realizado-");
 

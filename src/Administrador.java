@@ -21,7 +21,7 @@ public class Administrador extends Login{
         testeSenhaAdm = scan.nextLine();
         */
 
-        if (Objects.equals(testeNomeAdm, nome) && (Objects.equals(testeSenhaAdm, nome))){
+        if (Objects.equals(testeNomeAdm, nome) && (Objects.equals(testeSenhaAdm, senha))){
             verificarAdm = true;
         }
         else{

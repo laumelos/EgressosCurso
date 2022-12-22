@@ -31,11 +31,11 @@ public class Coordenador extends Login{
         this.nome = nomeCoordenador;
     }
 
-    public String getSenha() {
+    public String getSenhaCoordenador() {
         return senha;
     }
 
-    public void setSenha(String senha) {
+    public void setSenhaCoordenador(String senha) {
         this.senha = senha;
     }
 
