@@ -17,7 +17,6 @@ public class Egressos {
         Scanner scan = new Scanner(System.in);
         String resposta;
 
-        /*
         System.out.println("nome do egresso: ");
         while (scan.hasNext()) scan.next();
         nomeEgresso = scan.nextLine();
@@ -38,7 +37,6 @@ public class Egressos {
         Cursos criarCurso = new Cursos();
         criarCurso.CriarCurso();
         listaCursos.add(criarCurso);
-         */
 
         System.out.println("ocupações do egresso: ");
         Ocupacoes criarOcupacao = new Ocupacoes();

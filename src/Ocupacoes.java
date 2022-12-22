@@ -18,7 +18,6 @@ public class Ocupacoes {
         String resposta;
         boolean respostaMaisCurso = true;
 
-
         System.out.println("Nome do cargo: ");
         this.nomeCargo = scan.nextLine();
 
