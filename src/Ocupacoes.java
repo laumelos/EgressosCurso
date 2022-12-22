@@ -16,7 +16,7 @@ public class Ocupacoes {
 
         Scanner scan = new Scanner(System.in);
         String resposta;
-        boolean respostaMaisCurso = true;
+        boolean respostaMaisOcupa = true;
 
         System.out.println("Nome do cargo: ");
         this.nomeCargo = scan.nextLine();
@@ -51,7 +51,7 @@ public class Ocupacoes {
         System.out.println("Descrição: ");
         this.descricao = scan.nextLine();
 
-        System.out.println("Quer adicionar um depoimento?");
+        System.out.println("Adicionar um depoimento?");
         System.out.println("1 - sim");
         System.out.println("2 - não");
 
@@ -68,7 +68,7 @@ public class Ocupacoes {
             depoimentoOcupa = scan.nextLine();
         }
 
-        System.out.println("-adicionado-");
+        System.out.println("-Ocupação adicionada-");
 
 
 
@@ -91,9 +91,8 @@ public class Ocupacoes {
 
 
         if (resposta.equals("2")) {
-            respostaMaisCurso = false;
+            respostaMaisOcupa = false;
         } else {
-
 
             System.out.println("Nome do cargo: ");
             this.nomeCargo = scan.nextLine();
@@ -147,9 +146,9 @@ public class Ocupacoes {
 
             System.out.println("-adicionado-");
 
-
         }
-    }while(respostaMaisCurso);
-}}
+     }while(respostaMaisOcupa);
+    }
+}
 
 

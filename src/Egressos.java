@@ -35,12 +35,15 @@ public class Egressos {
         System.out.println("curso do egresso: ");
         Cursos criarCurso = new Cursos();
         criarCurso.CriarCurso();
-        listaCursos.add(criarCurso);
+
+        //Coordenador.listaCursos.add(criarCurso);
+        System.out.println(Coordenador.listaCursos);
+
 
         System.out.println("ocupações do egresso: ");
         Ocupacoes criarOcupacao = new Ocupacoes();
         criarOcupacao.CriarOcupacao();
-        listaOcupa.add(criarOcupacao);
+        //listaOcupa.add(criarOcupacao);
 
         System.out.println("Quer adicionar um depoimento?");
         System.out.println("1 - sim");

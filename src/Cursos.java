@@ -36,9 +36,9 @@ public class Cursos {
             } while (!(Objects.equals(tipoCurso, "1") || Objects.equals(tipoCurso, "2") || Objects.equals(tipoCurso, "3") || Objects.equals(tipoCurso, "4")));
         }
 
-            System.out.println("Nome do curso: ");
-
+        System.out.println("Nome do curso: ");
         nomeCurso = scan.nextLine();
+
         System.out.println("Instituição: ");
         instituicao = scan.nextLine();
 
@@ -59,9 +59,16 @@ public class Cursos {
             depoimentoCurso = scan.nextLine();
         }
 
-        Cursos curso = new Cursos();
-        Coordenador.listaCursos.add(curso);
+        //Cursos curso = new Cursos();
+        //Coordenador.listaCursos.add(curso);
+
+        Cursos criarCurso = new Cursos();
+        Coordenador.listaCursos.add(criarCurso);
+
+
         System.out.println("-adicionado-");
+        System.out.println("curso"+criarCurso);
+        System.out.println("listaCursos"+Coordenador.listaCursos);
         System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
 
         do {
@@ -130,8 +137,13 @@ public class Cursos {
                     depoimentoCurso = scan.nextLine();
                 }
 
-                Coordenador.listaCursos.add(curso);
+                criarCurso = new Cursos();
+                Coordenador.listaCursos.add(criarCurso);
+
+
                 System.out.println("-adicionado-");
+                System.out.println("curso"+criarCurso);
+                System.out.println("listaCursos"+Coordenador.listaCursos);
                 System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
 
             }
