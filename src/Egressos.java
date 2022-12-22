@@ -18,7 +18,6 @@ public class Egressos {
         String resposta;
 
         System.out.println("nome do egresso: ");
-        while (scan.hasNext()) scan.next();
         nomeEgresso = scan.nextLine();
 
         System.out.println("cpf do egresso: ");
@@ -64,5 +63,89 @@ public class Egressos {
         Egressos criarEgresso = new Egressos();
         Coordenador.listaEgressos.add(criarEgresso);
         System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
+    }
+
+    public void GerenciarEgresso() {
+
+        Scanner scan = new Scanner(System.in);
+        String resposta;
+
+
+        System.out.println("Selecione a forma de busca");
+        System.out.println("1 - nome");
+        System.out.println("2 - cpf");
+
+        resposta = scan.nextLine();
+        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
+            do {
+                System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
+                resposta = scan.nextLine();
+            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
+        }
+
+        if (Objects.equals(resposta, "1")) {
+            System.out.println("nome do egresso: ");
+            while (scan.hasNext()) scan.next();
+            nomeEgresso = scan.nextLine();
+
+            for (int x = 0; x < Coordenador.listaEgressos.size(); x++){
+
+                System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
+                System.out.println(nomeEgresso);
+
+                if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
+                    System.out.println("-egresso encontrado-");
+                    System.out.println(" ");
+                    System.out.println(Coordenador.listaEgressos.get(x));
+
+                }
+            }
+        }else{
+            System.out.println("cpf do egresso: ");
+            while (scan.hasNext()) scan.next();
+            cpf = scan.nextInt();
+
+            for (int x = 0; x < Coordenador.listaEgressos.size(); x++){
+
+                System.out.println(Coordenador.listaEgressos.get(x).getCpf());
+                System.out.println(cpf);
+
+                if (Coordenador.listaEgressos.get(x).getCpf() == (cpf)) {
+                    System.out.println("-egresso encontrado-");
+                    System.out.println(" ");
+                    System.out.println(Coordenador.listaEgressos.get(x));
+
+                }
+            }
+        }
+    }
+
+    public String getNomeEgresso() {
+        return nomeEgresso;
+    }
+
+    public void setNomeEgresso(String nomeEgresso) {
+        this.nomeEgresso = nomeEgresso;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    @Override
+    public String toString() {
+        return "Egressos{" +
+                "cpf=" + cpf +
+                ", formacoes='" + formacoes + '\'' +
+                ", nomeEgresso='" + nomeEgresso + '\'' +
+                ", dataConclusao='" + dataConclusao + '\'' +
+                ", listaCursos=" + listaCursos +
+                ", listaOcupa=" + listaOcupa +
+                ", depoimentoEgresso='" + depoimentoEgresso + '\'' +
+                '}';
     }
 }

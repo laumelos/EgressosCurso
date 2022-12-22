@@ -153,7 +153,15 @@ public class Cursos {
         System.out.println("A lista tem " + Coordenador.listaCursos.size() + " cursos");
     }
 
-
+    @Override
+    public String toString() {
+        return "Cursos{" +
+                "tipoCurso='" + tipoCurso + '\'' +
+                ", nomeCurso='" + nomeCurso + '\'' +
+                ", instituicao='" + instituicao + '\'' +
+                ", depoimentoCurso='" + depoimentoCurso + '\'' +
+                '}';
+    }
 }
 
 

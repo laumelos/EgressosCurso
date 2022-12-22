@@ -33,10 +33,10 @@ public class Main {
 
                     //checar se coord está cadastrado
                     for (int x = 0; x < listaCoord.size(); x++){
-                        System.out.println(listaCoord.get(x).getNomeCoordenador());
-                        System.out.println(criarCoordenador.getNomeCoordenador());
+                        //System.out.println(listaCoord.get(x).getNomeCoordenador());
+                        //System.out.println(criarCoordenador.getNomeCoordenador());
 
-                        if (listaCoord.get(x).getNomeCoordenador().contains(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(x).getSenhaCoordenador().contains(criarCoordenador.getSenhaCoordenador()))) {
+                        if (listaCoord.get(x).getNomeCoordenador().equals(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(x).getSenhaCoordenador().equals(criarCoordenador.getSenhaCoordenador()))) {
 
                             System.out.println("-login realizado-");
 
@@ -135,10 +135,52 @@ public class Main {
 
                     System.out.println("-adicionado-");
                     System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");
+
+
+                    /*
+                    boolean respostaMaisContato = true;
+
+                    do {
+                        System.out.println("adicionar outro coordenador?");
+                        System.out.println("1 - sim");
+                        System.out.println("2 - não");
+
+                        resposta = scan.next();
+
+                        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
+                            do {
+                                System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
+                                System.out.println("1 - sim");
+                                System.out.println("2 - não");
+                                resposta = scan.next();
+
+                            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
+                        }
+
+
+                        if (resposta.equals("2")) {
+                            respostaMaisContato = false;
+                        } else {
+
+                            System.out.println("-criar coordenador-");
+
+                            //criar coordenador
+                            criarCoordenador = new Coordenador();
+                            criarCoordenador.CriarCoordenador();
+
+                            listaCoord.add(criarCoordenador);
+
+                            System.out.println("-adicionado-");
+                            System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");
+                            }
+
+                    }while(respostaMaisContato);
+                    /*
+                     */
+
                 }else{
                     System.out.println("-nome ou senha incorretos-");
                 }
-
 
             } else {
                 System.out.println("-saindo do programa!-");
