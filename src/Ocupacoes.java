@@ -16,7 +16,7 @@ public class Ocupacoes {
 
         Scanner scan = new Scanner(System.in);
         String resposta;
-        boolean respostaMaisOcupa = true;
+        //boolean respostaMaisOcupa = true;
 
         System.out.println("Nome do cargo: ");
         this.nomeCargo = scan.nextLine();
@@ -29,7 +29,7 @@ public class Ocupacoes {
         //número inválido
         if (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2"))) {
             do {
-                System.out.println("Comando inválido, igite '1' ou '2' para escolher a opção: ");
+                System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
                 System.out.println("1 - empregado");
                 System.out.println("2 - empregador");
 
@@ -71,7 +71,7 @@ public class Ocupacoes {
         System.out.println("-Ocupação adicionada-");
 
 
-
+/*
      do {
         System.out.println("adicionar outra ocupação?");
         System.out.println("1 - sim");
@@ -148,7 +148,19 @@ public class Ocupacoes {
 
         }
      }while(respostaMaisOcupa);
+
+ */ }
+
+    @Override
+    public String toString() {
+        return "Ocupacoes{" +
+                "nomeCargo='" + nomeCargo + '\'' +
+                ", tipoCargo='" + tipoCargo + '\'' +
+                ", salario='" + salario + '\'' +
+                ", dataInicio='" + dataInicio + '\'' +
+                ", local='" + local + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", depoimentoOcupa='" + depoimentoOcupa + '\'' +
+                '}';
     }
 }
-
-

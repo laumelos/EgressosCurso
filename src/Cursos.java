@@ -7,6 +7,8 @@ public class Cursos {
     public String nomeCurso;
     public String instituicao;
     public String depoimentoCurso;
+    public static ArrayList <Egressos> listaEgressosCurso = new ArrayList<Egressos>();
+
 
     public void CriarCurso(){
         Scanner scan = new Scanner(System.in);
@@ -59,18 +61,10 @@ public class Cursos {
             depoimentoCurso = scan.nextLine();
         }
 
-        //Cursos curso = new Cursos();
-        //Coordenador.listaCursos.add(curso);
-
-        Cursos criarCurso = new Cursos();
-        Coordenador.listaCursos.add(criarCurso);
-
-
         System.out.println("-adicionado-");
-        System.out.println("curso"+criarCurso);
-        System.out.println("listaCursos"+Coordenador.listaCursos);
-        System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
 
+
+/*
         do {
             System.out.println("adicionar outro curso?");
             System.out.println("1 - sim");
@@ -137,19 +131,15 @@ public class Cursos {
                     depoimentoCurso = scan.nextLine();
                 }
 
+
                 criarCurso = new Cursos();
+                criarCurso.CriarCurso();
+
                 Coordenador.listaCursos.add(criarCurso);
 
-
-                System.out.println("-adicionado-");
-                System.out.println("curso"+criarCurso);
-                System.out.println("listaCursos"+Coordenador.listaCursos);
-                System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
-
-            }
-        }while(respostaMaisCurso);
+ */
     }
-
+        //}while(respostaMaisCurso);
 
     public void GerenciarCurso(){
         Scanner scan = new Scanner(System.in);
@@ -165,7 +155,8 @@ public class Cursos {
         System.out.println("A lista tem " + Coordenador.listaCursos.size() + " cursos");
     }
 
-    @Override
+
+        @Override
     public String toString() {
         return "Cursos{" +
                 "tipoCurso='" + tipoCurso + '\'' +

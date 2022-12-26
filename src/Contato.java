@@ -41,11 +41,12 @@ public class Contato {
             listaContato.add(email);
             System.out.println("-cadastrado-");
 
-        } else{
+        } else {
             System.out.println("rede social: ");
             redeSocial = scan.nextLine();
             listaContato.add(redeSocial);
-            System.out.println("-cadastrado-");}
+            System.out.println("-cadastrado-");
+        }
 
 
         do {
@@ -101,6 +102,23 @@ public class Contato {
                     System.out.println("-cadastrado-");
                 }
             }
-        }while(respostaMaisContato);
+        } while (respostaMaisContato);
+    }
+
+    public void EditarContato() {
+        System.out.println("lista de contatos:");
+        System.out.println(" ");
+        System.out.println(listaContato);
+
+    }
+
+    @Override
+    public String toString() {
+        return "Contato{" +
+                "telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                ", redeSocial='" + redeSocial + '\'' +
+                ", listaContato=" + listaContato +
+                '}';
     }
 }

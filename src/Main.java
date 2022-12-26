@@ -41,11 +41,11 @@ public class Main {
                             boolean operacaoCoord = true;
                             do {
                                 //opções coordenador
-                                System.out.println("Digite a operação que você deseja realizar");
+                                System.out.println("Selecione a operação que você deseja realizar");
                                 System.out.println("1 - criar curso");
                                 System.out.println("2 - gerenciar curso");
                                 System.out.println("3 - cadastrar egresso");
-                                System.out.println("4 - editar egresso");
+                                System.out.println("4 - gerenciar egresso");
                                 System.out.println("5 - consultar egresso");
                                 System.out.println("6 - logoff");
 
@@ -55,11 +55,11 @@ public class Main {
                                 //número inválido
                                 if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6"))) {
                                     do {
-                                        System.out.println("Comando inválido, igite '1' '2' '3' '4' '5' ou '6' para escolher a opção: ");
+                                        System.out.println("Comando inválido, selecione '1' '2' '3' '4' '5' ou '6' para escolher a opção: ");
                                         System.out.println("1 - criar curso");
                                         System.out.println("2 - gerenciar curso");
                                         System.out.println("3 - cadastrar egresso");
-                                        System.out.println("4 - editar egresso");
+                                        System.out.println("4 - gerenciar egresso");
                                         System.out.println("5 - consultar egresso");
                                         System.out.println("6 - logoff");
                                         resposta = scan.nextLine();
@@ -70,8 +70,15 @@ public class Main {
                                 if (Objects.equals(resposta, "1")) {
 
                                     System.out.println("-criar curso-");
+
                                     Cursos criarCurso = new Cursos();
                                     criarCurso.CriarCurso();
+
+                                    Coordenador.listaCursos.add(criarCurso);
+
+                                    //System.out.println(Coordenador.listaCursos);
+                                    System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
+
 
                                 } else if (Objects.equals(resposta, "2")) {
 
@@ -85,10 +92,21 @@ public class Main {
                                     System.out.println("-cadastrar egresso-");
                                     Egressos criarEgresso = new Egressos();
                                     criarEgresso.CriarEgresso();
+                                    System.out.println(criarEgresso);
+
+                                    Cursos criarCurso = new Cursos();
+                                    if (Objects.equals(criarCurso.instituicao, "UFMA")) {
+                                        System.out.println(criarEgresso.nomeEgresso);
+                                        Cursos.listaEgressosCurso.add(criarEgresso);
+                                        System.out.println("listaEgressosCurso" + Cursos.listaEgressosCurso);
+                                    }
+
 
                                 } else if (Objects.equals(resposta, "4")) {
 
-                                    System.out.println("-editar egresso-");
+                                    System.out.println("-gerenciar egresso-");
+                                    Egressos gerenciarEgresso = new Egressos();
+                                    gerenciarEgresso.GerenciarEgresso();
 
                                 } else if (Objects.equals(resposta, "5")) {
 

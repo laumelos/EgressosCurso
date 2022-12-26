@@ -8,15 +8,15 @@ public class Egressos {
     public String nomeEgresso;
     public String dataConclusao;
     //contatos
-    public ArrayList <Cursos> listaCursos;
-    public ArrayList <Ocupacoes> listaOcupa;
+    public ArrayList<Cursos> listaCursos = new ArrayList<Cursos>();
+    public ArrayList<Ocupacoes> listaOcupa = new ArrayList<Ocupacoes>();
     String depoimentoEgresso;
 
 
     public void CriarEgresso() {
         Scanner scan = new Scanner(System.in);
         String resposta;
-
+/*
         System.out.println("nome do egresso: ");
         nomeEgresso = scan.nextLine();
 
@@ -31,21 +31,49 @@ public class Egressos {
         System.out.println("contato do egresso: ");
         Contato criarContato = new Contato();
         criarContato.CriarContato();
+*/
 
         System.out.println("curso do egresso: ");
+
         Cursos criarCurso = new Cursos();
         criarCurso.CriarCurso();
 
-        //Coordenador.listaCursos.add(criarCurso);
-        System.out.println(Coordenador.listaCursos);
-
+        if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma") ) {
+            System.out.println(criarCurso.nomeCurso);
+            System.out.println(criarCurso);
+            Coordenador.listaCursos.add(criarCurso);
+            this.listaCursos.add(criarCurso);
+            System.out.println("Coordenador" + Coordenador.listaCursos);
+        }
+        else {
+            this.listaCursos.add(criarCurso);
+            System.out.println("Egresso" + this.listaCursos);
+        }
 
         System.out.println("ocupações do egresso: ");
         Ocupacoes criarOcupacao = new Ocupacoes();
         criarOcupacao.CriarOcupacao();
-        //listaOcupa.add(criarOcupacao);
+        listaOcupa.add(criarOcupacao);
+        System.out.println(listaOcupa);
 
-        System.out.println("Quer adicionar um depoimento?");
+        System.out.println("Adicionar outra ocupação?");
+        System.out.println("1 - sim");
+        System.out.println("2 - não");
+        resposta = scan.nextLine();
+        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
+            do {
+                System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
+                resposta = scan.nextLine();
+            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
+        }
+        if (Objects.equals(resposta, "1")) {
+            criarOcupacao = new Ocupacoes();
+            criarOcupacao.CriarOcupacao();
+            listaOcupa.add(criarOcupacao);
+            System.out.println(listaOcupa);
+        }
+
+        System.out.println("Adicionar um depoimento?");
         System.out.println("1 - sim");
         System.out.println("2 - não");
 
@@ -68,11 +96,11 @@ public class Egressos {
         System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
     }
 
+
     public void GerenciarEgresso() {
 
         Scanner scan = new Scanner(System.in);
         String resposta;
-
 
         System.out.println("Selecione a forma de busca");
         System.out.println("1 - nome");
@@ -87,22 +115,100 @@ public class Egressos {
         }
 
         if (Objects.equals(resposta, "1")) {
-            System.out.println("nome do egresso: ");
-            while (scan.hasNext()) scan.next();
-            nomeEgresso = scan.nextLine();
+            if (Coordenador.listaEgressos.isEmpty()){
+                System.out.println("nenhum egresso cadastrado");
+            }
+            else {
+                System.out.println("lista de egressos: ");
+                for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
+                    System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
+                }
+                System.out.println("nome do egresso: ");
+                while (scan.hasNext()) scan.next();
+                nomeEgresso = scan.nextLine();
 
-            for (int x = 0; x < Coordenador.listaEgressos.size(); x++){
+                for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
 
-                System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
-                System.out.println(nomeEgresso);
+                    System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
+                    System.out.println(nomeEgresso);
 
-                if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
-                    System.out.println("-egresso encontrado-");
-                    System.out.println(" ");
-                    System.out.println(Coordenador.listaEgressos.get(x));
+                    if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
+                        System.out.println("-egresso encontrado-");
+                        System.out.println(" ");
+                        System.out.println(Coordenador.listaEgressos.get(x));
 
+                        System.out.println("Selecione a operação que você deseja realizar");
+                        System.out.println("1 - editar");
+                        System.out.println("2 - apagar egresso");
+
+                        resposta = scan.nextLine();
+                        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
+                            do {
+                                System.out.println("Comando inválido, selecione '1' ou '2' para escolher a opção: ");
+                                resposta = scan.nextLine();
+                            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
+                        }
+
+                        if (Objects.equals(resposta, "1")) {
+                            System.out.println("Selecione que informação deseja editar");
+                            System.out.println("1 - cpf");
+                            System.out.println("2 - nome");
+                            System.out.println("3 - data de conclusão");
+                            System.out.println("4 - ocupações");
+                            System.out.println("5 - cursos");
+                            System.out.println("6 - depoimento");
+                            resposta = scan.nextLine();
+                        }
+
+                        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6"))) {
+                            do {
+                                System.out.println("Comando inválido, selecione '1' '2' '3' '4' '5' ou '6' para escolher a opção: ");
+                                System.out.println("1 - cpf");
+                                System.out.println("2 - nome");
+                                System.out.println("3 - data de conclusão");
+                                System.out.println("4 - ocupações");
+                                System.out.println("5 - cursos");
+                                System.out.println("6 - depoimento");
+                                resposta = scan.nextLine();
+
+                            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6")));
+                        }
+
+                        if (Objects.equals(resposta, "1")) {
+
+                            System.out.println("-editar cpf-");
+                            System.out.println("digite o novo cpf: ");
+
+                            while (!scan.hasNextInt()) scan.nextInt();
+                            cpf = scan.nextInt();
+                        }
+
+                        if (Objects.equals(resposta, "2")) {
+
+                            System.out.println("-editar nome-");
+                            System.out.println("digite o novo nome: ");
+
+                            nomeEgresso = scan.nextLine();
+                        }
+
+                        if (Objects.equals(resposta, "3")) {
+
+                            System.out.println("-editar data de conclusão-");
+                            System.out.println("digite a nova data de conclusão: ");
+
+                            while (scan.hasNextInt()) scan.next();
+                            dataConclusao = scan.nextLine();
+                        }
+
+
+
+                    }else{
+                        System.out.println("-egresso não encontrado-");
+                    }
                 }
             }
+
+
         }else{
             System.out.println("cpf do egresso: ");
             while (scan.hasNext()) scan.next();
