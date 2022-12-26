@@ -106,10 +106,36 @@ public class Contato {
     }
 
     public void EditarContato() {
+
+        Scanner scan = new Scanner(System.in);
+        String resposta;
+
         System.out.println("lista de contatos:");
         System.out.println(" ");
         System.out.println(listaContato);
 
+        for (int x = 0; x < listaContato.size(); x++) {
+            System.out.println(x + " - " + listaContato.get(x));
+        }
+
+        System.out.println("Selecione o contato que deseja editar: ");
+
+        resposta = scan.nextLine();
+
+        if (Integer.parseInt(resposta) > listaContato.size()) {
+            do {
+                System.out.println("Comando inválido, digite o número referente a um contato para escolher a opção: ");
+                resposta = scan.nextLine();
+            } while (Integer.parseInt(resposta) > listaContato.size());
+        }
+
+        System.out.println(" -Selecionado- ");
+        System.out.println(listaContato.get(Integer.parseInt(resposta)));
+        String editarContato = scan.nextLine();
+        listaContato.set(Integer.parseInt(resposta),editarContato);
+
+        System.out.println("-edição realizada-");
+        System.out.println(listaContato);
     }
 
     @Override

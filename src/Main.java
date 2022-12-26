@@ -79,6 +79,18 @@ public class Main {
                                     //System.out.println(Coordenador.listaCursos);
                                     System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
 
+                                    if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma") ) {
+                                        System.out.println(criarCurso.nomeCurso);
+                                        System.out.println(criarCurso);
+                                        Coordenador.listaCursos.add(criarCurso);
+                                        Egressos.listaCursos.add(criarCurso);
+                                        System.out.println("Coordenador" + Coordenador.listaCursos);
+                                    }
+                                    else {
+                                        Egressos.listaCursos.add(criarCurso);
+                                        System.out.println("Egresso" + Egressos.listaCursos);
+                                    }
+
 
                                 } else if (Objects.equals(resposta, "2")) {
 
