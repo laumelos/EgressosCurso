@@ -1,4 +1,6 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -23,8 +25,9 @@ public class Egressos {
         System.out.println("cpf do egresso: ");
         while (!scan.hasNextInt()) scan.nextInt();
         cpf = scan.nextInt();
-
+/*
         System.out.println("data de conclusão do egresso: ");
+        System.out.println("Digite a Data (dia/mês/ano)");
         while (scan.hasNextInt()) scan.next();
         dataConclusao = scan.nextLine();
 
@@ -32,9 +35,7 @@ public class Egressos {
         Contato criarContato = new Contato();
         criarContato.CriarContato();
 
-
         System.out.println("curso do egresso: ");
-
         Cursos criarCurso = new Cursos();
         criarCurso.CriarCurso();
 
@@ -56,22 +57,30 @@ public class Egressos {
         listaOcupa.add(criarOcupacao);
         System.out.println(listaOcupa);
 
+        boolean MaisOcupa = true;
+
         System.out.println("Adicionar outra ocupação?");
         System.out.println("1 - sim");
         System.out.println("2 - não");
-        resposta = scan.nextLine();
-        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
-            do {
-                System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
-                resposta = scan.nextLine();
-            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
-        }
-        if (Objects.equals(resposta, "1")) {
-            criarOcupacao = new Ocupacoes();
-            criarOcupacao.CriarOcupacao();
-            listaOcupa.add(criarOcupacao);
-            System.out.println(listaOcupa);
-        }
+
+        String respostaMaisOcupa = scan.nextLine();
+
+        do{
+            if (!(Objects.equals(respostaMaisOcupa, "1") || Objects.equals(respostaMaisOcupa, "2"))) {
+                do {
+                    System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
+                    respostaMaisOcupa = scan.nextLine();
+                } while (!(Objects.equals(respostaMaisOcupa, "1") || Objects.equals(respostaMaisOcupa, "2")));
+            }
+            if (Objects.equals(respostaMaisOcupa, "1")) {
+                criarOcupacao = new Ocupacoes();
+                criarOcupacao.CriarOcupacao();
+                listaOcupa.add(criarOcupacao);
+                System.out.println(listaOcupa);
+            }else{
+                MaisOcupa = false;
+            }
+        }while(MaisOcupa);
 
         System.out.println("Adicionar um depoimento?");
         System.out.println("1 - sim");
@@ -90,10 +99,8 @@ public class Egressos {
             depoimentoEgresso = scan.nextLine();
         }
 
-        System.out.println("-adicionado-");
-        Egressos criarEgresso = new Egressos();
-        Coordenador.listaEgressos.add(criarEgresso);
-        System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
+ */
+
     }
 
     public void GerenciarEgresso() {
@@ -101,7 +108,7 @@ public class Egressos {
         Scanner scan = new Scanner(System.in);
         String resposta;
         //se tiver egresso cadastrado
-        if (!Coordenador.listaEgressos.isEmpty()){
+        if (!(Coordenador.listaEgressos.isEmpty())){
 
             //buscar
             System.out.println("Selecione a forma de busca");
@@ -127,7 +134,6 @@ public class Egressos {
 
                 //digitar nome para buscar
                 System.out.println("nome do egresso: ");
-                while (scan.hasNext()) scan.next();
                 nomeEgresso = scan.nextLine();
 
                 //buscar no array
@@ -138,9 +144,10 @@ public class Egressos {
 
                     //egresso encontrado
                     if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
+                        System.out.println(" ");
                         System.out.println("-egresso encontrado-");
                         System.out.println(" ");
-                        System.out.println(Coordenador.listaEgressos.get(x));
+                        //System.out.println(Coordenador.listaEgressos.get(x));
 
                         System.out.println("Selecione a operação que você deseja realizar");
                         System.out.println("1 - editar");
@@ -188,8 +195,10 @@ public class Egressos {
                                 System.out.println("-editar cpf-");
                                 System.out.println("digite o novo cpf: ");
 
-                                while (!scan.hasNextInt()) scan.nextInt();
-                                cpf = scan.nextInt();
+                                int novoCpf = scan.nextInt();
+                                Coordenador.listaEgressos.get(x).setCpf(novoCpf);
+
+
                             }
 
                             else if (Objects.equals(resposta, "2")) {
@@ -197,7 +206,9 @@ public class Egressos {
                                 System.out.println("-editar nome-");
                                 System.out.println("digite o novo nome: ");
 
-                                nomeEgresso = scan.nextLine();
+                                String novoNomeEgresso = scan.nextLine();
+                                Coordenador.listaEgressos.get(x).setNomeEgresso(novoNomeEgresso);
+
                             }
 
                             else if (Objects.equals(resposta, "3")) {
@@ -205,8 +216,8 @@ public class Egressos {
                                 System.out.println("-editar data de conclusão-");
                                 System.out.println("digite a nova data de conclusão: ");
 
-                                while (scan.hasNextInt()) scan.next();
-                                dataConclusao = scan.nextLine();
+                                String novaDataConclusao = scan.nextLine();
+                                Coordenador.listaEgressos.get(x).setDataConclusao(novaDataConclusao);
                             }
 
                             else if (Objects.equals(resposta, "4")) {
@@ -229,7 +240,8 @@ public class Egressos {
                                 System.out.println("-editar depoimento-");
                                 System.out.println("digite o novo depoimento: ");
 
-                                depoimentoEgresso = scan.nextLine();
+                                String novoDepoimentoEgresso = scan.nextLine();
+                                Coordenador.listaEgressos.get(x).setDepoimentoEgresso(novoDepoimentoEgresso);
                             }
                         }
 
@@ -257,7 +269,6 @@ public class Egressos {
 
                 //digitar cpf para buscar
                 System.out.println("cpf do egresso: ");
-                while (scan.hasNext()) scan.next();
                 cpf = scan.nextInt();
 
                 //buscar no array
@@ -385,8 +396,10 @@ public class Egressos {
     public void ConsultarEgresso(){
         Scanner scan = new Scanner(System.in);
         String resposta;
+
+
         //se tiver egresso cadastrado
-        if (!Coordenador.listaEgressos.isEmpty()){
+        if (!(Coordenador.listaEgressos.isEmpty())){
 
             //buscar
             System.out.println("Selecione a forma de busca");
@@ -412,7 +425,6 @@ public class Egressos {
 
                 //digitar nome para buscar
                 System.out.println("nome do egresso: ");
-                while (scan.hasNext()) scan.next();
                 nomeEgresso = scan.nextLine();
 
                 //buscar no array
@@ -470,6 +482,21 @@ public class Egressos {
     }
 
 
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getFormacoes() {
+        return formacoes;
+    }
+
+    public void setFormacoes(String formacoes) {
+        this.formacoes = formacoes;
+    }
 
     public String getNomeEgresso() {
         return nomeEgresso;
@@ -479,12 +506,36 @@ public class Egressos {
         this.nomeEgresso = nomeEgresso;
     }
 
-    public int getCpf() {
-        return cpf;
+    public String getDataConclusao() {
+        return dataConclusao;
     }
 
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
+    public void setDataConclusao(String dataConclusao) {
+        this.dataConclusao = dataConclusao;
+    }
+
+    public static ArrayList<Cursos> getListaCursos() {
+        return listaCursos;
+    }
+
+    public static void setListaCursos(ArrayList<Cursos> listaCursos) {
+        Egressos.listaCursos = listaCursos;
+    }
+
+    public static ArrayList<Ocupacoes> getListaOcupa() {
+        return listaOcupa;
+    }
+
+    public static void setListaOcupa(ArrayList<Ocupacoes> listaOcupa) {
+        Egressos.listaOcupa = listaOcupa;
+    }
+
+    public String getDepoimentoEgresso() {
+        return depoimentoEgresso;
+    }
+
+    public void setDepoimentoEgresso(String depoimentoEgresso) {
+        this.depoimentoEgresso = depoimentoEgresso;
     }
 
     @Override

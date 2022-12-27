@@ -26,121 +26,169 @@ public class Main {
                 //login
                 System.out.println("-login coordenador-");
 
-                Coordenador criarCoordenador = new Coordenador();
-                criarCoordenador.CriarCoordenador();
+                if (!(listaCoord.isEmpty())) {
 
-                if (resposta.equals("1")) {
 
-                    //checar se coord está cadastrado
-                    for (int x = 0; x < listaCoord.size(); x++){
+                    Coordenador criarCoordenador = new Coordenador();
+                    criarCoordenador.CriarCoordenador();
 
-                        if (listaCoord.get(x).getNomeCoordenador().equals(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(x).getSenhaCoordenador().equals(criarCoordenador.getSenhaCoordenador()))) {
+                    if (resposta.equals("1")) {
 
-                            System.out.println("-login realizado-");
+                        //checar se coord está cadastrado
+                        for (int x = 0; x < listaCoord.size(); x++) {
 
-                            boolean operacaoCoord = true;
-                            do {
-                                //opções coordenador
-                                System.out.println("Selecione a operação que você deseja realizar");
-                                System.out.println("1 - criar curso");
-                                System.out.println("2 - gerenciar curso");
-                                System.out.println("3 - cadastrar egresso");
-                                System.out.println("4 - gerenciar egresso");
-                                System.out.println("5 - consultar egresso");
-                                System.out.println("6 - logoff");
+                            if (listaCoord.get(x).getNomeCoordenador().equals(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(x).getSenhaCoordenador().equals(criarCoordenador.getSenhaCoordenador()))) {
 
-                                //scan
-                                resposta = scan.nextLine();
+                                System.out.println("-login realizado-");
 
-                                //número inválido
-                                if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6"))) {
-                                    do {
-                                        System.out.println("Comando inválido, selecione '1' '2' '3' '4' '5' ou '6' para escolher a opção: ");
-                                        System.out.println("1 - criar curso");
-                                        System.out.println("2 - gerenciar curso");
-                                        System.out.println("3 - cadastrar egresso");
-                                        System.out.println("4 - gerenciar egresso");
-                                        System.out.println("5 - consultar egresso");
-                                        System.out.println("6 - logoff");
-                                        resposta = scan.nextLine();
+                                boolean operacaoCoord = true;
+                                do {
+                                    //opções coordenador
+                                    System.out.println("Selecione a operação que você deseja realizar");
+                                    System.out.println("1 - criar curso");
+                                    System.out.println("2 - gerenciar curso");
+                                    System.out.println("3 - cadastrar egresso");
+                                    System.out.println("4 - gerenciar egresso");
+                                    System.out.println("5 - consultar egresso");
+                                    System.out.println("6 - logoff");
 
-                                    } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6")));
-                                }
+                                    //scan
+                                    resposta = scan.nextLine();
 
-                                if (Objects.equals(resposta, "1")) {
+                                    //número inválido
+                                    if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6"))) {
+                                        do {
+                                            System.out.println("Comando inválido, selecione '1' '2' '3' '4' '5' ou '6' para escolher a opção: ");
+                                            System.out.println("1 - criar curso");
+                                            System.out.println("2 - gerenciar curso");
+                                            System.out.println("3 - cadastrar egresso");
+                                            System.out.println("4 - gerenciar egresso");
+                                            System.out.println("5 - consultar egresso");
+                                            System.out.println("6 - logoff");
+                                            resposta = scan.nextLine();
 
-                                    System.out.println("-criar curso-");
-
-                                    Cursos criarCurso = new Cursos();
-                                    criarCurso.CriarCurso();
-
-                                    Coordenador.listaCursos.add(criarCurso);
-
-                                    //System.out.println(Coordenador.listaCursos);
-                                    System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
-
-                                    if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma") ) {
-                                        System.out.println(criarCurso.nomeCurso);
-                                        System.out.println(criarCurso);
-                                        Coordenador.listaCursos.add(criarCurso);
-                                        Egressos.listaCursos.add(criarCurso);
-                                        System.out.println("Coordenador" + Coordenador.listaCursos);
-                                    }
-                                    else {
-                                        Egressos.listaCursos.add(criarCurso);
-                                        System.out.println("Egresso" + Egressos.listaCursos);
+                                        } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6")));
                                     }
 
+                                    if (Objects.equals(resposta, "1")) {
 
-                                } else if (Objects.equals(resposta, "2")) {
+                                        System.out.println("-criar curso-");
 
-                                    System.out.println("-gerenciar curso-");
-                                    Cursos gerenciarCurso = new Cursos();
-                                    gerenciarCurso.GerenciarCurso();
+                                        Cursos criarCurso = new Cursos();
+                                        criarCurso.CriarCurso();
+                                        System.out.println("-adicionado-");
+
+                                        //System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
+
+                                        if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma")) {
+                                            //System.out.println(criarCurso.nomeCurso);
+                                            //System.out.println(criarCurso);
+                                            Coordenador.listaCursos.add(criarCurso);
+                                            Egressos.listaCursos.add(criarCurso);
+                                            System.out.println("Coordenador" + Coordenador.listaCursos);
+
+                                        } else {
+                                            Egressos.listaCursos.add(criarCurso);
+                                            //System.out.println("Egresso" + Egressos.listaCursos);
+                                        }
+
+                                        //add outro curso
+                                        boolean respostaMaisCurso = true;
+
+                                        do {
+                                            System.out.println("Adicionar outro curso?");
+                                            System.out.println("1 - sim");
+                                            System.out.println("2 - não");
+                                            resposta = scan.nextLine();
+
+                                            if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
+                                                do {
+                                                    System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
+                                                    resposta = scan.nextLine();
+                                                } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
+                                            }
+                                            if (Objects.equals(resposta, "1")) {
+                                                System.out.println("-criar curso-");
+
+                                                criarCurso = new Cursos();
+                                                criarCurso.CriarCurso();
+                                                System.out.println("-adicionado-");
+
+                                                System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
+
+                                                if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma")) {
+                                                    System.out.println(criarCurso.nomeCurso);
+                                                    System.out.println(criarCurso);
+                                                    Coordenador.listaCursos.add(criarCurso);
+                                                    Egressos.listaCursos.add(criarCurso);
+                                                    System.out.println("Coordenador" + Coordenador.listaCursos);
+                                                } else {
+                                                    Egressos.listaCursos.add(criarCurso);
+                                                    //System.out.println("Egresso" + Egressos.listaCursos);
+                                                }
+                                            } else {
+                                                respostaMaisCurso = false;
+                                            }
+                                        } while (respostaMaisCurso);
 
 
-                                } else if (Objects.equals(resposta, "3")) {
+                                    } else if (Objects.equals(resposta, "2")) {
 
-                                    System.out.println("-cadastrar egresso-");
-                                    Egressos criarEgresso = new Egressos();
-                                    criarEgresso.CriarEgresso();
-                                    System.out.println(criarEgresso);
+                                        System.out.println("-gerenciar curso-");
+                                        Cursos gerenciarCurso = new Cursos();
+                                        gerenciarCurso.GerenciarCurso();
 
-                                    Cursos criarCurso = new Cursos();
-                                    if (Objects.equals(criarCurso.instituicao, "UFMA")) {
-                                        System.out.println(criarEgresso.nomeEgresso);
-                                        Cursos.listaEgressosCurso.add(criarEgresso);
-                                        System.out.println("listaEgressosCurso" + Cursos.listaEgressosCurso);
+
+                                    } else if (Objects.equals(resposta, "3")) {
+
+                                        System.out.println("-cadastrar egresso-");
+                                        Egressos criarEgresso = new Egressos();
+                                        criarEgresso.CriarEgresso();
+                                        System.out.println(criarEgresso);
+
+                                        System.out.println("-adicionado-");
+                                        Coordenador.listaEgressos.add(criarEgresso);
+                                        System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
+
+                                        Cursos criarCurso = new Cursos();
+                                        if (Objects.equals(criarCurso.instituicao, "UFMA")) {
+                                            System.out.println(criarEgresso.nomeEgresso);
+                                            Cursos.listaEgressosCurso.add(criarEgresso);
+                                            System.out.println("listaEgressosCurso" + Cursos.listaEgressosCurso);
+                                        }
+
+
+                                    } else if (Objects.equals(resposta, "4")) {
+
+                                        System.out.println("-gerenciar egresso-");
+                                        Egressos gerenciarEgresso = new Egressos();
+                                        gerenciarEgresso.GerenciarEgresso();
+
+                                    } else if (Objects.equals(resposta, "5")) {
+
+                                        System.out.println("-consultar egresso-");
+                                        Egressos consultarEgresso = new Egressos();
+                                        consultarEgresso.ConsultarEgresso();
+
+                                    } else {
+
+                                        System.out.println("-logoff-");
+
                                     }
+                                } while (!(Objects.equals(resposta, "6")));
+                            } else if (x == listaCoord.size() - 1) {
+                                System.out.println("-falha no login, coordenador não cadastrado-");
+                                //else if (listaCoord.isEmpty()){
+                                //System.out.println("-falha no login, nenhum coordenador cadastrado-");
+                            }
+                            //else if (x == listaCoord.size() - 1){
+                            //System.out.println("-falha no login, coordenador não cadastrado-");
 
-
-                                } else if (Objects.equals(resposta, "4")) {
-
-                                    System.out.println("-gerenciar egresso-");
-                                    Egressos gerenciarEgresso = new Egressos();
-                                    gerenciarEgresso.GerenciarEgresso();
-
-                                } else if (Objects.equals(resposta, "5")) {
-
-                                    System.out.println("-consultar egresso-");
-
-                                } else {
-
-                                    System.out.println("-logoff-");
-
-                                }
-                            }while (!(Objects.equals(resposta, "6")));
+                            //}
                         }
-                        else if (x == listaCoord.size() - 1){
-                            System.out.println("-falha no login, coordenador não cadastrado-");
-                        //else if (listaCoord.isEmpty()){
-                        //System.out.println("-falha no login, nenhum coordenador cadastrado-");
-                        }
-                        //else if (x == listaCoord.size() - 1){
-                        //System.out.println("-falha no login, coordenador não cadastrado-");
-
-                        //}
                     }
+                }else{
+                    System.out.println("nenhum coordenador cadastrado");
                 }
 
 

@@ -16,7 +16,7 @@ public class Ocupacoes {
 
         Scanner scan = new Scanner(System.in);
         String resposta;
-        //boolean respostaMaisOcupa = true;
+        boolean respostaMaisOcupa = true;
 
         System.out.println("Nome do cargo: ");
         this.nomeCargo = scan.nextLine();
@@ -68,7 +68,8 @@ public class Ocupacoes {
             depoimentoOcupa = scan.nextLine();
         }
 
-        System.out.println("-Ocupação adicionada-");
+        System.out.println("-adicionado-");
+
 
 
 /*
