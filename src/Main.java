@@ -56,7 +56,8 @@ public class Main {
                                     System.out.println("3 - cadastrar egresso");
                                     System.out.println("4 - gerenciar egresso");
                                     System.out.println("5 - consultar egresso");
-                                    System.out.println("6 - logoff");
+                                    System.out.println("6 - gerar relatórios");
+                                    System.out.println("7 - logoff");
 
                                     System.out.println("listaCoord "+listaCoord);
 
@@ -67,18 +68,19 @@ public class Main {
                                     resposta = scan.nextLine();
 
                                     //número inválido
-                                    if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6"))) {
+                                    if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6") || Objects.equals(resposta, "7"))) {
                                         do {
-                                            System.out.println("Comando inválido, selecione '1' '2' '3' '4' '5' ou '6' para escolher a opção: ");
+                                            System.out.println("Comando inválido, selecione '1' '2' '3' '4' '5' '6' ou '7' para escolher a opção: ");
                                             System.out.println("1 - criar curso");
                                             System.out.println("2 - gerenciar curso");
                                             System.out.println("3 - cadastrar egresso");
                                             System.out.println("4 - gerenciar egresso");
                                             System.out.println("5 - consultar egresso");
-                                            System.out.println("6 - logoff");
+                                            System.out.println("6 - gerar relatórios");
+                                            System.out.println("7 - logoff");
                                             resposta = scan.nextLine();
 
-                                        } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6")));
+                                        } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6") || Objects.equals(resposta, "7")));
                                     }
 
                                     if (Objects.equals(resposta, "1")) {
@@ -186,12 +188,18 @@ public class Main {
                                         Egressos consultarEgresso = new Egressos();
                                         consultarEgresso.ConsultarEgresso();
 
+                                    } else if (Objects.equals(resposta, "6")) {
+
+                                        System.out.println("-gerar relatórios-");
+                                        Relatorio criarRelatorio = new Relatorio();
+                                        criarRelatorio.CriarRelatorio();
+
                                     } else {
 
                                         System.out.println("-logoff-");
 
                                     }
-                                } while (!(Objects.equals(resposta, "6")));
+                                } while (!(Objects.equals(resposta, "7")));
                             } else if (x == listaCoord.size() - 1) {
                                 System.out.println(" ");
                                 System.out.println("falha no login, coordenador não cadastrado");
@@ -213,7 +221,7 @@ public class Main {
                 Administrador verificarAdm = new Administrador();
                 verificarAdm.VerificarAdm();
 
-                if (Administrador.verificarAdm == true){
+                if (Administrador.verificarAdm){
                     System.out.println(" ");
                     System.out.println("login realizado");
                     System.out.println(" ");
@@ -231,47 +239,6 @@ public class Main {
                     System.out.println(" ");
                     System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");
 
-
-                    /*
-                    boolean respostaMaisContato = true;
-
-                    do {
-                        System.out.println("adicionar outro coordenador?");
-                        System.out.println("1 - sim");
-                        System.out.println("2 - não");
-
-                        resposta = scan.next();
-
-                        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
-                            do {
-                                System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
-                                System.out.println("1 - sim");
-                                System.out.println("2 - não");
-                                resposta = scan.next();
-
-                            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
-                        }
-
-
-                        if (resposta.equals("2")) {
-                            respostaMaisContato = false;
-                        } else {
-
-                            System.out.println("-criar coordenador-");
-
-                            //criar coordenador
-                            criarCoordenador = new Coordenador();
-                            criarCoordenador.CriarCoordenador();
-
-                            listaCoord.add(criarCoordenador);
-
-                            System.out.println("-adicionado-");
-                            System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");
-                            }
-
-                    }while(respostaMaisContato);
-                    /*
-                     */
 
                 }else{
                     System.out.println(" ");

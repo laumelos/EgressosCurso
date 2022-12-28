@@ -13,6 +13,7 @@ public class Egressos {
     public static ArrayList<Cursos> listaCursos = new ArrayList<Cursos>();
     public static ArrayList<Ocupacoes> listaOcupa = new ArrayList<Ocupacoes>();
     String depoimentoEgresso;
+    String anoConclusao;
 
 
     public void CriarEgresso() {
@@ -27,9 +28,15 @@ public class Egressos {
         cpf = scan.nextInt();
 
         System.out.println("data de conclusão do egresso: ");
-        System.out.println("Digite a Data (dia/mês/ano)");
-        while (scan.hasNextInt()) scan.next();
+        System.out.println("Digite a data (dia/mês/ano)");
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         dataConclusao = scan.nextLine();
+        dataConclusao = scan.nextLine();
+
+        anoConclusao = dataConclusao.substring(6);
+
+
+
 
         System.out.println("contato do egresso: ");
         Contato criarContato = new Contato();
