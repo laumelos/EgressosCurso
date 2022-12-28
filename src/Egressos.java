@@ -25,7 +25,7 @@ public class Egressos {
         System.out.println("cpf do egresso: ");
         while (!scan.hasNextInt()) scan.nextInt();
         cpf = scan.nextInt();
-/*
+
         System.out.println("data de conclusão do egresso: ");
         System.out.println("Digite a Data (dia/mês/ano)");
         while (scan.hasNextInt()) scan.next();
@@ -99,8 +99,6 @@ public class Egressos {
             depoimentoEgresso = scan.nextLine();
         }
 
- */
-
     }
 
     public void GerenciarEgresso() {
@@ -145,7 +143,7 @@ public class Egressos {
                     //egresso encontrado
                     if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
                         System.out.println(" ");
-                        System.out.println("-egresso encontrado-");
+                        System.out.println("egresso encontrado");
                         System.out.println(" ");
                         //System.out.println(Coordenador.listaEgressos.get(x));
 
@@ -197,7 +195,6 @@ public class Egressos {
 
                                 int novoCpf = scan.nextInt();
                                 Coordenador.listaEgressos.get(x).setCpf(novoCpf);
-
 
                             }
 
@@ -254,7 +251,7 @@ public class Egressos {
 
                     //egresso NAO encontrado
                     } else {
-                        System.out.println("-egresso não encontrado-");
+                        System.out.println("egresso não encontrado");
                     }
                 }
 
@@ -278,8 +275,8 @@ public class Egressos {
                     System.out.println(nomeEgresso);
 
                     //egresso encontrado
-                    if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
-                        System.out.println("-egresso encontrado-");
+                    if (Coordenador.listaEgressos.get(x).getCpf() == (cpf)) {
+                        System.out.println("egresso encontrado");
                         System.out.println(" ");
                         System.out.println(Coordenador.listaEgressos.get(x));
 
@@ -325,8 +322,11 @@ public class Egressos {
 
                             //opções editar
                             if (Objects.equals(resposta, "1")) {
-
+                                System.out.println(" ");
                                 System.out.println("-editar cpf-");
+                                System.out.println(" ");
+                                System.out.println("cpf atual: " + Coordenador.listaEgressos.get(x).getCpf());
+
                                 System.out.println("digite o novo cpf: ");
 
                                 while (!scan.hasNextInt()) scan.nextInt();
@@ -334,16 +334,22 @@ public class Egressos {
                             }
 
                             else if (Objects.equals(resposta, "2")) {
-
+                                System.out.println(" ");
                                 System.out.println("-editar nome-");
+                                System.out.println(" ");
+                                System.out.println("nome atual: " + Coordenador.listaEgressos.get(x).getNomeEgresso());
+
                                 System.out.println("digite o novo nome: ");
 
                                 nomeEgresso = scan.nextLine();
                             }
 
                             else if (Objects.equals(resposta, "3")) {
-
+                                System.out.println(" ");
                                 System.out.println("-editar data de conclusão-");
+                                System.out.println(" ");
+                                System.out.println("data de conclusão atual: " + Coordenador.listaEgressos.get(x).getDataConclusao());
+
                                 System.out.println("digite a nova data de conclusão: ");
 
                                 while (scan.hasNextInt()) scan.next();
@@ -366,8 +372,11 @@ public class Egressos {
                             }
 
                             else{
-
+                                System.out.println(" ");
                                 System.out.println("-editar depoimento-");
+                                System.out.println(" ");
+                                System.out.println("depoimento atual: " + Coordenador.listaEgressos.get(x).getDepoimentoEgresso());
+
                                 System.out.println("digite o novo depoimento: ");
 
                                 depoimentoEgresso = scan.nextLine();
@@ -376,13 +385,20 @@ public class Egressos {
 
                         //apagar
                         else{
+                            System.out.println(" ");
                             System.out.println("-apagar egresso-");
-                            Coordenador.listaEgressos.remove(Coordenador.listaEgressos.get(x));
-                            System.out.println(Coordenador.listaEgressos);
+                            System.out.println(" ");
+                            System.out.println("egresso excluído");
+                            System.out.println(" ");
+
+                            //Coordenador.listaEgressos.remove(Coordenador.listaEgressos.get(x));
+                            //System.out.println(Coordenador.listaEgressos);
                         }
                     //egresso NAO encontrado
                     } else {
-                        System.out.println("-egresso não encontrado-");
+                        System.out.println(" ");
+                        System.out.println("egresso não encontrado");
+                        System.out.println(" ");
                     }
                 }
             }
@@ -435,13 +451,16 @@ public class Egressos {
 
                     //egresso encontrado
                     if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
-                        System.out.println("-egresso encontrado-");
+                        System.out.println(" ");
+                        System.out.println("egresso encontrado");
                         System.out.println(" ");
                         System.out.println(Coordenador.listaEgressos.get(x));
 
                         //egresso NAO encontrado
                     } else {
-                        System.out.println("-egresso não encontrado-");
+                        System.out.println(" ");
+                        System.out.println("egresso não encontrado");
+                        System.out.println(" ");
                     }
                 }
 
@@ -462,17 +481,20 @@ public class Egressos {
                 //buscar no array
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
 
-                    System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
-                    System.out.println(nomeEgresso);
+                    //System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
+                    //System.out.println(nomeEgresso);
 
                     //egresso encontrado
-                    if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
-                        System.out.println("-egresso encontrado-");
+                    if (Coordenador.listaEgressos.get(x).getCpf() == (cpf)) {
+                        System.out.println(" ");
+                        System.out.println("egresso encontrado");
                         System.out.println(" ");
                         System.out.println(Coordenador.listaEgressos.get(x));
 
                     } else {
-                        System.out.println("-egresso não encontrado-");
+                        System.out.println(" ");
+                        System.out.println("egresso não encontrado");
+                        System.out.println(" ");
                     }
                 }
             }

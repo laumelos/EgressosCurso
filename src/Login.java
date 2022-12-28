@@ -7,10 +7,10 @@ public class Login {
     public void FazerLogin() {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Nome: ");
+        System.out.println("nome: ");
         nome = scan.nextLine();
 
-        System.out.println("Senha: ");
+        System.out.println("senha: ");
         senha = scan.nextLine();
     }
 }

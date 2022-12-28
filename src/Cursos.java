@@ -38,13 +38,13 @@ public class Cursos {
             } while (!(Objects.equals(tipoCurso, "1") || Objects.equals(tipoCurso, "2") || Objects.equals(tipoCurso, "3") || Objects.equals(tipoCurso, "4")));
         }
 
-        System.out.println("Nome do curso: ");
+        System.out.println("nome do curso: ");
         nomeCurso = scan.nextLine();
 
-        System.out.println("Instituição: ");
+        System.out.println("instituição: ");
         instituicao = scan.nextLine();
 
-        System.out.println("Adicionar depoimento?");
+        System.out.println("adicionar depoimento?");
         System.out.println("1 - sim");
         System.out.println("2 - não");
 
@@ -60,8 +60,6 @@ public class Cursos {
             System.out.println("depoimento: ");
             depoimentoCurso = scan.nextLine();
         }
-
-
 
 /*
         do {
@@ -150,8 +148,8 @@ public class Cursos {
             System.out.println(" ");
             //System.out.println(Egressos.listaCursos);
 
-            for (int x = 0; x < Egressos.listaCursos.size(); x++) {
-                System.out.println(x + " - " + Egressos.listaCursos.get(x));
+            for (int x = 0; x < Coordenador.listaCursos.size(); x++) {
+                System.out.println(x + " - " + Coordenador.listaCursos.get(x));
             }
 
             System.out.println("Selecione o curso que deseja editar: ");
@@ -166,7 +164,10 @@ public class Cursos {
                 } while (Integer.parseInt(resposta) > Egressos.listaCursos.size());
             }
 
-            System.out.println(" -Selecionado- ");
+            System.out.println(" ");
+            System.out.println("selecionado");
+            System.out.println(" ");
+
             System.out.println(Egressos.listaCursos.get(Integer.parseInt(resposta)));
 
 
@@ -191,7 +192,10 @@ public class Cursos {
             }
             if (Objects.equals(resposta, "1")) {
 
+                System.out.println(" ");
                 System.out.println("-editar tipo do curso-");
+                System.out.println(" ");
+
                 System.out.println("escolha o novo tipo do curso: ");
                 System.out.println("1 - curso Complementar");
                 System.out.println("2 - Especialização");
@@ -199,7 +203,7 @@ public class Cursos {
                 System.out.println("4 - Pós-graduação");
 
                 String novotipoCurso = scan.nextLine();
-                Egressos.listaCursos.get(Integer.parseInt(resposta)).setTipoCurso(novotipoCurso);
+                Egressos.listaCursos.get(Integer.parseInt(tipoCurso)).setTipoCurso(novotipoCurso);
 
                 //número inválido
                 if (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4"))) {
@@ -211,7 +215,7 @@ public class Cursos {
                         System.out.println("4 - Pós-graduação");
 
                         novotipoCurso = scan.nextLine();
-                        Egressos.listaCursos.get(Integer.parseInt(resposta)).setTipoCurso(novotipoCurso);
+                        Egressos.listaCursos.get(Integer.parseInt(tipoCurso)).setTipoCurso(novotipoCurso);
 
                     } while (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4")));
                 }
@@ -219,7 +223,10 @@ public class Cursos {
 
             if (Objects.equals(resposta, "2")) {
 
+                System.out.println(" ");
                 System.out.println("-editar nome do curso-");
+                System.out.println(" ");
+
                 System.out.println("digite o novo nome do curso: ");
 
                 String novoNomeCurso = scan.nextLine();
@@ -228,7 +235,10 @@ public class Cursos {
 
             if (Objects.equals(resposta, "3")) {
 
+                System.out.println(" ");
                 System.out.println("-editar instituição-");
+                System.out.println(" ");
+
                 System.out.println("digite a nova instituição: ");
 
                 String novaInstituicao = scan.nextLine();
@@ -238,19 +248,25 @@ public class Cursos {
 
             if (Objects.equals(resposta, "4")) {
 
+                System.out.println(" ");
                 System.out.println("-editar depoimento-");
-                System.out.println("digite o novo depoimento: ");
+                System.out.println(" ");
 
-                depoimentoCurso = scan.nextLine();
+                System.out.println("digite o novo depoimento: ");
 
                 String novoDepoimentoCurso = scan.nextLine();
                 Egressos.listaCursos.get(Integer.parseInt(resposta)).setDepoimentoCurso(novoDepoimentoCurso);
             }
 
-            System.out.println("-edição realizada-");
+            System.out.println(" ");
+            System.out.println("edição realizada");
+            System.out.println(" ");
+
             System.out.println(Egressos.listaCursos);
         }else{
+            System.out.println(" ");
             System.out.println("nenhum curso cadastrado");
+            System.out.println(" ");
         }
     }
 

@@ -12,13 +12,13 @@ public class Ocupacoes {
     public String descricao;
     public String depoimentoOcupa;
 
-    public void CriarOcupacao(){
+    public void CriarOcupacao() {
 
         Scanner scan = new Scanner(System.in);
         String resposta;
         boolean respostaMaisOcupa = true;
 
-        System.out.println("Nome do cargo: ");
+        System.out.println("nome do cargo: ");
         this.nomeCargo = scan.nextLine();
 
         System.out.println("Escolha o tipo do cargo: ");
@@ -38,20 +38,19 @@ public class Ocupacoes {
             } while (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2")));
         }
 
-        System.out.println("Salário: ");
+        System.out.println("salário: ");
         this.salario = scan.nextLine();
 
-        System.out.println("Data de início: ");
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("data de início: ");
         this.dataInicio = scan.nextLine();
 
-        System.out.println("Local da ocupação: ");
+        System.out.println("local da ocupação: ");
         this.local = scan.nextLine();
 
-        System.out.println("Descrição: ");
+        System.out.println("descrição: ");
         this.descricao = scan.nextLine();
 
-        System.out.println("Adicionar um depoimento?");
+        System.out.println("adicionar um depoimento?");
         System.out.println("1 - sim");
         System.out.println("2 - não");
 
@@ -64,93 +63,14 @@ public class Ocupacoes {
         }
 
         if (Objects.equals(resposta, "1")) {
-            System.out.println("Depoimento: ");
+            System.out.println("depoimento: ");
             depoimentoOcupa = scan.nextLine();
         }
 
-        System.out.println("-adicionado-");
-
-
-
-/*
-     do {
-        System.out.println("adicionar outra ocupação?");
-        System.out.println("1 - sim");
-        System.out.println("2 - não");
-
-        resposta = scan.next();
-
-        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
-            do {
-                System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
-                System.out.println("1 - sim");
-                System.out.println("2 - não");
-                resposta = scan.next();
-
-            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
-        }
-
-
-        if (resposta.equals("2")) {
-            respostaMaisOcupa = false;
-        } else {
-
-            System.out.println("Nome do cargo: ");
-            this.nomeCargo = scan.nextLine();
-
-            System.out.println("Escolha o tipo do cargo: ");
-            System.out.println("1 - empregado");
-            System.out.println("2 - empregador");
-            this.tipoCargo = scan.nextLine();
-
-            //número inválido
-            if (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2"))) {
-                do {
-                    System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
-                    System.out.println("1 - empregado");
-                    System.out.println("2 - empregador");
-
-                    tipoCargo = scan.nextLine();
-
-                } while (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2")));
-            }
-
-            System.out.println("Salário: ");
-            this.salario = scan.nextLine();
-
-            System.out.println("Data de início: ");
-            formatter = new SimpleDateFormat("dd/MM/yyyy");
-            this.dataInicio = scan.nextLine();
-
-            System.out.println("Local da ocupação: ");
-            this.local = scan.nextLine();
-
-            System.out.println("Descrição: ");
-            this.descricao = scan.nextLine();
-
-            System.out.println("Quer adicionar um depoimento?");
-            System.out.println("1 - sim");
-            System.out.println("2 - não");
-
-            resposta = scan.nextLine();
-            if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
-                do {
-                    System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
-                    resposta = scan.nextLine();
-                } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
-            }
-
-            if (Objects.equals(resposta, "1")) {
-                System.out.println("Depoimento: ");
-                depoimentoOcupa = scan.nextLine();
-            }
-
-            System.out.println("-adicionado-");
-
-        }
-     }while(respostaMaisOcupa);
-
- */ }
+        System.out.println(" ");
+        System.out.println("cadastrado");
+        System.out.println(" ");
+    }
 
     public void EditarOcupacao() {
 
@@ -176,7 +96,7 @@ public class Ocupacoes {
             } while (Integer.parseInt(resposta) > Egressos.listaOcupa.size());
         }
 
-        System.out.println(" -Selecionado- ");
+        System.out.println("selecionado");
         System.out.println(Egressos.listaOcupa.get(Integer.parseInt(resposta)));
 
 
@@ -207,19 +127,27 @@ public class Ocupacoes {
         }
         if (Objects.equals(resposta, "1")) {
 
+            System.out.println(" ");
             System.out.println("-editar nome do cargo-");
+            System.out.println(" ");
+
             System.out.println("digite o novo nome do cargo: ");
 
-            nomeCargo = scan.nextLine();
+            String novoNomeCargo = scan.nextLine();
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setNomeCargo(novoNomeCargo);
         }
 
         else if (Objects.equals(resposta, "2")) {
 
+            System.out.println(" ");
             System.out.println("-editar tipo do cargo-");
+            System.out.println(" ");
+
             System.out.println("Escolha o novo tipo do cargo: ");
             System.out.println("1 - empregado");
             System.out.println("2 - empregador");
-            this.tipoCargo = scan.nextLine();
+            String novoTipoCargo = scan.nextLine();
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setTipoCargo(novoTipoCargo);
 
             //número inválido
             if (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2"))) {
@@ -228,7 +156,8 @@ public class Ocupacoes {
                     System.out.println("1 - empregado");
                     System.out.println("2 - empregador");
 
-                    tipoCargo = scan.nextLine();
+                    novoTipoCargo = scan.nextLine();
+                    Egressos.listaOcupa.get(Integer.parseInt(resposta)).setTipoCargo(novoTipoCargo);
 
                 } while (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2")));
             }
@@ -236,45 +165,130 @@ public class Ocupacoes {
 
         else if (Objects.equals(resposta, "3")) {
 
+            System.out.println(" ");
             System.out.println("-editar salário-");
+            System.out.println(" ");
+
             System.out.println("digite o novo salário: ");
 
             while (scan.hasNextInt()) scan.next();
             salario = scan.nextLine();
+
+            String novoSalario = scan.nextLine();
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setSalario(novoSalario);
         }
 
         else if (Objects.equals(resposta, "4")) {
+
+            System.out.println(" ");
             System.out.println("-editar data de início-");
+            System.out.println(" ");
+
             System.out.println("digite a nova data de início: ");
 
-            dataInicio = scan.nextLine();
+
+            String novaDataInicio = scan.nextLine();
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setDataInicio(novaDataInicio);
         }
 
         else if (Objects.equals(resposta, "5")) {
+
+            System.out.println(" ");
             System.out.println("-editar local-");
+            System.out.println(" ");
+
             System.out.println("digite o novo local: ");
 
-            local = scan.nextLine();
+            String novoLocal = scan.nextLine();
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setLocal(novoLocal);
         }
 
         else if (Objects.equals(resposta, "6")) {
-            System.out.println("-editar descricao-");
+
+            System.out.println(" ");
+            System.out.println("-editar descrição-");
+            System.out.println(" ");
+
             System.out.println("digite a nova descricao: ");
 
-            descricao = scan.nextLine();
+            String novaDescricao = scan.nextLine();
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setDescricao(novaDescricao);
         }
 
         else{
 
+            System.out.println(" ");
             System.out.println("-editar depoimento-");
+            System.out.println(" ");
+
             System.out.println("digite o novo depoimento: ");
 
-            while (scan.hasNextInt()) scan.next();
-            depoimentoOcupa = scan.nextLine();
+
+            String novoDepoimentoOcupa = scan.nextLine();
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setDepoimentoOcupa(novoDepoimentoOcupa);
         }
 
+        System.out.println(" ");
         System.out.println("-edição realizada-");
+        System.out.println(" ");
+
         System.out.println(Egressos.listaOcupa);
+    }
+
+    public String getNomeCargo() {
+        return nomeCargo;
+    }
+
+    public void setNomeCargo(String nomeCargo) {
+        this.nomeCargo = nomeCargo;
+    }
+
+    public String getTipoCargo() {
+        return tipoCargo;
+    }
+
+    public void setTipoCargo(String tipoCargo) {
+        this.tipoCargo = tipoCargo;
+    }
+
+    public String getSalario() {
+        return salario;
+    }
+
+    public void setSalario(String salario) {
+        this.salario = salario;
+    }
+
+    public String getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getDepoimentoOcupa() {
+        return depoimentoOcupa;
+    }
+
+    public void setDepoimentoOcupa(String depoimentoOcupa) {
+        this.depoimentoOcupa = depoimentoOcupa;
     }
 
     @Override

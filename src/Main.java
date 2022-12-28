@@ -24,7 +24,9 @@ public class Main {
             if (Objects.equals(resposta, "1")) {
 
                 //login
+                System.out.println(" ");
                 System.out.println("-login coordenador-");
+                System.out.println(" ");
 
                 if (!(listaCoord.isEmpty())) {
 
@@ -39,7 +41,10 @@ public class Main {
 
                             if (listaCoord.get(x).getNomeCoordenador().equals(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(x).getSenhaCoordenador().equals(criarCoordenador.getSenhaCoordenador()))) {
 
-                                System.out.println("-login realizado-");
+                                System.out.println(" ");
+                                System.out.println("login realizado");
+                                System.out.println(" ");
+
 
                                 boolean operacaoCoord = true;
                                 do {
@@ -76,7 +81,9 @@ public class Main {
 
                                         Cursos criarCurso = new Cursos();
                                         criarCurso.CriarCurso();
-                                        System.out.println("-adicionado-");
+                                        System.out.println(" ");
+                                        System.out.println("cadastrado");
+                                        System.out.println(" ");
 
                                         //System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
 
@@ -85,7 +92,7 @@ public class Main {
                                             //System.out.println(criarCurso);
                                             Coordenador.listaCursos.add(criarCurso);
                                             Egressos.listaCursos.add(criarCurso);
-                                            System.out.println("Coordenador" + Coordenador.listaCursos);
+                                            //System.out.println("Coordenador" + Coordenador.listaCursos);
 
                                         } else {
                                             Egressos.listaCursos.add(criarCurso);
@@ -112,16 +119,20 @@ public class Main {
 
                                                 criarCurso = new Cursos();
                                                 criarCurso.CriarCurso();
-                                                System.out.println("-adicionado-");
-
-                                                System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
+                                                System.out.println(" ");
+                                                System.out.println("cadastrado");
+                                                System.out.println(" ");
+                                                //System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
 
                                                 if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma")) {
                                                     System.out.println(criarCurso.nomeCurso);
                                                     System.out.println(criarCurso);
-                                                    Coordenador.listaCursos.add(criarCurso);
+                                                    //Coordenador.listaCursos.add(criarCurso);
+                                                    listaCoord.get(x).listaCursos.add(criarCurso);
+
                                                     Egressos.listaCursos.add(criarCurso);
-                                                    System.out.println("Coordenador" + Coordenador.listaCursos);
+
+                                                    //System.out.println("Coordenador" + Coordenador.listaCursos);
                                                 } else {
                                                     Egressos.listaCursos.add(criarCurso);
                                                     //System.out.println("Egresso" + Egressos.listaCursos);
@@ -146,15 +157,17 @@ public class Main {
                                         criarEgresso.CriarEgresso();
                                         System.out.println(criarEgresso);
 
-                                        System.out.println("-adicionado-");
+                                        System.out.println(" ");
+                                        System.out.println("cadastrado");
+                                        System.out.println(" ");
                                         Coordenador.listaEgressos.add(criarEgresso);
                                         System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
 
                                         Cursos criarCurso = new Cursos();
-                                        if (Objects.equals(criarCurso.instituicao, "UFMA")) {
+                                        if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma")) {
                                             System.out.println(criarEgresso.nomeEgresso);
                                             Cursos.listaEgressosCurso.add(criarEgresso);
-                                            System.out.println("listaEgressosCurso" + Cursos.listaEgressosCurso);
+                                            //System.out.println("listaEgressosCurso" + Cursos.listaEgressosCurso);
                                         }
 
 
@@ -177,18 +190,16 @@ public class Main {
                                     }
                                 } while (!(Objects.equals(resposta, "6")));
                             } else if (x == listaCoord.size() - 1) {
-                                System.out.println("-falha no login, coordenador não cadastrado-");
-                                //else if (listaCoord.isEmpty()){
-                                //System.out.println("-falha no login, nenhum coordenador cadastrado-");
+                                System.out.println(" ");
+                                System.out.println("falha no login, coordenador não cadastrado");
+                                System.out.println(" ");
                             }
-                            //else if (x == listaCoord.size() - 1){
-                            //System.out.println("-falha no login, coordenador não cadastrado-");
-
-                            //}
                         }
                     }
                 }else{
+                    System.out.println(" ");
                     System.out.println("nenhum coordenador cadastrado");
+                    System.out.println(" ");
                 }
 
 
@@ -200,8 +211,11 @@ public class Main {
                 verificarAdm.VerificarAdm();
 
                 if (Administrador.verificarAdm == true){
-                    System.out.println("-login realizado-");
+                    System.out.println(" ");
+                    System.out.println("login realizado");
+                    System.out.println(" ");
                     System.out.println("-criar coordenador-");
+                    System.out.println(" ");
 
                     //criar coordenador
                     Coordenador criarCoordenador = new Coordenador();
@@ -209,7 +223,9 @@ public class Main {
 
                     listaCoord.add(criarCoordenador);
 
-                    System.out.println("-adicionado-");
+                    System.out.println(" ");
+                    System.out.println("cadastrado");
+                    System.out.println(" ");
                     System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");
 
 
@@ -255,11 +271,15 @@ public class Main {
                      */
 
                 }else{
+                    System.out.println(" ");
                     System.out.println("-nome ou senha incorretos-");
+                    System.out.println(" ");
                 }
 
             } else {
-                System.out.println("-saindo do programa!-");
+                System.out.println(" ");
+                System.out.println("saindo do programa!");
+                System.out.println(" ");
                 sistemaEgressos = false;
             }
         }

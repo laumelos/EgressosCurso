@@ -33,20 +33,29 @@ public class Contato {
             System.out.println("telefone: ");
             telefone = scan.nextLine();
             listaContato.add(telefone);
-            System.out.println("-cadastrado-");
+
+            System.out.println(" ");
+            System.out.println("cadastrado");
+            System.out.println(" ");
+
 
         } else if (Objects.equals(resposta, "2")) {
             System.out.println("email: ");
             email = scan.nextLine();
             listaContato.add(email);
-            System.out.println("-cadastrado-");
+
+            System.out.println(" ");
+            System.out.println("cadastrado");
+            System.out.println(" ");
 
         } else {
             System.out.println("rede social: ");
             redeSocial = scan.nextLine();
             listaContato.add(redeSocial);
-            System.out.println("-cadastrado-");
-        }
+
+            System.out.println(" ");
+            System.out.println("cadastrado");
+            System.out.println(" ");        }
 
 
         do {
@@ -87,19 +96,29 @@ public class Contato {
                     System.out.println("telefone: ");
                     telefone = scan.nextLine();
                     listaContato.add(telefone);
-                    System.out.println("-cadastrado-");
+
+                    System.out.println(" ");
+                    System.out.println("cadastrado");
+                    System.out.println(" ");
 
                 } else if (Objects.equals(resposta, "2")) {
                     System.out.println("email: ");
                     email = scan.next();
                     listaContato.add(email);
-                    System.out.println("-cadastrado-");
+
+                    System.out.println(" ");
+                    System.out.println("cadastrado");
+                    System.out.println(" ");
 
                 } else {
                     System.out.println("rede social: ");
                     redeSocial = scan.next();
                     listaContato.add(redeSocial);
-                    System.out.println("-cadastrado-");
+
+                    System.out.println(" ");
+                    System.out.println("cadastrado");
+                    System.out.println(" ");
+
                 }
             }
         } while (respostaMaisContato);
@@ -128,13 +147,16 @@ public class Contato {
                 resposta = scan.nextLine();
             } while (Integer.parseInt(resposta) > listaContato.size());
         }
-
-        System.out.println(" -Selecionado- ");
+        System.out.println(" ");
+        System.out.println("selecionado");
+        System.out.println(" ");
         System.out.println(listaContato.get(Integer.parseInt(resposta)));
         String editarContato = scan.nextLine();
         listaContato.set(Integer.parseInt(resposta),editarContato);
 
-        System.out.println("-edição realizada-");
+        System.out.println(" ");
+        System.out.println("edição realizada");
+        System.out.println(" ");
         System.out.println(listaContato);
     }
 
