@@ -41,6 +41,7 @@ public class Main {
 
                             if (listaCoord.get(x).getNomeCoordenador().equals(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(x).getSenhaCoordenador().equals(criarCoordenador.getSenhaCoordenador()))) {
 
+                                System.out.println("x " + x);
                                 System.out.println(" ");
                                 System.out.println("login realizado");
                                 System.out.println(" ");
@@ -56,6 +57,11 @@ public class Main {
                                     System.out.println("4 - gerenciar egresso");
                                     System.out.println("5 - consultar egresso");
                                     System.out.println("6 - logoff");
+
+                                    System.out.println("listaCoord "+listaCoord);
+
+                                    System.out.println("coord x "+listaCoord.get(x));
+
 
                                     //scan
                                     resposta = scan.nextLine();
@@ -88,8 +94,6 @@ public class Main {
                                         //System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
 
                                         if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma")) {
-                                            //System.out.println(criarCurso.nomeCurso);
-                                            //System.out.println(criarCurso);
                                             Coordenador.listaCursos.add(criarCurso);
                                             Egressos.listaCursos.add(criarCurso);
                                             //System.out.println("Coordenador" + Coordenador.listaCursos);
@@ -128,11 +132,10 @@ public class Main {
                                                     System.out.println(criarCurso.nomeCurso);
                                                     System.out.println(criarCurso);
                                                     //Coordenador.listaCursos.add(criarCurso);
-                                                    listaCoord.get(x).listaCursos.add(criarCurso);
-
+                                                    Coordenador.listaCursos.add(criarCurso);
                                                     Egressos.listaCursos.add(criarCurso);
-
                                                     //System.out.println("Coordenador" + Coordenador.listaCursos);
+
                                                 } else {
                                                     Egressos.listaCursos.add(criarCurso);
                                                     //System.out.println("Egresso" + Egressos.listaCursos);

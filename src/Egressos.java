@@ -137,8 +137,8 @@ public class Egressos {
                 //buscar no array
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
 
-                    System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
-                    System.out.println(nomeEgresso);
+                    //System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
+                    //System.out.println(nomeEgresso);
 
                     //egresso encontrado
                     if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {

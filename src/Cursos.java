@@ -141,12 +141,11 @@ public class Cursos {
     public void GerenciarCurso(){
         Scanner scan = new Scanner(System.in);
         String resposta;
+        int respostaCurso;
 
         if (!(Coordenador.listaCursos.isEmpty())) {
 
             System.out.println("lista de cursos:");
-            System.out.println(" ");
-            //System.out.println(Egressos.listaCursos);
 
             for (int x = 0; x < Coordenador.listaCursos.size(); x++) {
                 System.out.println(x + " - " + Coordenador.listaCursos.get(x));
@@ -154,28 +153,28 @@ public class Cursos {
 
             System.out.println("Selecione o curso que deseja editar: ");
 
-            resposta = scan.nextLine();
+            respostaCurso = scan.nextInt();
 
 
-            if (Integer.parseInt(resposta) >= Egressos.listaCursos.size()) {
+            if (respostaCurso >= Coordenador.listaCursos.size()) {
                 do {
                     System.out.println("Comando inválido, digite o número referente a um curso para escolher a opção: ");
-                    resposta = scan.nextLine();
-                } while (Integer.parseInt(resposta) > Egressos.listaCursos.size());
+                    respostaCurso = scan.nextInt();
+                } while (respostaCurso > Coordenador.listaCursos.size());
             }
 
             System.out.println(" ");
             System.out.println("selecionado");
             System.out.println(" ");
 
-            System.out.println(Egressos.listaCursos.get(Integer.parseInt(resposta)));
-
+            System.out.println(Coordenador.listaCursos.get(respostaCurso));
 
             System.out.println("Selecione que informação deseja editar");
             System.out.println("1 - tipo do curso");
             System.out.println("2 - nome do curso");
             System.out.println("3 - instituicao");
             System.out.println("4 - depoimento");
+            resposta = scan.nextLine();
             resposta = scan.nextLine();
 
 
@@ -203,7 +202,7 @@ public class Cursos {
                 System.out.println("4 - Pós-graduação");
 
                 String novotipoCurso = scan.nextLine();
-                Egressos.listaCursos.get(Integer.parseInt(tipoCurso)).setTipoCurso(novotipoCurso);
+                Coordenador.listaCursos.get(respostaCurso).setTipoCurso(novotipoCurso);
 
                 //número inválido
                 if (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4"))) {
@@ -215,7 +214,7 @@ public class Cursos {
                         System.out.println("4 - Pós-graduação");
 
                         novotipoCurso = scan.nextLine();
-                        Egressos.listaCursos.get(Integer.parseInt(tipoCurso)).setTipoCurso(novotipoCurso);
+                        Coordenador.listaCursos.get(respostaCurso).setTipoCurso(novotipoCurso);
 
                     } while (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4")));
                 }
@@ -230,7 +229,7 @@ public class Cursos {
                 System.out.println("digite o novo nome do curso: ");
 
                 String novoNomeCurso = scan.nextLine();
-                Egressos.listaCursos.get(Integer.parseInt(resposta)).setNomeCurso(novoNomeCurso);
+                Coordenador.listaCursos.get(respostaCurso).setNomeCurso(novoNomeCurso);
             }
 
             if (Objects.equals(resposta, "3")) {
@@ -242,7 +241,7 @@ public class Cursos {
                 System.out.println("digite a nova instituição: ");
 
                 String novaInstituicao = scan.nextLine();
-                Egressos.listaCursos.get(Integer.parseInt(resposta)).setInstituicao(novaInstituicao);
+                Coordenador.listaCursos.get(respostaCurso).setInstituicao(novaInstituicao);
             }
 
 
@@ -255,14 +254,14 @@ public class Cursos {
                 System.out.println("digite o novo depoimento: ");
 
                 String novoDepoimentoCurso = scan.nextLine();
-                Egressos.listaCursos.get(Integer.parseInt(resposta)).setDepoimentoCurso(novoDepoimentoCurso);
+                Coordenador.listaCursos.get(respostaCurso).setDepoimentoCurso(novoDepoimentoCurso);
             }
 
             System.out.println(" ");
             System.out.println("edição realizada");
             System.out.println(" ");
 
-            System.out.println(Egressos.listaCursos);
+            System.out.println(Coordenador.listaCursos);
         }else{
             System.out.println(" ");
             System.out.println("nenhum curso cadastrado");
