@@ -1,10 +1,9 @@
 import java.util.Scanner;
-
 public class Login {
     public String nome;
     public String senha;
 
-    public void FazerLogin() {
+    public void FazerLogin(){
         Scanner scan = new Scanner(System.in);
 
         System.out.println("nome: ");
