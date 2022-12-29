@@ -22,7 +22,7 @@ public class Egressos {
 
         System.out.println("nome do egresso: ");
         nomeEgresso = scan.nextLine();
-
+/*
         System.out.println("cpf do egresso: ");
         while (!scan.hasNextInt()) scan.nextInt();
         cpf = scan.nextInt();
@@ -34,7 +34,7 @@ public class Egressos {
         dataConclusao = scan.nextLine();
 
         anoConclusao = dataConclusao.substring(6);
-        /*
+
         System.out.println("contato do egresso: ");
         Contato criarContato = new Contato();
         criarContato.CriarContato();
@@ -54,6 +54,7 @@ public class Egressos {
             listaCursos.add(criarCurso);
             System.out.println("Egresso" + listaCursos);
         }
+        */
 
         System.out.println("ocupações do egresso: ");
         Ocupacoes criarOcupacao = new Ocupacoes();
@@ -62,14 +63,14 @@ public class Egressos {
         System.out.println(listaOcupa);
 
         boolean MaisOcupa = true;
-
-        System.out.println("Adicionar outra ocupação?");
-        System.out.println("1 - sim");
-        System.out.println("2 - não");
-
-        String respostaMaisOcupa = scan.nextLine();
-
         do{
+            System.out.println("Adicionar outra ocupação?");
+            System.out.println("1 - sim");
+            System.out.println("2 - não");
+
+            String respostaMaisOcupa = scan.nextLine();
+
+
             if (!(Objects.equals(respostaMaisOcupa, "1") || Objects.equals(respostaMaisOcupa, "2"))) {
                 do {
                     System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
@@ -85,6 +86,7 @@ public class Egressos {
                 MaisOcupa = false;
             }
         }while(MaisOcupa);
+        /*
 
         System.out.println("Adicionar um depoimento?");
         System.out.println("1 - sim");
