@@ -1,15 +1,24 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.IOException;
+import java.io.FileWriter;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         boolean sistemaEgressos = true;
         Scanner scan = new Scanner (System.in);
         String resposta;
 
         ArrayList<Coordenador> listaCoord = new ArrayList<Coordenador>();
+        OutputStream os = new FileOutputStream("coordenadores.txt"); // nome do arquivo que será escrito
+        Writer wr = new OutputStreamWriter(os); // criação de um escritor
+        BufferedWriter br = new BufferedWriter(wr); // adiciono a um escritor de buffer
+
 
 
         while(sistemaEgressos) {
@@ -34,10 +43,15 @@ public class Main {
                     Coordenador criarCoordenador = new Coordenador();
                     criarCoordenador.CriarCoordenador();
 
-                    if (resposta.equals("1")) {
 
+
+
+                    if (resposta.equals("1")) {
+                        br.write("NOME COORDENADORES:");
                         //checar se coord está cadastrado
                         for (int x = 0; x < listaCoord.size(); x++) {
+                            br.newLine();
+                            br.write(listaCoord.get(x).getNomeCoordenador());
 
                             if (listaCoord.get(x).getNomeCoordenador().equals(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(x).getSenhaCoordenador().equals(criarCoordenador.getSenhaCoordenador()))) {
 
@@ -45,7 +59,6 @@ public class Main {
                                 System.out.println(" ");
                                 System.out.println("login realizado");
                                 System.out.println(" ");
-
 
                                 boolean operacaoCoord = true;
                                 do {
@@ -206,6 +219,7 @@ public class Main {
                                 System.out.println(" ");
                             }
                         }
+                        br.close();
                     }
                 }else{
                     System.out.println(" ");

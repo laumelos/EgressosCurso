@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class Coordenador extends Login{
     static ArrayList<Egressos> listaEgressos = new ArrayList<Egressos>();
 
 
-    public void CriarCoordenador() {
+    public void CriarCoordenador(){
         this.FazerLogin();
     }
 

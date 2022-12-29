@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -9,7 +10,7 @@ public class Administrador extends Login{
 
     //static ArrayList<Coordenador> listaCoordenadores = new ArrayList<Coordenador>();
 
-    public void VerificarAdm(){
+    public void VerificarAdm() throws IOException {
 
         this.FazerLogin();
 
