@@ -34,10 +34,7 @@ public class Egressos {
         dataConclusao = scan.nextLine();
 
         anoConclusao = dataConclusao.substring(6);
-
-
-
-
+        /*
         System.out.println("contato do egresso: ");
         Contato criarContato = new Contato();
         criarContato.CriarContato();
@@ -105,6 +102,8 @@ public class Egressos {
             System.out.println("depoimento: ");
             depoimentoEgresso = scan.nextLine();
         }
+
+         */
 
     }
 

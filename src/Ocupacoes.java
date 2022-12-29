@@ -8,9 +8,13 @@ public class Ocupacoes {
     public String tipoCargo;
     public String salario;
     public String dataInicio;
+    public String anoInicio;
+    public String dataFim;
+    public String anoFim;
     public String local;
     public String descricao;
     public String depoimentoOcupa;
+    public int invervaloOcupa;
 
     public void CriarOcupacao() {
 
@@ -41,8 +45,17 @@ public class Ocupacoes {
         System.out.println("salário: ");
         this.salario = scan.nextLine();
 
-        System.out.println("data de início: ");
+        System.out.println("data de início: (dia/mês/ano)");
         this.dataInicio = scan.nextLine();
+        this.anoInicio = dataInicio.substring(6);
+
+
+        System.out.println("data final: (dia/mês/ano)");
+        this.dataFim = scan.nextLine();
+        this.anoFim = dataFim.substring(6);
+
+        invervaloOcupa = Integer.parseInt(anoFim) - Integer.parseInt(anoInicio);
+
 
         System.out.println("local da ocupação: ");
         this.local = scan.nextLine();
@@ -105,25 +118,27 @@ public class Ocupacoes {
         System.out.println("2 - tipo do cargo");
         System.out.println("3 - salário");
         System.out.println("4 - data de início");
-        System.out.println("5 - local");
-        System.out.println("6 - descricao");
-        System.out.println("7 - depoimento");
+        System.out.println("5 - data final");
+        System.out.println("6 - local");
+        System.out.println("7 - descricao");
+        System.out.println("8 - depoimento");
         resposta = scan.nextLine();
 
 
-        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6") || Objects.equals(resposta, "7"))) {
+        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6") || Objects.equals(resposta, "7") || Objects.equals(resposta, "8"))) {
             do {
                 System.out.println("Selecione que informação deseja editar");
                 System.out.println("1 - nome do cargo");
                 System.out.println("2 - tipo do cargo");
                 System.out.println("3 - salário");
                 System.out.println("4 - data de início");
-                System.out.println("5 - local");
-                System.out.println("6 - descricao");
-                System.out.println("7 - depoimento");
+                System.out.println("5 - data final");
+                System.out.println("6 - local");
+                System.out.println("7 - descricao");
+                System.out.println("8 - depoimento");
                 resposta = scan.nextLine();
 
-            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6") || Objects.equals(resposta, "7")));
+            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5") || Objects.equals(resposta, "6") || Objects.equals(resposta, "7") || Objects.equals(resposta, "8")));
         }
         if (Objects.equals(resposta, "1")) {
 
@@ -189,9 +204,33 @@ public class Ocupacoes {
 
             String novaDataInicio = scan.nextLine();
             Egressos.listaOcupa.get(Integer.parseInt(resposta)).setDataInicio(novaDataInicio);
+            String novoAnoInicio = novaDataInicio.substring(6);
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setAnoInicio(novoAnoInicio);
+            int novoInvervaloOcupa = Integer.parseInt(anoFim) - Integer.parseInt(novoAnoInicio);
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setInvervaloOcupa(novoInvervaloOcupa);
         }
 
         else if (Objects.equals(resposta, "5")) {
+
+            System.out.println(" ");
+            System.out.println("-editar data final-");
+            System.out.println(" ");
+
+            System.out.println("digite a nova data final: (dia/mês/ano)");
+
+
+            String novaDataFim = scan.nextLine();
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setDataFim(novaDataFim);
+            String novoAnoFim = novaDataFim.substring(6);
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setAnoFim(novoAnoFim);
+            int novoInvervaloOcupa = Integer.parseInt(novoAnoFim) - Integer.parseInt(anoInicio);
+            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setInvervaloOcupa(novoInvervaloOcupa);
+
+
+
+        }
+
+        else if (Objects.equals(resposta, "6")) {
 
             System.out.println(" ");
             System.out.println("-editar local-");
@@ -203,7 +242,7 @@ public class Ocupacoes {
             Egressos.listaOcupa.get(Integer.parseInt(resposta)).setLocal(novoLocal);
         }
 
-        else if (Objects.equals(resposta, "6")) {
+        else if (Objects.equals(resposta, "7")) {
 
             System.out.println(" ");
             System.out.println("-editar descrição-");
@@ -265,6 +304,38 @@ public class Ocupacoes {
 
     public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
+    }
+
+    public String getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(String dataFim) {
+        this.dataFim = dataFim;
+    }
+
+    public String getAnoInicio() {
+        return anoInicio;
+    }
+
+    public void setAnoInicio(String anoInicio) {
+        this.anoInicio = anoInicio;
+    }
+
+    public String getAnoFim() {
+        return anoFim;
+    }
+
+    public void setAnoFim(String anoFim) {
+        this.anoFim = anoFim;
+    }
+
+    public int getInvervaloOcupa() {
+        return invervaloOcupa;
+    }
+
+    public void setInvervaloOcupa(int invervaloOcupa) {
+        this.invervaloOcupa = invervaloOcupa;
     }
 
     public String getLocal() {
