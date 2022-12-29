@@ -27,14 +27,16 @@ public class Egressos {
         while (!scan.hasNextInt()) scan.nextInt();
         cpf = scan.nextInt();
 
+ */
+
         System.out.println("data de conclusão do egresso: ");
         System.out.println("Digite a data (dia/mês/ano)");
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        dataConclusao = scan.nextLine();
+        //dataConclusao = scan.nextLine();
         dataConclusao = scan.nextLine();
 
         anoConclusao = dataConclusao.substring(6);
-
+/*
         System.out.println("contato do egresso: ");
         Contato criarContato = new Contato();
         criarContato.CriarContato();
@@ -54,7 +56,7 @@ public class Egressos {
             listaCursos.add(criarCurso);
             System.out.println("Egresso" + listaCursos);
         }
-        */
+
 
         System.out.println("ocupações do egresso: ");
         Ocupacoes criarOcupacao = new Ocupacoes();

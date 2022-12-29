@@ -65,21 +65,33 @@ public class Relatorio {
                         System.out.println(" ");
                         System.out.println("relatório: ");
 
-                        ArrayList<String> listaNomeEgressos = new ArrayList<String>();
+
+                        ArrayList<String> listaNomes = new ArrayList<String>();
                         //fazer lista dos nomes filtrados por ano
                         for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
                             if (Objects.equals(Coordenador.listaEgressos.get(x).anoConclusao, resposta)) {
 
                                 String testeNome = Coordenador.listaEgressos.get(x).nomeEgresso;
-                                listaNomeEgressos.add(testeNome);
+                                listaNomes.add(testeNome);
 
                             }
                         }
-                        for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-                            Collections.sort(listaNomeEgressos);
+                        Collections.sort(listaNomes);
 
-                            System.out.println("nome do egresso: " + listaNomeEgressos.get(x) + " - " + "ano de conclusão do curso: " + Coordenador.listaEgressos.get(x).anoConclusao);
+                        ArrayList<String> listaNomesEgressos = new ArrayList<String>();
+
+                        for (int y = 0; y < Coordenador.listaEgressos.size(); y++) {
+                            for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
+                                if (Objects.equals(Coordenador.listaEgressos.get(x).nomeEgresso, listaNomes.get(y))) {
+                                    listaNomesEgressos.add("nome do egresso: " + listaNomes.get(y) + " - " + "ano de conclusão do curso: " + Coordenador.listaEgressos.get(x).anoConclusao);
+                                }
+                            }
                         }
+                        for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
+                            System.out.println(listaNomesEgressos.get(x));
+                        }
+
+
                     }else{
                         do {
                             System.out.println("Comando inválido, selecione um ano existente: ");
@@ -99,18 +111,25 @@ public class Relatorio {
                     System.out.println(" ");
                     System.out.println("relatório: ");
 
-                    ArrayList<String> listaNomeEgressos = new ArrayList<String>();
-                    //fazer lista dos nomes
+                    ArrayList<String> listaNomes = new ArrayList<String>();
+                    //fazer lista dos nomes filtrados por ano
                     for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-
                         String testeNome = Coordenador.listaEgressos.get(x).nomeEgresso;
-                        listaNomeEgressos.add(testeNome);
+                        listaNomes.add(testeNome);
+                    }
+                    Collections.sort(listaNomes);
 
+                    ArrayList<String> listaNomesEgressos = new ArrayList<String>();
+
+                    for (int y = 0; y < Coordenador.listaEgressos.size(); y++) {
+                        for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
+                            if (Objects.equals(Coordenador.listaEgressos.get(x).nomeEgresso, listaNomes.get(y))) {
+                                listaNomesEgressos.add("nome do egresso: " + listaNomes.get(x) + " - " + "ano de conclusão do curso: " + Coordenador.listaEgressos.get(x).anoConclusao);
+                            }
+                        }
                     }
                     for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-                        Collections.sort(listaNomeEgressos);
-
-                        System.out.println("nome do egresso: " + listaNomeEgressos.get(x) + " - " + "ano de conclusão do curso: " + Coordenador.listaEgressos.get(x).anoConclusao);
+                        System.out.println(listaNomesEgressos.get(x));
                     }
                 }
 
@@ -246,7 +265,6 @@ public class Relatorio {
                 if (Objects.equals(resposta, "1")) {
                     System.out.println("egressos e seus intervalos de tempo da ocupação:");
                     for (int y = 0; y < Coordenador.listaEgressos.size(); y++) {
-                        System.out.println("egresso: " + Coordenador.listaEgressos.get(y));
                         for (int x = 0; x < (Egressos.listaOcupa.size()); x++) {
                             System.out.println("intervalos de tempo da ocupação: ");
                             System.out.println(Coordenador.listaEgressos.get(y).nomeEgresso + " - " + (Integer.parseInt(Egressos.listaOcupa.get(x).anoFim) - Integer.parseInt(Egressos.listaOcupa.get(x).anoInicio)));
@@ -270,8 +288,6 @@ public class Relatorio {
                             ArrayList<String> listaSalarios = new ArrayList<String>();
 
                             //fazer lista dos salários
-
-
                             for (y = 0; y < Coordenador.listaEgressos.size(); y++) {
                                 for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
                                     if (Objects.equals(Integer.parseInt(Egressos.listaOcupa.get(x).anoFim) - Integer.parseInt(Egressos.listaOcupa.get(x).anoInicio), Integer.parseInt(resposta))) {
@@ -285,6 +301,25 @@ public class Relatorio {
 
                             Collections.sort(listaSalarios);
 
+                            //organizar lista ordenada pelo salário
+                            ArrayList<String> listaEgressosSalarios = new ArrayList<String>();
+
+                            for (y = 0; y < Coordenador.listaEgressos.size(); y++) {
+                                for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
+                                    if (Objects.equals(Egressos.listaOcupa.get(x).salario, listaSalarios.get(y))) {
+
+                                        String egressosSalarios = ("ocupações: " + Egressos.listaOcupa.get(x).nomeCargo + " descrição: " + Egressos.listaOcupa.get(x).descricao + " salário: " + listaSalarios.get(x));
+                                        listaEgressosSalarios.add(egressosSalarios);
+                                        //System.out.println("ocupações: " + Egressos.listaOcupa.get(y).nomeCargo + " descrição: " + Egressos.listaOcupa.get(x).descricao + " salário: " + listaSalarios.get(x));
+                                    }
+                                }
+                            }
+
+                            System.out.println(listaEgressosSalarios);
+
+
+
+/*
                             //fazer lista do nome das ocupações
                             for (y = 0; y < Coordenador.listaEgressos.size(); y++) {
                                 for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
@@ -297,6 +332,7 @@ public class Relatorio {
                                     }
                                 }
                             }
+ */
 
                         }else{
 
@@ -334,10 +370,6 @@ public class Relatorio {
 
                         }
 
-                        //listaSortSalarios.sort(Comparator.comparing(listaSortSalarios::gettesteSal));
-
-
-                        //Collections.sort(listaSortSalarios, testeSal);
                     }
 
 
