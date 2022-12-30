@@ -19,10 +19,10 @@ public class Egressos {
     public void CriarEgresso() {
         Scanner scan = new Scanner(System.in);
         String resposta;
-
+/*
         System.out.println("nome do egresso: ");
         nomeEgresso = scan.nextLine();
-/*
+
         System.out.println("cpf do egresso: ");
         while (!scan.hasNextInt()) scan.nextInt();
         cpf = scan.nextInt();

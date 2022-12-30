@@ -281,12 +281,15 @@ public class Relatorio {
                         }
 
                         if (intervaloExiste) {
+
                             System.out.println(" ");
                             System.out.println("relatório: ");
 
-                            for (y = 0; y < Coordenador.listaEgressos.size(); y++) {
 
-                                System.out.println("NOME CARGO E SAL: " + Egressos.listaOcupa.get(y).nomeCargo +" " +Egressos.listaOcupa.get(y).salario);
+                            for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
+
+                                System.out.println("nome dos cursos e salários: " + Egressos.listaOcupa.get(x).nomeCargo +" " +Egressos.listaOcupa.get(x).salario);
+
                             }
 
                             ArrayList<String> listaSalarios = new ArrayList<String>();
@@ -295,10 +298,11 @@ public class Relatorio {
                             for (y = 0; y < Egressos.listaOcupa.size(); y++) {
                                 if (Objects.equals(Integer.parseInt(Egressos.listaOcupa.get(y).anoFim) - Integer.parseInt(Egressos.listaOcupa.get(y).anoInicio), Integer.parseInt(resposta))) {
 
+
                                     String testeSal = Egressos.listaOcupa.get(y).salario;
                                     listaSalarios.add(testeSal);
-
                                 }
+
                             }
 
                             Collections.sort(listaSalarios);
@@ -307,36 +311,17 @@ public class Relatorio {
                             //organizar lista ordenada pelo salário
                             ArrayList<String> listaEgressosSalarios = new ArrayList<String>();
 
-                            for (y = 0; y < Coordenador.listaEgressos.size(); y++) {
-                                for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-                                    if (Objects.equals(Egressos.listaOcupa.get(x).salario, listaSalarios.get(y))) {
-                                        for (int z = 0; z < Egressos.listaOcupa.size(); z++) {
-
-                                            listaEgressosSalarios.add("ocupações: " + Egressos.listaOcupa.get(z).nomeCargo + " descrição: " + Egressos.listaOcupa.get(z).descricao + " salário: " + listaSalarios.get(z));
-                                        }
+                            for (y = 0; y < Egressos.listaOcupa.size(); y++) {
+                                for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
+                                    if (Objects.equals(listaSalarios.get(y), Egressos.listaOcupa.get(x).salario)) {
+                                        listaEgressosSalarios.add("ocupações: " + Egressos.listaOcupa.get(x).nomeCargo + " descrição: " + Egressos.listaOcupa.get(x).descricao + " salário: " + listaSalarios.get(y));
                                     }
                                 }
                             }
                             for (int x = 0; x < listaEgressosSalarios.size(); x++) {
                                 System.out.println(listaEgressosSalarios.get(x));
                             }
-/*
-                            for (y = 0; y < Coordenador.listaEgressos.size(); y++) {
-                                for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
-                                    if (Objects.equals(Egressos.listaOcupa.get(x).salario, listaSalarios.get(y))) {
 
-                                        String egressosSalarios = ("ocupações: " + Egressos.listaOcupa.get(x).nomeCargo + " descrição: " + Egressos.listaOcupa.get(x).descricao + " salário: " + listaSalarios.get(y));
-                                        listaEgressosSalarios.add(egressosSalarios);
-                                        //System.out.println("ocupações: " + Egressos.listaOcupa.get(y).nomeCargo + " descrição: " + Egressos.listaOcupa.get(x).descricao + " salário: " + listaSalarios.get(x));
-                                    }
-                                }
-                            }
-                            for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
-                                System.out.println(listaEgressosSalarios.get(x));
-                            }
-
-
- */
 
                         }else{
 
@@ -359,62 +344,40 @@ public class Relatorio {
                     System.out.println(" ");
                     System.out.println("relatório: ");
 
-                    ArrayList<String> listaSortSalarios = new ArrayList<String>();
-                    String testeSal;
 
-                    //fazer lista ordenada por salario
-                    for (int y = 0; y < Coordenador.listaEgressos.size(); y++) {
-                        for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
+                    for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
 
-                            String testeNome = Egressos.listaOcupa.get(x).nomeCargo;
-                            String testeDesc = Egressos.listaOcupa.get(x).descricao;
-
-                            testeSal = Egressos.listaOcupa.get(x).salario;
-                            listaSortSalarios.add(testeNome + testeDesc + testeSal);
-
-                        }
+                        System.out.println("nome dos cursos e salários: " + Egressos.listaOcupa.get(x).nomeCargo +" " +Egressos.listaOcupa.get(x).salario);
 
                     }
 
-
-
-
-
-
-
-
-
-
-
-
-/*
                     ArrayList<String> listaSalarios = new ArrayList<String>();
 
-                    //fazer lista do nome das ocupações
-                    for (int y = 0; y < Coordenador.listaEgressos.size(); y++) {
-                        for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
+                    //fazer lista dos salários
+                    for (int y = 0; y < Egressos.listaOcupa.size(); y++) {
 
-                            String testeSal = Egressos.listaOcupa.get(x).salario;
-                            listaSalarios.add(testeSal);
-                        }
+                        String testeSal = Egressos.listaOcupa.get(y).salario;
+                        listaSalarios.add(testeSal);
+
+
                     }
 
                     Collections.sort(listaSalarios);
+                    System.out.println(listaSalarios);
 
-                    //fazer lista do nome das ocupações
-                    for (int y = 0; y < Coordenador.listaEgressos.size(); y++) {
+                    //organizar lista ordenada pelo salário
+                    ArrayList<String> listaEgressosSalarios = new ArrayList<String>();
+
+                    for (int y = 0; y < Egressos.listaOcupa.size(); y++) {
                         for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
-                            if (Objects.equals(Integer.parseInt(Egressos.listaOcupa.get(x).anoFim) - Integer.parseInt(Egressos.listaOcupa.get(x).anoInicio), Integer.parseInt(resposta))) {
-
-                                String testeNome = Egressos.listaOcupa.get(x).nomeCargo;
-                                String testeDesc = Egressos.listaOcupa.get(x).descricao;
-
-                                System.out.println("ocupações: " + testeNome + " descrição: " + testeDesc + " salário: " + listaSalarios.get(x));
+                            if (Objects.equals(listaSalarios.get(y), Egressos.listaOcupa.get(x).salario)) {
+                                listaEgressosSalarios.add("ocupações: " + Egressos.listaOcupa.get(x).nomeCargo + " descrição: " + Egressos.listaOcupa.get(x).descricao + " salário: " + listaSalarios.get(y));
                             }
                         }
                     }
-
- */
+                    for (int x = 0; x < listaEgressosSalarios.size(); x++) {
+                        System.out.println(listaEgressosSalarios.get(x));
+                    }
 
                 }
             }

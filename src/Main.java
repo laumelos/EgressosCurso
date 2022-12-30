@@ -191,8 +191,8 @@ public class Main {
                                         System.out.println("-cadastrar egresso-");
                                         Egressos criarEgresso = new Egressos();
                                         criarEgresso.CriarEgresso();
-                                        brEgresso.newLine();
-                                        brEgresso.write(criarEgresso.getNomeEgresso() + ", " + criarEgresso.getCpf() + ", " + criarEgresso.getDataConclusao());
+                                        //brEgresso.newLine();
+                                        //brEgresso.write(criarEgresso.getNomeEgresso() + ", " + criarEgresso.getCpf() + ", " + criarEgresso.getDataConclusao());
                                         System.out.println(criarEgresso);
 
                                         System.out.println(" ");
@@ -208,7 +208,7 @@ public class Main {
                                             //System.out.println("listaEgressosCurso" + Cursos.listaEgressosCurso);
                                         }
 
-                                        brEgresso.close();
+                                        //brEgresso.close();
                                     } else if (Objects.equals(resposta, "4")) {
 
                                         System.out.println("-gerenciar egresso-");

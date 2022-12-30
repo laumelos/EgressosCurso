@@ -46,7 +46,7 @@ public class Ocupacoes {
 
         System.out.println("salário: ");
         this.salario = scan.nextLine();
-
+/*
         System.out.println("data de início: (dia/mês/ano)");
         this.dataInicio = scan.nextLine();
         this.anoInicio = dataInicio.substring(6);
@@ -58,7 +58,7 @@ public class Ocupacoes {
 
         invervaloOcupa = Integer.parseInt(anoFim) - Integer.parseInt(anoInicio);
 
-/*
+
         System.out.println("local da ocupação: ");
         this.local = scan.nextLine();
 
