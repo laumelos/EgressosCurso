@@ -58,7 +58,7 @@ public class Main {
                 //if (!(listaCoord.isEmpty())) {
                 if (!(Administrador.listaCoord.isEmpty())) {
                     Coordenador criarCoordenador = new Coordenador();
-                    criarCoordenador.CriarCoordenador();
+                    criarCoordenador.Entrar();
 
 
                     if (resposta.equals("1")) {
@@ -261,7 +261,7 @@ public class Main {
 
                 //verificar adm
                 Administrador verificarAdm = new Administrador();
-                verificarAdm.VerificarAdm();
+                verificarAdm.Entrar();
 
                 if (Administrador.verificarAdm){
                     System.out.println(" ");
@@ -272,7 +272,7 @@ public class Main {
 
                     //criar coordenador
                     Coordenador criarCoordenador = new Coordenador();
-                    criarCoordenador.CriarCoordenador();
+                    criarCoordenador.Entrar();
                     //listaCoord.add(criarCoordenador);
                     Administrador.listaCoord.add(criarCoordenador);
 

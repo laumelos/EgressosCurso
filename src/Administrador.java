@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Administrador extends Login{
+public class Administrador extends Login implements IUsuario{
     public String testeNomeAdm = "ADM";
     public String testeSenhaAdm = "123";
     public static boolean verificarAdm = true;
@@ -12,8 +12,8 @@ public class Administrador extends Login{
 
 
     //static ArrayList<Coordenador> listaCoordenadores = new ArrayList<Coordenador>();
-
-    public void VerificarAdm() throws IOException {
+    @Override
+    public void Entrar(){
 
         this.FazerLogin();
 

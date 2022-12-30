@@ -3,18 +3,12 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Coordenador extends Login{
+public class Coordenador extends Login implements IUsuario{
 
 
     public static String coordLogado;
     static ArrayList<Cursos> listaCursos = new ArrayList<Cursos>();
     static ArrayList<Egressos> listaEgressos = new ArrayList<Egressos>();
-
-
-    public void CriarCoordenador(){
-        this.FazerLogin();
-    }
-
 
     /*
     public void CriarCoordenador(){
@@ -26,6 +20,10 @@ public class Coordenador extends Login{
         System.out.println("senha: ");
         senha = scan.nextLine();
     }*/
+    @Override
+    public void Entrar() {
+        this.FazerLogin();
+    }
 
     public String getNomeCoordenador() {
         return nome;
