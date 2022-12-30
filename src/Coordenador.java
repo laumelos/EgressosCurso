@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Coordenador extends Login{
 
 
-
+    public static String coordLogado;
     static ArrayList<Cursos> listaCursos = new ArrayList<Cursos>();
     static ArrayList<Egressos> listaEgressos = new ArrayList<Egressos>();
 

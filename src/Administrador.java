@@ -8,6 +8,9 @@ public class Administrador extends Login{
     public String testeSenhaAdm = "123";
     public static boolean verificarAdm = true;
 
+    static ArrayList<Coordenador> listaCoord = new ArrayList<Coordenador>();
+
+
     //static ArrayList<Coordenador> listaCoordenadores = new ArrayList<Coordenador>();
 
     public void VerificarAdm() throws IOException {
