@@ -24,7 +24,7 @@ public class Ocupacoes {
 
         System.out.println("nome do cargo: ");
         this.nomeCargo = scan.nextLine();
-
+/*
         System.out.println("Escolha o tipo do cargo: ");
         System.out.println("1 - empregado");
         System.out.println("2 - empregador");
@@ -42,6 +42,8 @@ public class Ocupacoes {
             } while (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2")));
         }
 
+ */
+
         System.out.println("salário: ");
         this.salario = scan.nextLine();
 
@@ -56,10 +58,12 @@ public class Ocupacoes {
 
         invervaloOcupa = Integer.parseInt(anoFim) - Integer.parseInt(anoInicio);
 
-
+/*
         System.out.println("local da ocupação: ");
         this.local = scan.nextLine();
 
+
+ */
         System.out.println("descrição: ");
         this.descricao = scan.nextLine();
 
