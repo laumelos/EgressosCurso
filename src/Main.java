@@ -26,17 +26,17 @@ public class Main {
         OutputStream cursosEditados = new FileOutputStream("cursosEditados.txt"); // nome do arquivo que será escrito
         Writer wrCursosEditados = new OutputStreamWriter(cursosEditados); // criação de um escritor
         BufferedWriter brCursosEditados = new BufferedWriter(wrCursosEditados); // adiciono a um escritor de buffer
-        brCursos.write("CURSOS EDITADOS:");//nome do arquivo txt
+        brCursosEditados.write("CURSOS EDITADOS:");//nome do arquivo txt
 
         OutputStream egresso = new FileOutputStream("egressos.txt"); // nome do arquivo que será escrito
         Writer wrEgresso = new OutputStreamWriter(egresso); // criação de um escritor
         BufferedWriter brEgresso = new BufferedWriter(wrEgresso); // adiciono a um escritor de buffer
-        brCursos.write("EGRESSOS:");//nome do arquivo txt
+        brEgresso.write("EGRESSOS:");//nome do arquivo txt
 
         OutputStream egressoEditado = new FileOutputStream("egressosEditados.txt"); // nome do arquivo que será escrito
         Writer wrEgressoEditado = new OutputStreamWriter(egressoEditado); // criação de um escritor
         BufferedWriter brEgressoEditado = new BufferedWriter(wrEgressoEditado); // adiciono a um escritor de buffer
-        brCursos.write("EGRESSOS EDITADOS:");//nome do arquivo txt
+        brEgressoEditado.write("EGRESSOS EDITADOS:");//nome do arquivo txt
 
 
 
@@ -192,7 +192,7 @@ public class Main {
                                         Egressos criarEgresso = new Egressos();
                                         criarEgresso.CriarEgresso();
                                         brEgresso.newLine();
-                                        brEgresso.write(criarEgresso.getNomeEgresso() + criarEgresso.getCpf() + criarEgresso.getDataConclusao());
+                                        brEgresso.write(criarEgresso.getNomeEgresso() + ", " + criarEgresso.getCpf() + ", " + criarEgresso.getDataConclusao());
                                         System.out.println(criarEgresso);
 
                                         System.out.println(" ");
@@ -214,7 +214,7 @@ public class Main {
                                         System.out.println("-gerenciar egresso-");
                                         Egressos gerenciarEgresso = new Egressos();
                                         brEgressoEditado.newLine();
-                                        brEgressoEditado.write(gerenciarEgresso.getNomeEgresso() + gerenciarEgresso.getCpf() + gerenciarEgresso.getDataConclusao());
+                                        brEgressoEditado.write(gerenciarEgresso.getNomeEgresso() + ", "+ gerenciarEgresso.getCpf() + ", " + gerenciarEgresso.getDataConclusao());
                                         gerenciarEgresso.GerenciarEgresso();
                                         brEgressoEditado.close();
                                     } else if (Objects.equals(resposta, "5")) {
