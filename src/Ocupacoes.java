@@ -14,7 +14,6 @@ public class Ocupacoes {
     public String local;
     public String descricao;
     public String depoimentoOcupa;
-    public int invervaloOcupa;
 
     public void CriarOcupacao() {
 
@@ -46,7 +45,7 @@ public class Ocupacoes {
 
         System.out.println("salário: ");
         this.salario = scan.nextLine();
-/*
+
         System.out.println("data de início: (dia/mês/ano)");
         this.dataInicio = scan.nextLine();
         this.anoInicio = dataInicio.substring(6);
@@ -56,14 +55,10 @@ public class Ocupacoes {
         this.dataFim = scan.nextLine();
         this.anoFim = dataFim.substring(6);
 
-        invervaloOcupa = Integer.parseInt(anoFim) - Integer.parseInt(anoInicio);
-
-
         System.out.println("local da ocupação: ");
         this.local = scan.nextLine();
 
 
- */
         System.out.println("descrição: ");
         this.descricao = scan.nextLine();
 
@@ -211,7 +206,6 @@ public class Ocupacoes {
             String novoAnoInicio = novaDataInicio.substring(6);
             Egressos.listaOcupa.get(Integer.parseInt(resposta)).setAnoInicio(novoAnoInicio);
             int novoInvervaloOcupa = Integer.parseInt(anoFim) - Integer.parseInt(novoAnoInicio);
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setInvervaloOcupa(novoInvervaloOcupa);
         }
 
         else if (Objects.equals(resposta, "5")) {
@@ -228,9 +222,6 @@ public class Ocupacoes {
             String novoAnoFim = novaDataFim.substring(6);
             Egressos.listaOcupa.get(Integer.parseInt(resposta)).setAnoFim(novoAnoFim);
             int novoInvervaloOcupa = Integer.parseInt(novoAnoFim) - Integer.parseInt(anoInicio);
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setInvervaloOcupa(novoInvervaloOcupa);
-
-
 
         }
 
@@ -332,14 +323,6 @@ public class Ocupacoes {
 
     public void setAnoFim(String anoFim) {
         this.anoFim = anoFim;
-    }
-
-    public int getInvervaloOcupa() {
-        return invervaloOcupa;
-    }
-
-    public void setInvervaloOcupa(int invervaloOcupa) {
-        this.invervaloOcupa = invervaloOcupa;
     }
 
     public String getLocal() {

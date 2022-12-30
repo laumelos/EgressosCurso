@@ -12,6 +12,7 @@ public class Main {
         Scanner scan = new Scanner (System.in);
         String resposta;
 
+        //arquivos txt
         ArrayList<Coordenador> listaCoord = new ArrayList<Coordenador>();
         OutputStream os = new FileOutputStream("coordenadores.txt"); // nome do arquivo que será escrito
         Writer wr = new OutputStreamWriter(os); // criação de um escritor
@@ -39,7 +40,6 @@ public class Main {
         brEgressoEditado.write("EGRESSOS EDITADOS:");//nome do arquivo txt
 
 
-
         while(sistemaEgressos) {
             System.out.println("Bem-vindo ao sistema de egressos do curso!");
             System.out.println("Como você deseja realizar o seu login?");
@@ -61,14 +61,12 @@ public class Main {
                     criarCoordenador.CriarCoordenador();
 
 
-
-
                     if (resposta.equals("1")) {
                         //checar se coord está cadastrado
-                        for (int x = 0; x < listaCoord.size(); x++) {
-                            if (listaCoord.get(x).getNomeCoordenador().equals(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(x).getSenhaCoordenador().equals(criarCoordenador.getSenhaCoordenador()))) {
+                        for (int varCoord = 0; varCoord < listaCoord.size(); varCoord++) {
+                            if (listaCoord.get(varCoord).getNomeCoordenador().equals(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(varCoord).getSenhaCoordenador().equals(criarCoordenador.getSenhaCoordenador()))) {
 
-                                System.out.println("x " + x);
+                                System.out.println("x " + varCoord);
                                 System.out.println(" ");
                                 System.out.println("login realizado");
                                 System.out.println(" ");
@@ -87,7 +85,7 @@ public class Main {
 
                                     System.out.println("listaCoord "+listaCoord);
 
-                                    System.out.println("coord x "+listaCoord.get(x));
+                                    System.out.println("coord x "+listaCoord.get(varCoord));
 
 
                                     //scan
@@ -121,7 +119,6 @@ public class Main {
                                         System.out.println("cadastrado");
                                         System.out.println(" ");
 
-                                        //System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
 
                                         if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma")) {
                                             Coordenador.listaCursos.add(criarCurso);
@@ -198,8 +195,34 @@ public class Main {
                                         System.out.println(" ");
                                         System.out.println("cadastrado");
                                         System.out.println(" ");
+                                        //Coordenador.listaEgressos.add(criarEgresso);
                                         Coordenador.listaEgressos.add(criarEgresso);
-                                        System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
+                                        System.out.println(listaCoord.get(varCoord));
+                                        System.out.println(varCoord);
+
+
+                                        /*
+                                        for (int y = 0; y < listaCoord.size(); y++) {
+                                            if (listaCoord.get(y).getNomeCoordenador().equals(criarCoordenador.getNomeCoordenador()) && (listaCoord.get(y).getSenhaCoordenador().equals(criarCoordenador.getSenhaCoordenador()))) {
+                                                Coordenador.listaEgressos.add(criarEgresso);
+                                                System.out.println("A lista temOMG " + Coordenador.listaEgressos.size() + " egressos");
+
+
+                                                System.out.println("listaCoord.get(y).getNomeCoordenador() "+listaCoord.get(y).getNomeCoordenador());
+
+                                                System.out.println("criarCoordenador.getNomeCoordenador() "+criarCoordenador.getNomeCoordenador());
+
+                                                System.out.println("Coordenador.listaEgressos "+Coordenador.listaEgressos);
+                                                System.out.println("y "+y);
+                                                System.out.println("Coordenador.listaEgressos.get(y) "+Coordenador.listaEgressos.get(y));
+
+                                                //Coordenador.listaEgressos.add(criarEgresso);
+                                            }
+                                        }
+
+                                         */
+
+                                            System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
 
                                         Cursos criarCurso = new Cursos();
                                         if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma")) {
@@ -235,7 +258,7 @@ public class Main {
 
                                     }
                                 } while (!(Objects.equals(resposta, "7")));
-                            } else if (x == listaCoord.size() - 1) {
+                            } else if (varCoord == listaCoord.size() - 1) {
                                 System.out.println(" ");
                                 System.out.println("falha no login, coordenador não cadastrado");
                                 System.out.println(" ");
@@ -273,8 +296,8 @@ public class Main {
                     System.out.println("cadastrado");
                     System.out.println(" ");
                     System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");
-                    br.newLine();
-                    br.write(criarCoordenador.getNomeCoordenador());
+                    //br.newLine();
+                    //br.write(criarCoordenador.getNomeCoordenador());
 
                 }else{
                     System.out.println(" ");

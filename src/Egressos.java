@@ -19,15 +19,13 @@ public class Egressos {
     public void CriarEgresso() {
         Scanner scan = new Scanner(System.in);
         String resposta;
-/*
+
         System.out.println("nome do egresso: ");
         nomeEgresso = scan.nextLine();
-
+/*
         System.out.println("cpf do egresso: ");
         while (!scan.hasNextInt()) scan.nextInt();
         cpf = scan.nextInt();
-
-
 
         System.out.println("data de conclusão do egresso: ");
         System.out.println("Digite a data (dia/mês/ano)");
@@ -57,7 +55,6 @@ public class Egressos {
             System.out.println("Egresso" + listaCursos);
         }
 
- */
         System.out.println("ocupações do egresso: ");
         Ocupacoes criarOcupacao = new Ocupacoes();
         criarOcupacao.CriarOcupacao();
@@ -88,7 +85,6 @@ public class Egressos {
                 MaisOcupa = false;
             }
         }while(MaisOcupa);
-        /*
 
         System.out.println("Adicionar um depoimento?");
         System.out.println("1 - sim");
@@ -107,7 +103,8 @@ public class Egressos {
             depoimentoEgresso = scan.nextLine();
         }
 
-         */
+ */
+
 
     }
 
