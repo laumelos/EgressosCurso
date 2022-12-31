@@ -7,6 +7,7 @@ public class Cursos {
     public String nomeCurso;
     public String instituicao;
     public String depoimentoCurso;
+    public String coordCurso;
     public static ArrayList <Egressos> listaEgressosCurso = new ArrayList<Egressos>();
 
 
@@ -15,6 +16,8 @@ public class Cursos {
         String resposta;
         boolean respostaMaisCurso = true;
 
+        coordCurso = Coordenador.coordLogado;
+        System.out.println("coordCurso " + coordCurso);
 /*
         System.out.println("Escolha o tipo do curso: ");
         System.out.println("1 - curso Complementar");
@@ -156,6 +159,7 @@ public class Cursos {
         //}while(respostaMaisCurso);
 
     public void GerenciarCurso(){
+
         Scanner scan = new Scanner(System.in);
         String resposta;
         int respostaCurso;
@@ -163,14 +167,15 @@ public class Cursos {
         if (!(Coordenador.listaCursos.isEmpty())) {
 
             System.out.println("lista de cursos:");
+            System.out.println(Coordenador.listaCursos.size());
+            System.out.println(Administrador.listaCoord);
 
             for (int x = 0; x < Coordenador.listaCursos.size(); x++) {
-
-                if (Objects.equals(Administrador.listaCoord.get(x).getNomeCoordenador(), Coordenador.coordLogado)) {
-
+                if (Objects.equals(Coordenador.listaCursos.get(x).coordCurso, Coordenador.coordLogado)) {
                     System.out.println(x + " - " + Coordenador.listaCursos.get(x));
                 }
             }
+            //System.out.println(" AQUI " + Administrador.listaCoord.get(x).getNomeCoordenador() + " = "+ Coordenador.coordLogado);
 
             System.out.println("Selecione o curso que deseja editar: ");
 

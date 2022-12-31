@@ -10,7 +10,6 @@ public class Relatorio {
         //boolean respostaMaisCurso = true;
         if (!(Coordenador.listaEgressos.isEmpty())) {
 
-
             System.out.println("Escolha o tipo de listagem do relatório: ");
             System.out.println("1 - listagem de egressos por ano (ordenado pelo nome do egresso)");
             System.out.println("2 - listagem de egresso e posições");
@@ -88,7 +87,8 @@ public class Relatorio {
                             }
                         }
                         for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-
+                            //AQUI!!!!!!!!!!!!!!
+                            //listagem de egressos por ano (ordenado pelo nome do egresso) (filtrados por ano)-
                             System.out.println(listaNomesEgressos.get(x));
                         }
 
@@ -113,7 +113,7 @@ public class Relatorio {
                     System.out.println("relatório: ");
 
                     ArrayList<String> listaNomes = new ArrayList<String>();
-                    //fazer lista dos nomes filtrados por ano
+                    //fazer lista dos nomes
                     for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
                         String testeNome = Coordenador.listaEgressos.get(x).nomeEgresso;
                         listaNomes.add(testeNome);
@@ -131,6 +131,7 @@ public class Relatorio {
                     }
                     for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
                         //AQUI!!!!!!!!!!!!!!
+                        //listagem de egressos por ano (ordenado pelo nome do egresso) (SEM FILTRO)-
                         System.out.println(listaNomesEgressos.get(x));
                     }
                 }
@@ -198,6 +199,9 @@ public class Relatorio {
 
                             for (y = 0; y < Coordenador.listaEgressos.size(); y++) {
                                 for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
+
+                                    //AQUI!!!!!!!!!!!!!!
+                                    //-listagem de egresso e posições (filtrar pelo intervalo de tempo da ocupação)-
                                     System.out.println("nome do egresso: " + Coordenador.listaEgressos.get(y).getNomeEgresso() + " - " + listaNomeOcupa.get(x));
 
                                 }
@@ -243,6 +247,8 @@ public class Relatorio {
 
                     for (int y = 0; y < Coordenador.listaEgressos.size(); y++) {
                         for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
+                            //AQUI!!!!!!!!!!!!!!
+                            //-listagem de egresso e posições-
                             System.out.println("nome do egresso: " + Coordenador.listaEgressos.get(y).getNomeEgresso() + " - " + listaNomeOcupa.get(x));
                         }
                     }

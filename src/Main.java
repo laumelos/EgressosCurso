@@ -72,6 +72,7 @@ public class Main {
 
 
                                 Coordenador.coordLogado = Administrador.listaCoord.get(varCoord).getNomeCoordenador();
+                                System.out.println("Coordenador.coordLogado"+Coordenador.coordLogado);
 
                                 //System.out.println("x " + varCoord);
                                 System.out.println(" ");
