@@ -88,6 +88,7 @@ public class Relatorio {
                             }
                         }
                         for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
+
                             System.out.println(listaNomesEgressos.get(x));
                         }
 
@@ -129,6 +130,7 @@ public class Relatorio {
                         }
                     }
                     for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
+                        //AQUI!!!!!!!!!!!!!!
                         System.out.println(listaNomesEgressos.get(x));
                     }
                 }
@@ -319,6 +321,8 @@ public class Relatorio {
                                 }
                             }
                             for (int x = 0; x < listaEgressosSalarios.size(); x++) {
+                                //AQUI!!!!!!!!!!!!!!
+                                //-listagem de posições e salários (ordenada por salário) (filtrado pelo intervalo de tempo da ocupação)-
                                 System.out.println(listaEgressosSalarios.get(x));
                             }
 
@@ -376,6 +380,8 @@ public class Relatorio {
                         }
                     }
                     for (int x = 0; x < listaEgressosSalarios.size(); x++) {
+                        //AQUI!!!!!!!!!!!!!!
+                        //-listagem de posições e salários (ordenada por salário)-
                         System.out.println(listaEgressosSalarios.get(x));
                     }
 

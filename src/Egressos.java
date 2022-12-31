@@ -135,7 +135,6 @@ public class Egressos {
                 System.out.println("lista de egressos: ");
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
 
-                    Coordenador criarCoordenador = new Coordenador();
                     if (Objects.equals(Administrador.listaCoord.get(x).getNomeCoordenador(), Coordenador.coordLogado)) {
 
                         System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
@@ -267,7 +266,6 @@ public class Egressos {
 
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
 
-                    Coordenador criarCoordenador = new Coordenador();
                     if (Objects.equals(Administrador.listaCoord.get(x).getNomeCoordenador(), Coordenador.coordLogado)) {
                         System.out.println(Coordenador.listaEgressos.get(x).getCpf());
                     }

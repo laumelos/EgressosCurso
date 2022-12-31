@@ -119,8 +119,8 @@ public class Main {
 
                                         Cursos criarCurso = new Cursos();
                                         criarCurso.CriarCurso();
-                                        brCursos.newLine();
-                                        brCursos.write(criarCurso.getNomeCurso() + ", " + criarCurso.getInstituicao());
+                                        //brCursos.newLine();
+                                        //brCursos.write(criarCurso.getNomeCurso() + ", " + criarCurso.getInstituicao());
                                         System.out.println(" ");
                                         System.out.println("cadastrado");
                                         System.out.println(" ");
@@ -135,7 +135,7 @@ public class Main {
                                             Egressos.listaCursos.add(criarCurso);
                                             //System.out.println("Egresso" + Egressos.listaCursos);
                                         }
-
+/*
                                         //add outro curso
                                         boolean respostaMaisCurso = true;
                                         do {
@@ -155,8 +155,8 @@ public class Main {
 
                                                 criarCurso = new Cursos();
                                                 criarCurso.CriarCurso();
-                                                brCursos.newLine();
-                                                brCursos.write(criarCurso.getNomeCurso() + ", " + criarCurso.getInstituicao());
+                                                //brCursos.newLine();
+                                                //brCursos.write(criarCurso.getNomeCurso() + ", " + criarCurso.getInstituicao());
                                                 System.out.println(" ");
                                                 System.out.println("cadastrado");
                                                 System.out.println(" ");
@@ -179,16 +179,18 @@ public class Main {
                                             }
                                         } while (respostaMaisCurso);
 
+ */
+
                                         brCursos.close();
                                     }else if (Objects.equals(resposta, "2")) {
 
                                         System.out.println("-gerenciar curso-");
                                         Cursos gerenciarCurso = new Cursos();
-                                        brCursosEditados.newLine();
-                                        brCursosEditados.write(gerenciarCurso.getNomeCurso()+ ", " + gerenciarCurso.getInstituicao());
+                                        //brCursosEditados.newLine();
+                                        //brCursosEditados.write(gerenciarCurso.getNomeCurso()+ ", " + gerenciarCurso.getInstituicao());
                                         gerenciarCurso.GerenciarCurso();
 
-                                        brCursosEditados.close();
+                                        //brCursosEditados.close();
                                     } else if (Objects.equals(resposta, "3")) {
 
                                         System.out.println("-cadastrar egresso-");
@@ -201,9 +203,7 @@ public class Main {
                                         System.out.println(" ");
                                         System.out.println("cadastrado");
                                         System.out.println(" ");
-                                        //Coordenador.listaEgressos.add(criarEgresso);
                                         Coordenador.listaEgressos.add(criarEgresso);
-
 
                                         //System.out.println("A lista tem " + Coordenador.listaEgressos.size() + " egressos");
 
@@ -241,7 +241,7 @@ public class Main {
 
                                     }
                                 } while (!(Objects.equals(resposta, "7")));
-                            } else if (varCoord == listaCoord.size() - 1) {
+                            } else if (varCoord == Administrador.listaCoord.size()) {
                                 System.out.println(" ");
                                 System.out.println("falha no login, coordenador não cadastrado");
                                 System.out.println(" ");
@@ -279,7 +279,11 @@ public class Main {
                     System.out.println(" ");
                     System.out.println("cadastrado");
                     System.out.println(" ");
-                    System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");
+                    //System.out.println("A lista tem " + listaCoord.size() + " coordenadores cadastrados");
+                    System.out.println("A lista tem " + Administrador.listaCoord.size() + " coordenadores cadastrados");
+                    System.out.println(" ");
+
+
                     //br.newLine();
                     //br.write(criarCoordenador.getNomeCoordenador());
 
