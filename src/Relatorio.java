@@ -2,6 +2,26 @@ import java.util.*;
 
 public class Relatorio {
     String tipoRelatorio;
+    public ArrayList<String> egressosAnoFiltro = new ArrayList<String>();
+    public ArrayList<String> egressosAno = new ArrayList<String>();
+    public ArrayList<String> egressosPosFiltro = new ArrayList<String>();
+    public ArrayList<String> egressosPos = new ArrayList<String>();
+    public ArrayList<String> posicaoSalarioFiltro = new ArrayList<String>();
+    public ArrayList<String> posicaoSalario = new ArrayList<String>();
+
+
+
+
+    /*
+    String egressosAnoFiltro;
+    String egressosAno;
+    String egressosPosFiltro;
+    String egressosPos;
+    String posicaoSalarioFiltro;
+    String posicaoSalario;
+
+     */
+
 
     public void CriarRelatorio() {
         Scanner scan = new Scanner(System.in);
@@ -87,11 +107,11 @@ public class Relatorio {
                             }
                         }
                         for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-                            //AQUI!!!!!!!!!!!!!!
                             //listagem de egressos por ano (ordenado pelo nome do egresso) (filtrados por ano)-
-                            System.out.println(listaNomesEgressos.get(x));
+                            //System.out.println(listaNomesEgressos.get(x));
+                            egressosAnoFiltro.add(listaNomesEgressos.get(x));
                         }
-
+                        System.out.println(egressosAnoFiltro);
 
                     }else{
                         do {
@@ -132,8 +152,10 @@ public class Relatorio {
                     for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
                         //AQUI!!!!!!!!!!!!!!
                         //listagem de egressos por ano (ordenado pelo nome do egresso) (SEM FILTRO)-
-                        System.out.println(listaNomesEgressos.get(x));
+                        //System.out.println(listaNomesEgressos.get(x));
+                        egressosAno.add(listaNomesEgressos.get(x));
                     }
+                    System.out.println(egressosAno);
                 }
 
             }else if (Objects.equals(tipoRelatorio, "2")) {
@@ -202,11 +224,12 @@ public class Relatorio {
 
                                     //AQUI!!!!!!!!!!!!!!
                                     //-listagem de egresso e posições (filtrar pelo intervalo de tempo da ocupação)-
-                                    System.out.println("nome do egresso: " + Coordenador.listaEgressos.get(y).getNomeEgresso() + " - " + listaNomeOcupa.get(x));
+                                    //System.out.println("nome do egresso: " + Coordenador.listaEgressos.get(y).getNomeEgresso() + " - " + listaNomeOcupa.get(x));
+                                    egressosPosFiltro.add("nome do egresso: " + Coordenador.listaEgressos.get(y).getNomeEgresso() + " - " + listaNomeOcupa.get(x));
 
                                 }
                             }
-
+                            System.out.println(egressosPosFiltro);
 
                         }else{
 
@@ -249,10 +272,11 @@ public class Relatorio {
                         for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
                             //AQUI!!!!!!!!!!!!!!
                             //-listagem de egresso e posições-
-                            System.out.println("nome do egresso: " + Coordenador.listaEgressos.get(y).getNomeEgresso() + " - " + listaNomeOcupa.get(x));
+                            //System.out.println("nome do egresso: " + Coordenador.listaEgressos.get(y).getNomeEgresso() + " - " + listaNomeOcupa.get(x));
+                            egressosPos.add("nome do egresso: " + Coordenador.listaEgressos.get(y).getNomeEgresso() + " - " + listaNomeOcupa.get(x));
                         }
                     }
-
+                    System.out.println(egressosPos);
                 }
             }else{
                 System.out.println(" ");
@@ -329,8 +353,10 @@ public class Relatorio {
                             for (int x = 0; x < listaEgressosSalarios.size(); x++) {
                                 //AQUI!!!!!!!!!!!!!!
                                 //-listagem de posições e salários (ordenada por salário) (filtrado pelo intervalo de tempo da ocupação)-
-                                System.out.println(listaEgressosSalarios.get(x));
+                                //System.out.println(listaEgressosSalarios.get(x));
+                                posicaoSalarioFiltro.add(listaEgressosSalarios.get(x));
                             }
+                            System.out.println(posicaoSalarioFiltro);
 
 
                         }else{
@@ -388,9 +414,10 @@ public class Relatorio {
                     for (int x = 0; x < listaEgressosSalarios.size(); x++) {
                         //AQUI!!!!!!!!!!!!!!
                         //-listagem de posições e salários (ordenada por salário)-
-                        System.out.println(listaEgressosSalarios.get(x));
+                        //System.out.println(listaEgressosSalarios.get(x));
+                        posicaoSalario.add(listaEgressosSalarios.get(x));
                     }
-
+                    System.out.println(posicaoSalario);
                 }
             }
         }else{
