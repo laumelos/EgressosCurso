@@ -559,14 +559,12 @@ public class Egressos {
 
     @Override
     public String toString() {
-        return "Egressos{" +
-                "cpf=" + cpf +
-                ", formacoes='" + formacoes + '\'' +
-                ", nomeEgresso='" + nomeEgresso + '\'' +
-                ", dataConclusao='" + dataConclusao + '\'' +
-                ", listaCursos=" + listaCursos +
-                ", listaOcupa=" + listaOcupa +
-                ", depoimentoEgresso='" + depoimentoEgresso + '\'' +
-                '}';
+        return "Nome: " + nomeEgresso +
+                "CPF: " + cpf +
+                "Formações: " + formacoes +
+                "Data de conclusão: " + dataConclusao +
+                "Lista de cursos: " + listaCursos +
+                "Lista de ocupações: " + listaOcupa +
+                "Depoimento: " + depoimentoEgresso;
     }
 }

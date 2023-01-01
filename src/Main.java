@@ -244,7 +244,7 @@ public class Main {
                                 } while (!(Objects.equals(resposta, "7")));
                             }else{
                                 System.out.println(" ");
-                                System.out.println(" OPS falha no login, coordenador não cadastrado");
+                                System.out.println("falha no login, coordenador não cadastrado");
                                 System.out.println(" ");
                             }
                         }

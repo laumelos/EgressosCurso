@@ -339,12 +339,10 @@ public class Cursos {
 
     @Override
     public String toString() {
-        return "Cursos{" +
-                "tipoCurso='" + tipoCurso + '\'' +
-                ", nomeCurso='" + nomeCurso + '\'' +
-                ", instituicao='" + instituicao + '\'' +
-                ", depoimentoCurso='" + depoimentoCurso + '\'' +
-                '}';
+        return  "Nome do curso: " + nomeCurso +
+                "Tipo do curso: " + tipoCurso +
+                "Instituição='" + instituicao +
+                "Depoimento do curso='" + depoimentoCurso;
     }
 }
 

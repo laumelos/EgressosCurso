@@ -43,9 +43,7 @@ public class Coordenador extends Login implements IUsuario{
 
     @Override
     public String toString() {
-        return "Coordenador{" +
-                "nomeCoordenador='" + nome + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
+        return  "Nome coordenador: " + nome +
+                "Senha: " + senha;
     }
 }

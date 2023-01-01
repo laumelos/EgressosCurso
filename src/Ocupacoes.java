@@ -351,14 +351,13 @@ public class Ocupacoes {
 
     @Override
     public String toString() {
-        return "Ocupacoes{" +
-                "nomeCargo='" + nomeCargo + '\'' +
-                ", tipoCargo='" + tipoCargo + '\'' +
-                ", salario='" + salario + '\'' +
-                ", dataInicio='" + dataInicio + '\'' +
-                ", local='" + local + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", depoimentoOcupa='" + depoimentoOcupa + '\'' +
-                '}';
+
+        return  "Nome do cargo: " + nomeCargo +
+                "Tipo do cargo: " + tipoCargo +
+                "Salário: " + salario +
+                "Data de início: " + dataInicio +
+                "Local: " + local +
+                "Descrição do cargo: " + descricao +
+                "Depoimento da ocupação: " + depoimentoOcupa;
     }
 }

@@ -162,11 +162,10 @@ public class Contato {
 
     @Override
     public String toString() {
-        return "Contato{" +
-                "telefone='" + telefone + '\'' +
-                ", email='" + email + '\'' +
-                ", redeSocial='" + redeSocial + '\'' +
-                ", listaContato=" + listaContato +
-                '}';
+
+        return  "Telefone: " + telefone +
+                "Email: " + email +
+                "Redes sociais: " + redeSocial +
+                "Lista de contato: " + listaContato;
     }
 }
