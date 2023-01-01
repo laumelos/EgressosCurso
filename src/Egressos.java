@@ -9,7 +9,7 @@ public class Egressos {
     String formacoes;
     public String nomeEgresso;
     public String dataConclusao;
-    //contatos
+    public String coordEgresso;
     public static ArrayList<Cursos> listaCursos = new ArrayList<Cursos>();
     public static ArrayList<Ocupacoes> listaOcupa = new ArrayList<Ocupacoes>();
     String depoimentoEgresso;
@@ -19,6 +19,9 @@ public class Egressos {
     public void CriarEgresso() {
         Scanner scan = new Scanner(System.in);
         String resposta;
+
+        coordEgresso = Coordenador.coordLogado;
+        System.out.println("coordEgresso " + coordEgresso);
 
         System.out.println("nome do egresso: ");
         nomeEgresso = scan.nextLine();
@@ -133,10 +136,9 @@ public class Egressos {
 
                 //print lista de nomes
                 System.out.println("lista de egressos: ");
+
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-
-                    if (Objects.equals(Administrador.listaCoord.get(x).getNomeCoordenador(), Coordenador.coordLogado)) {
-
+                    if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
                         System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
                     }
                 }
@@ -147,7 +149,7 @@ public class Egressos {
 
                 //buscar no array
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-                    if (Objects.equals(Administrador.listaCoord.get(x).getNomeCoordenador(), Coordenador.coordLogado)) {
+                    if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
 
                         //egresso encontrado
                         if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
@@ -265,8 +267,7 @@ public class Egressos {
                  */
 
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-
-                    if (Objects.equals(Administrador.listaCoord.get(x).getNomeCoordenador(), Coordenador.coordLogado)) {
+                    if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
                         System.out.println(Coordenador.listaEgressos.get(x).getCpf());
                     }
                 }
@@ -277,7 +278,7 @@ public class Egressos {
 
                 //buscar no array
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-                    if (Objects.equals(Administrador.listaCoord.get(x).getNomeCoordenador(), Coordenador.coordLogado)) {
+                    if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
 
                         //egresso encontrado
                         if (Coordenador.listaEgressos.get(x).getCpf() == (cpf)) {

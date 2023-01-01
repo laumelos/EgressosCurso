@@ -172,122 +172,121 @@ public class Cursos {
 
             for (int x = 0; x < Coordenador.listaCursos.size(); x++) {
                 if (Objects.equals(Coordenador.listaCursos.get(x).coordCurso, Coordenador.coordLogado)) {
-                    System.out.println(x + " - " + Coordenador.listaCursos.get(x));
+                    System.out.println(Coordenador.listaCursos.get(x));
                 }
             }
-            //System.out.println(" AQUI " + Administrador.listaCoord.get(x).getNomeCoordenador() + " = "+ Coordenador.coordLogado);
+            //digitar nome para buscar
+            System.out.println("nome do curso: ");
+            nomeCurso = scan.nextLine();
 
-            System.out.println("Selecione o curso que deseja editar: ");
+            //buscar no array
 
-            respostaCurso = scan.nextInt();
-
-            if (respostaCurso >= Coordenador.listaCursos.size()) {
-                do {
-                    System.out.println("Comando inválido, digite o número referente a um curso para escolher a opção: ");
-                    respostaCurso = scan.nextInt();
-                } while (respostaCurso > Coordenador.listaCursos.size());
-            }
             for (int x = 0; x < Coordenador.listaCursos.size(); x++) {
-                if (Objects.equals(Administrador.listaCoord.get(x).getNomeCoordenador(), Coordenador.coordLogado)) {
-                    System.out.println(" ");
-                    System.out.println("selecionado");
-                    System.out.println(" ");
-
-                    System.out.println(Coordenador.listaCursos.get(respostaCurso));
-
-                    System.out.println("Selecione que informação deseja editar");
-                    System.out.println("1 - tipo do curso");
-                    System.out.println("2 - nome do curso");
-                    System.out.println("3 - instituicao");
-                    System.out.println("4 - depoimento");
-                    resposta = scan.nextLine();
-                    resposta = scan.nextLine();
+                if (Objects.equals(Coordenador.listaCursos.get(x).coordCurso, Coordenador.coordLogado)) {
 
 
-                    if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4"))) {
-                        do {
-                            System.out.println("Selecione que informação deseja editar");
-                            System.out.println("1 - tipo do curso");
-                            System.out.println("2 - nome do curso");
-                            System.out.println("3 - instituição");
-                            System.out.println("4 - depoimento");
-                            resposta = scan.nextLine();
-
-                        } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4")));
-                    }
-                    if (Objects.equals(resposta, "1")) {
-
+                    //curso encontrado
+                    if (Coordenador.listaCursos.get(x).getNomeCurso().equals(nomeCurso)) {
                         System.out.println(" ");
-                        System.out.println("-editar tipo do curso-");
+                        System.out.println("curso encontrado");
                         System.out.println(" ");
 
-                        System.out.println("escolha o novo tipo do curso: ");
-                        System.out.println("1 - curso Complementar");
-                        System.out.println("2 - Especialização");
-                        System.out.println("3 - Graduação");
-                        System.out.println("4 - Pós-graduação");
+                        System.out.println(Coordenador.listaCursos.get(x));
 
-                        String novotipoCurso = scan.nextLine();
-                        Coordenador.listaCursos.get(respostaCurso).setTipoCurso(novotipoCurso);
+                        System.out.println("Selecione que informação deseja editar");
+                        System.out.println("1 - tipo do curso");
+                        System.out.println("2 - nome do curso");
+                        System.out.println("3 - instituicao");
+                        System.out.println("4 - depoimento");
+                        resposta = scan.nextLine();
+                        resposta = scan.nextLine();
 
-                        //número inválido
-                        if (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4"))) {
+
+                        if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4"))) {
                             do {
-                                System.out.println("Comando inválido, digite '1' '2' '3' ou '4' para escolher a opção: ");
-                                System.out.println("1 - curso Complementar");
-                                System.out.println("2 - Especialização");
-                                System.out.println("3 - Graduação");
-                                System.out.println("4 - Pós-graduação");
+                                System.out.println("Selecione que informação deseja editar");
+                                System.out.println("1 - tipo do curso");
+                                System.out.println("2 - nome do curso");
+                                System.out.println("3 - instituição");
+                                System.out.println("4 - depoimento");
+                                resposta = scan.nextLine();
 
-                                novotipoCurso = scan.nextLine();
-                                Coordenador.listaCursos.get(respostaCurso).setTipoCurso(novotipoCurso);
-
-                            } while (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4")));
+                            } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4")));
                         }
+                        if (Objects.equals(resposta, "1")) {
+
+                            System.out.println(" ");
+                            System.out.println("-editar tipo do curso-");
+                            System.out.println(" ");
+
+                            System.out.println("escolha o novo tipo do curso: ");
+                            System.out.println("1 - curso Complementar");
+                            System.out.println("2 - Especialização");
+                            System.out.println("3 - Graduação");
+                            System.out.println("4 - Pós-graduação");
+
+                            String novotipoCurso = scan.nextLine();
+                            Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
+
+                            //número inválido
+                            if (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4"))) {
+                                do {
+                                    System.out.println("Comando inválido, digite '1' '2' '3' ou '4' para escolher a opção: ");
+                                    System.out.println("1 - curso Complementar");
+                                    System.out.println("2 - Especialização");
+                                    System.out.println("3 - Graduação");
+                                    System.out.println("4 - Pós-graduação");
+
+                                    novotipoCurso = scan.nextLine();
+                                    Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
+
+                                } while (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4")));
+                            }
+                        }
+
+                        if (Objects.equals(resposta, "2")) {
+
+                            System.out.println(" ");
+                            System.out.println("-editar nome do curso-");
+                            System.out.println(" ");
+
+                            System.out.println("digite o novo nome do curso: ");
+
+                            String novoNomeCurso = scan.nextLine();
+                            Coordenador.listaCursos.get(x).setNomeCurso(novoNomeCurso);
+                        }
+
+                        if (Objects.equals(resposta, "3")) {
+
+                            System.out.println(" ");
+                            System.out.println("-editar instituição-");
+                            System.out.println(" ");
+
+                            System.out.println("digite a nova instituição: ");
+
+                            String novaInstituicao = scan.nextLine();
+                            Coordenador.listaCursos.get(x).setInstituicao(novaInstituicao);
+                        }
+
+
+                        if (Objects.equals(resposta, "4")) {
+
+                            System.out.println(" ");
+                            System.out.println("-editar depoimento-");
+                            System.out.println(" ");
+
+                            System.out.println("digite o novo depoimento: ");
+
+                            String novoDepoimentoCurso = scan.nextLine();
+                            Coordenador.listaCursos.get(x).setDepoimentoCurso(novoDepoimentoCurso);
+                        }
+
+                        System.out.println(" ");
+                        System.out.println("edição realizada");
+                        System.out.println(" ");
+
+                        System.out.println(Coordenador.listaCursos);
                     }
-
-                    if (Objects.equals(resposta, "2")) {
-
-                        System.out.println(" ");
-                        System.out.println("-editar nome do curso-");
-                        System.out.println(" ");
-
-                        System.out.println("digite o novo nome do curso: ");
-
-                        String novoNomeCurso = scan.nextLine();
-                        Coordenador.listaCursos.get(respostaCurso).setNomeCurso(novoNomeCurso);
-                    }
-
-                    if (Objects.equals(resposta, "3")) {
-
-                        System.out.println(" ");
-                        System.out.println("-editar instituição-");
-                        System.out.println(" ");
-
-                        System.out.println("digite a nova instituição: ");
-
-                        String novaInstituicao = scan.nextLine();
-                        Coordenador.listaCursos.get(respostaCurso).setInstituicao(novaInstituicao);
-                    }
-
-
-                    if (Objects.equals(resposta, "4")) {
-
-                        System.out.println(" ");
-                        System.out.println("-editar depoimento-");
-                        System.out.println(" ");
-
-                        System.out.println("digite o novo depoimento: ");
-
-                        String novoDepoimentoCurso = scan.nextLine();
-                        Coordenador.listaCursos.get(respostaCurso).setDepoimentoCurso(novoDepoimentoCurso);
-                    }
-
-                    System.out.println(" ");
-                    System.out.println("edição realizada");
-                    System.out.println(" ");
-
-                    System.out.println(Coordenador.listaCursos);
                 }
             }
         }else{

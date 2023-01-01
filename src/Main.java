@@ -242,9 +242,9 @@ public class Main {
 
                                     }
                                 } while (!(Objects.equals(resposta, "7")));
-                            } else if (varCoord == Administrador.listaCoord.size()) {
+                            }else{
                                 System.out.println(" ");
-                                System.out.println("falha no login, coordenador não cadastrado");
+                                System.out.println(" OPS falha no login, coordenador não cadastrado");
                                 System.out.println(" ");
                             }
                         }
