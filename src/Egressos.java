@@ -429,9 +429,11 @@ public class Egressos {
             if (Objects.equals(resposta, "1")) {
 
                 //print lista de nomes
-                System.out.println("lista de egressos: ");
+
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-                    System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
+                    if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
+                        System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
+                    }
                 }
 
                 //digitar nome para buscar
@@ -440,32 +442,33 @@ public class Egressos {
 
                 //buscar no array
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
+                    if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
 
-                    System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
-                    System.out.println(nomeEgresso);
+                        //egresso encontrado
+                        if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
+                            System.out.println(" ");
+                            System.out.println("egresso encontrado");
+                            System.out.println(" ");
+                            System.out.println(Coordenador.listaEgressos.get(x));
 
-                    //egresso encontrado
-                    if (Coordenador.listaEgressos.get(x).getNomeEgresso().equals(nomeEgresso)) {
-                        System.out.println(" ");
-                        System.out.println("egresso encontrado");
-                        System.out.println(" ");
-                        System.out.println(Coordenador.listaEgressos.get(x));
-
-                        //egresso NAO encontrado
-                    } else {
-                        System.out.println(" ");
-                        System.out.println("egresso não encontrado");
-                        System.out.println(" ");
+                            //egresso NAO encontrado
+                        } else {
+                            System.out.println(" ");
+                            System.out.println("egresso não encontrado");
+                            System.out.println(" ");
+                        }
                     }
                 }
-
             //buscar por cpf
             }else{
 
                 //print lista de cpf
                 System.out.println("lista de egressos: ");
+
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-                    System.out.println(Coordenador.listaEgressos.get(x).getCpf());
+                    if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
+                        System.out.println(Coordenador.listaEgressos.get(x).getCpf());
+                    }
                 }
 
                 //digitar cpf para buscar
@@ -475,21 +478,20 @@ public class Egressos {
 
                 //buscar no array
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
+                    if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
 
-                    //System.out.println(Coordenador.listaEgressos.get(x).getNomeEgresso());
-                    //System.out.println(nomeEgresso);
+                        //egresso encontrado
+                        if (Coordenador.listaEgressos.get(x).getCpf() == (cpf)) {
+                            System.out.println(" ");
+                            System.out.println("egresso encontrado");
+                            System.out.println(" ");
+                            System.out.println(Coordenador.listaEgressos.get(x));
 
-                    //egresso encontrado
-                    if (Coordenador.listaEgressos.get(x).getCpf() == (cpf)) {
-                        System.out.println(" ");
-                        System.out.println("egresso encontrado");
-                        System.out.println(" ");
-                        System.out.println(Coordenador.listaEgressos.get(x));
-
-                    } else {
-                        System.out.println(" ");
-                        System.out.println("egresso não encontrado");
-                        System.out.println(" ");
+                        } else {
+                            System.out.println(" ");
+                            System.out.println("egresso não encontrado");
+                            System.out.println(" ");
+                        }
                     }
                 }
             }
