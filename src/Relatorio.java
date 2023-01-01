@@ -428,6 +428,7 @@ public class Relatorio {
                         brRelatorios.newLine();
                         brRelatorios.write(String.valueOf(listaEgressosSalarios.get(x)));
                     }
+                    brRelatorios.close();
                     System.out.println(posicaoSalario);
                 }
             }
