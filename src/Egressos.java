@@ -19,9 +19,7 @@ public class Egressos {
     public void CriarEgresso() {
         Scanner scan = new Scanner(System.in);
         String resposta;
-
         coordEgresso = Coordenador.coordLogado;
-        System.out.println("coordEgresso " + coordEgresso);
 
         System.out.println("nome do egresso: ");
         nomeEgresso = scan.nextLine();
@@ -259,12 +257,6 @@ public class Egressos {
 
                 //print lista de cpf
                 System.out.println("lista de egressos: ");
-                /*
-                for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
-                    System.out.println(Coordenador.listaEgressos.get(x).getCpf());
-                }
-
-                 */
 
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
                     if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
@@ -274,6 +266,7 @@ public class Egressos {
 
                 //digitar cpf para buscar
                 System.out.println("cpf do egresso: ");
+                //cpf = scan.nextInt();
                 cpf = scan.nextInt();
 
                 //buscar no array
@@ -385,8 +378,8 @@ public class Egressos {
                                 System.out.println("egresso excluído");
                                 System.out.println(" ");
 
-                                //Coordenador.listaEgressos.remove(Coordenador.listaEgressos.get(x));
-                                //System.out.println(Coordenador.listaEgressos);
+                                Coordenador.listaEgressos.remove(Coordenador.listaEgressos.get(x));
+                                System.out.println(Coordenador.listaEgressos);
                             }
                         //egresso NAO encontrado
                         }else {

@@ -222,7 +222,6 @@ public class Ocupacoes {
             String novoAnoFim = novaDataFim.substring(6);
             Egressos.listaOcupa.get(Integer.parseInt(resposta)).setAnoFim(novoAnoFim);
             int novoInvervaloOcupa = Integer.parseInt(novoAnoFim) - Integer.parseInt(anoInicio);
-
         }
 
         else if (Objects.equals(resposta, "6")) {

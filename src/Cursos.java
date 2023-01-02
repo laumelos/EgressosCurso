@@ -16,8 +16,7 @@ public class Cursos {
         String resposta;
         boolean respostaMaisCurso = true;
 
-        //coordCurso = Coordenador.coordLogado;
-        System.out.println("coordCurso " + coordCurso);
+        coordCurso = Coordenador.coordLogado;
 /*
         System.out.println("Escolha o tipo do curso: ");
         System.out.println("1 - curso Complementar");
@@ -80,7 +79,6 @@ public class Cursos {
  */
 
     }
-        //}while(respostaMaisCurso);
 
     public void GerenciarCurso(){
 
@@ -97,15 +95,14 @@ public class Cursos {
                     System.out.println(Coordenador.listaCursos.get(x));
                 }
             }
+
             //digitar nome para buscar
             System.out.println("nome do curso: ");
             nomeCurso = scan.nextLine();
 
             //buscar no array
-
             for (int x = 0; x < Coordenador.listaCursos.size(); x++) {
                 if (Objects.equals(Coordenador.listaCursos.get(x).coordCurso, Coordenador.coordLogado)) {
-
 
                     //curso encontrado
                     if (Coordenador.listaCursos.get(x).getNomeCurso().equals(nomeCurso)) {

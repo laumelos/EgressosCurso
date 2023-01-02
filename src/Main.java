@@ -136,51 +136,6 @@ public class Main {
                                             Egressos.listaCursos.add(criarCurso);
                                             //System.out.println("Egresso" + Egressos.listaCursos);
                                         }
-/*
-                                        //add outro curso
-                                        boolean respostaMaisCurso = true;
-                                        do {
-                                            System.out.println("Adicionar outro curso?");
-                                            System.out.println("1 - sim");
-                                            System.out.println("2 - não");
-                                            resposta = scan.nextLine();
-
-                                            if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
-                                                do {
-                                                    System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
-                                                    resposta = scan.nextLine();
-                                                } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
-                                            }
-                                            if (Objects.equals(resposta, "1")) {
-                                                System.out.println("-criar curso-");
-
-                                                criarCurso = new Cursos();
-                                                criarCurso.CriarCurso();
-                                                //brCursos.newLine();
-                                                //brCursos.write(criarCurso.getNomeCurso() + ", " + criarCurso.getInstituicao());
-                                                System.out.println(" ");
-                                                System.out.println("cadastrado");
-                                                System.out.println(" ");
-                                                //System.out.println("Você tem " + Coordenador.listaCursos.size() + " curso(s) cadastrados");
-
-                                                if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma")) {
-                                                    System.out.println(criarCurso.nomeCurso);
-                                                    System.out.println(criarCurso);
-                                                    //Coordenador.listaCursos.add(criarCurso);
-                                                    Coordenador.listaCursos.add(criarCurso);
-                                                    Egressos.listaCursos.add(criarCurso);
-                                                    //System.out.println("Coordenador" + Coordenador.listaCursos);
-
-                                                } else {
-                                                    Egressos.listaCursos.add(criarCurso);
-                                                    //System.out.println("Egresso" + Egressos.listaCursos);
-                                                }
-                                            } else {
-                                                respostaMaisCurso = false;
-                                            }
-                                        } while (respostaMaisCurso);
-
- */
 
                                         brCursos.close();
                                     }else if (Objects.equals(resposta, "2")) {
