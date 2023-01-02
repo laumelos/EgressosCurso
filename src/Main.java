@@ -108,7 +108,7 @@ public class Main {
                                         Cursos criarCurso = new Cursos();
                                         criarCurso.CriarCurso();
                                         brCursos.newLine();
-                                        brCursos.write(criarCurso.getNomeCurso() + ", " + criarCurso.getInstituicao());
+                                        brCursos.write("NOME DO CURSO: " + criarCurso.getNomeCurso() + ", " + "INSTITUIÇÃO DO CURSO: " +  criarCurso.getInstituicao());
                                         System.out.println(" ");
                                         System.out.println("cadastrado");
                                         System.out.println(" ");
@@ -137,7 +137,7 @@ public class Main {
                                         Egressos criarEgresso = new Egressos();
                                         criarEgresso.CriarEgresso();
                                         brEgresso.newLine();
-                                        brEgresso.write(criarEgresso.getNomeEgresso() + ", " + criarEgresso.getCpf() + ", " + criarEgresso.getDataConclusao());
+                                        brEgresso.write("NOME DO EGRESSO: " +criarEgresso.getNomeEgresso() + ", " + "CPF DO EGRESSO: " +criarEgresso.getCpf() + ", " + "DATA DE CONCLUSÃO DO EGRESSO: " +criarEgresso.getDataConclusao());
 
                                         System.out.println(" ");
                                         System.out.println(criarEgresso);
@@ -224,7 +224,7 @@ public class Main {
 
 
                     br.newLine();
-                    br.write(criarCoordenador.getNomeCoordenador());
+                    br.write("NOME DO COORDENADOR: " +criarCoordenador.getNomeCoordenador());
 
                 }else{
                     System.out.println(" ");
