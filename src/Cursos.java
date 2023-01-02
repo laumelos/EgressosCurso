@@ -171,10 +171,6 @@ public class Cursos {
                                         novotipoCurso = "Pós-graduação";
                                     }
                                     Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
-                                    brCursosEditados.newLine();
-                                    brCursosEditados.write(novotipoCurso);
-                                    brCursosEditados.close();
-
                                 } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4")));
                             }
 
@@ -188,9 +184,6 @@ public class Cursos {
                                 novotipoCurso = "Pós-graduação";
                             }
                             Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
-                            brCursosEditados.newLine();
-                            brCursosEditados.write(novotipoCurso);
-                            brCursosEditados.close();
                         }
                         else if (Objects.equals(resposta, "2")) {
 
@@ -202,9 +195,6 @@ public class Cursos {
 
                             String novoNomeCurso = scan.nextLine();
                             Coordenador.listaCursos.get(x).setNomeCurso(novoNomeCurso);
-                            brCursosEditados.newLine();
-                            brCursosEditados.write(novoNomeCurso);
-                            brCursosEditados.close();
 
                         }
                         else if (Objects.equals(resposta, "3")) {
@@ -217,10 +207,6 @@ public class Cursos {
 
                             String novaInstituicao = scan.nextLine();
                             Coordenador.listaCursos.get(x).setInstituicao(novaInstituicao);
-                            brCursosEditados.newLine();
-                            brCursosEditados.write(novaInstituicao);
-                            brCursosEditados.close();
-
                         }
 
                         else if (Objects.equals(resposta, "4")) {
@@ -233,16 +219,18 @@ public class Cursos {
 
                             String novoDepoimentoCurso = scan.nextLine();
                             Coordenador.listaCursos.get(x).setDepoimentoCurso(novoDepoimentoCurso);
-                            brCursosEditados.newLine();
-                            brCursosEditados.write(novoDepoimentoCurso);
                         }
-                        brCursosEditados.close();
                         System.out.println(" ");
                         System.out.println("edição realizada");
                         System.out.println(" ");
 
                         System.out.println(Coordenador.listaCursos);
                         listaCursosEditados.add(Coordenador.listaCursos.get(x));
+                        for (int i=0; i < listaCursosEditados.size(); i++ ){
+                            brCursosEditados.newLine();
+                            brCursosEditados.write(String.valueOf(listaCursosEditados.get(x)));
+                        }
+                        brCursosEditados.close();
                     }else {
                         System.out.println(" ");
                         System.out.println("curso não encontrado");
