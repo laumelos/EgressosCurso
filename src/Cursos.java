@@ -10,6 +10,8 @@ public class Cursos {
     public String depoimentoCurso;
     public String coordCurso;
     public static ArrayList <Egressos> listaEgressosCurso = new ArrayList<Egressos>();
+    public static ArrayList <Cursos> listaCursosEditados = new ArrayList<Cursos>();
+
 
 
     public void CriarCurso() throws IOException {
@@ -18,7 +20,7 @@ public class Cursos {
         boolean respostaMaisCurso = true;
 
         coordCurso = Coordenador.coordLogado;
-/*
+
         System.out.println("Escolha o tipo do curso: ");
         System.out.println("1 - curso Complementar");
         System.out.println("2 - Especialização");
@@ -51,15 +53,13 @@ public class Cursos {
             this.tipoCurso = "Pós-graduação";
         }
 
- */
-
         System.out.println("nome do curso: ");
         nomeCurso = scan.nextLine();
 
 
         System.out.println("instituição: ");
         instituicao = scan.nextLine();
-/*
+
         System.out.println("adicionar depoimento?");
         System.out.println("1 - sim");
         System.out.println("2 - não");
@@ -76,9 +76,6 @@ public class Cursos {
             System.out.println("depoimento: ");
             depoimentoCurso = scan.nextLine();
         }
-
- */
-
     }
 
     public void GerenciarCurso() throws IOException {
@@ -103,6 +100,7 @@ public class Cursos {
             }
 
             //digitar nome para buscar
+            System.out.println(" ");
             System.out.println("nome do curso: ");
             nomeCurso = scan.nextLine();
 
@@ -129,7 +127,7 @@ public class Cursos {
 
                         if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4"))) {
                             do {
-                                System.out.println("Selecione que informação deseja editar");
+                                System.out.println("Comando inválido, selecione que informação deseja editar");
                                 System.out.println("1 - tipo do curso");
                                 System.out.println("2 - nome do curso");
                                 System.out.println("3 - instituição");
@@ -152,7 +150,6 @@ public class Cursos {
 
                             resposta = scan.nextLine();
                             String novotipoCurso;
-
 
                             //número inválido
                             if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4"))) {
@@ -180,23 +177,22 @@ public class Cursos {
 
                                 } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4")));
                             }
-                        }
 
-                        String novotipoCurso;
-                        if (Objects.equals(resposta, "1")){
-                            novotipoCurso = "Curso Complementar";
-                        }else if (Objects.equals(resposta, "2")){
-                            novotipoCurso = "Especialização";
-                        }else if (Objects.equals(resposta, "3")){
-                            novotipoCurso = "Graduação";
-                        }else{
-                            novotipoCurso = "Pós-graduação";
+                            if (Objects.equals(resposta, "1")){
+                                novotipoCurso = "Curso Complementar";
+                            }else if (Objects.equals(resposta, "2")){
+                                novotipoCurso = "Especialização";
+                            }else if (Objects.equals(resposta, "3")){
+                                novotipoCurso = "Graduação";
+                            }else{
+                                novotipoCurso = "Pós-graduação";
+                            }
+                            Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
+                            brCursosEditados.newLine();
+                            brCursosEditados.write(novotipoCurso);
+                            brCursosEditados.close();
                         }
-                        Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
-                        brCursosEditados.newLine();
-                        brCursosEditados.write(novotipoCurso);
-                        brCursosEditados.close();
-                        if (Objects.equals(resposta, "2")) {
+                        else if (Objects.equals(resposta, "2")) {
 
                             System.out.println(" ");
                             System.out.println("-editar nome do curso-");
@@ -208,9 +204,10 @@ public class Cursos {
                             Coordenador.listaCursos.get(x).setNomeCurso(novoNomeCurso);
                             brCursosEditados.newLine();
                             brCursosEditados.write(novoNomeCurso);
+                            brCursosEditados.close();
+
                         }
-                        brCursosEditados.close();
-                        if (Objects.equals(resposta, "3")) {
+                        else if (Objects.equals(resposta, "3")) {
 
                             System.out.println(" ");
                             System.out.println("-editar instituição-");
@@ -222,10 +219,11 @@ public class Cursos {
                             Coordenador.listaCursos.get(x).setInstituicao(novaInstituicao);
                             brCursosEditados.newLine();
                             brCursosEditados.write(novaInstituicao);
-                        }
                             brCursosEditados.close();
 
-                        if (Objects.equals(resposta, "4")) {
+                        }
+
+                        else if (Objects.equals(resposta, "4")) {
 
                             System.out.println(" ");
                             System.out.println("-editar depoimento-");
@@ -244,6 +242,11 @@ public class Cursos {
                         System.out.println(" ");
 
                         System.out.println(Coordenador.listaCursos);
+                        listaCursosEditados.add(Coordenador.listaCursos.get(x));
+                    }else {
+                        System.out.println(" ");
+                        System.out.println("curso não encontrado");
+                        System.out.println(" ");
                     }
                 }
             }
@@ -299,8 +302,8 @@ public class Cursos {
     public String toString() {
         return  "Nome do curso: " + nomeCurso +
                 " Tipo do curso: " + tipoCurso +
-                " Instituição='" + instituicao +
-                " Depoimento do curso='" + depoimentoCurso;
+                " Instituição: " + instituicao +
+                " Depoimento do curso: " + depoimentoCurso;
     }
 }
 

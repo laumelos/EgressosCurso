@@ -17,7 +17,7 @@ public class Egressos {
     String anoConclusao;
 
 
-    public void CriarEgresso() {
+    public void CriarEgresso() throws IOException {
         Scanner scan = new Scanner(System.in);
         String resposta;
         coordEgresso = Coordenador.coordLogado;
@@ -30,13 +30,20 @@ public class Egressos {
         cpf = scan.nextInt();
 
         System.out.println("data de conclusão do egresso: ");
-        System.out.println("Digite a data (dia/mês/ano)");
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("Digite a data (dd/mm/aaaa)");
+        //SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         dataConclusao = scan.nextLine();
         dataConclusao = scan.nextLine();
+        do{
+            if (!(dataConclusao.length() == 10)) {
+                System.out.println("data inválida, digite novamente: (dd/mm/aaaa)");
+                dataConclusao = scan.nextLine();
+            }
+        }while (!(dataConclusao.length() == 10));
+
 
         anoConclusao = dataConclusao.substring(6);
-/*
+
         System.out.println("contato do egresso: ");
         Contato criarContato = new Contato();
         criarContato.CriarContato();
@@ -46,11 +53,11 @@ public class Egressos {
         criarCurso.CriarCurso();
 
         if (Objects.equals(criarCurso.instituicao, "UFMA") || Objects.equals(criarCurso.instituicao, "Ufma") || Objects.equals(criarCurso.instituicao, "ufma") ) {
-            System.out.println(criarCurso.nomeCurso);
-            System.out.println(criarCurso);
+            //System.out.println(criarCurso.nomeCurso);
+            //System.out.println(criarCurso);
             Coordenador.listaCursos.add(criarCurso);
             listaCursos.add(criarCurso);
-            System.out.println("Coordenador" + Coordenador.listaCursos);
+            //System.out.println("Coordenador" + Coordenador.listaCursos);
         }
         else {
             listaCursos.add(criarCurso);
@@ -104,9 +111,6 @@ public class Egressos {
             System.out.println("depoimento: ");
             depoimentoEgresso = scan.nextLine();
         }
-
- */
-
 
     }
 
@@ -226,9 +230,17 @@ public class Egressos {
                                 } else if (Objects.equals(resposta, "3")) {
 
                                     System.out.println("-editar data de conclusão-");
-                                    System.out.println("digite a nova data de conclusão: ");
+                                    System.out.println("digite a nova data de conclusão (dd/mm/aaaa): ");
 
                                     String novaDataConclusao = scan.nextLine();
+
+                                    do{
+                                        if (!(novaDataConclusao.length() == 10)) {
+                                            System.out.println("data inválida, digite novamente: (dd/mm/aaaa)");
+                                            novaDataConclusao = scan.nextLine();
+                                        }
+                                    }while (!(novaDataConclusao.length() == 10));
+
                                     Coordenador.listaEgressos.get(x).setDataConclusao(novaDataConclusao);
                                     brEgressoEditado.newLine();
                                     brEgressoEditado.write("NOVA DATA: "+novaDataConclusao + "");
@@ -256,7 +268,6 @@ public class Egressos {
                             else {
                                 System.out.println("-apagar egresso-");
                                 Coordenador.listaEgressos.remove(Coordenador.listaEgressos.get(x));
-                                System.out.println(Coordenador.listaEgressos);
                             }
                         //egresso NAO encontrado
                         }else {
@@ -390,9 +401,7 @@ public class Egressos {
                                 System.out.println(" ");
                                 System.out.println("egresso excluído");
                                 System.out.println(" ");
-
                                 Coordenador.listaEgressos.remove(Coordenador.listaEgressos.get(x));
-                                System.out.println(Coordenador.listaEgressos);
                             }
                         //egresso NAO encontrado
                         }else {

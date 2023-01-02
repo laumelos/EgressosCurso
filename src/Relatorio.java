@@ -433,7 +433,10 @@ public class Relatorio {
                 }
             }
         }else{
+            System.out.println(" ");
             System.out.println("nenhum egresso cadastrado");
+            System.out.println(" ");
+
         }
     }
 

@@ -42,7 +42,6 @@ public class Main {
                 //login
                 System.out.println(" ");
                 System.out.println("-login coordenador-");
-                System.out.println(" ");
 
                 //if (!(listaCoord.isEmpty())) {
                 if (!(Administrador.listaCoord.isEmpty())) {
@@ -61,7 +60,6 @@ public class Main {
 
 
                                 Coordenador.coordLogado = Administrador.listaCoord.get(varCoord).getNomeCoordenador();
-                                System.out.println("Coordenador.coordLogado"+Coordenador.coordLogado);
 
                                 //System.out.println("x " + varCoord);
                                 System.out.println(" ");
@@ -140,8 +138,9 @@ public class Main {
                                         criarEgresso.CriarEgresso();
                                         brEgresso.newLine();
                                         brEgresso.write(criarEgresso.getNomeEgresso() + ", " + criarEgresso.getCpf() + ", " + criarEgresso.getDataConclusao());
-                                        System.out.println(criarEgresso);
 
+                                        System.out.println(" ");
+                                        System.out.println(criarEgresso);
                                         System.out.println(" ");
                                         System.out.println("cadastrado");
                                         System.out.println(" ");

@@ -23,7 +23,7 @@ public class Ocupacoes {
 
         System.out.println("nome do cargo: ");
         this.nomeCargo = scan.nextLine();
-/*
+
         System.out.println("Escolha o tipo do cargo: ");
         System.out.println("1 - empregado");
         System.out.println("2 - empregador");
@@ -41,19 +41,32 @@ public class Ocupacoes {
             } while (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2")));
         }
 
- */
+
 
         System.out.println("salário: ");
         this.salario = scan.nextLine();
 
-        System.out.println("data de início: (dia/mês/ano)");
+        System.out.println("data de início: (dd/mm/aaaa)");
         this.dataInicio = scan.nextLine();
         this.anoInicio = dataInicio.substring(6);
 
+        do{
+            if (!(dataInicio.length() == 10)) {
+                System.out.println("data inválida, digite novamente: (dd/mm/aaaa)");
+                dataInicio = scan.nextLine();
+            }
+        }while (!(dataInicio.length() == 10));
 
-        System.out.println("data final: (dia/mês/ano)");
+        System.out.println("data final: (dd/mm/aaaa)");
         this.dataFim = scan.nextLine();
         this.anoFim = dataFim.substring(6);
+
+        do{
+            if (!(dataFim.length() == 10)) {
+                System.out.println("data inválida, digite novamente: (dd/mm/aaaa)");
+                dataFim = scan.nextLine();
+            }
+        }while (!(dataFim.length() == 10));
 
         System.out.println("local da ocupação: ");
         this.local = scan.nextLine();
@@ -214,7 +227,7 @@ public class Ocupacoes {
             System.out.println("-editar data final-");
             System.out.println(" ");
 
-            System.out.println("digite a nova data final: (dia/mês/ano)");
+            System.out.println("digite a nova data final: (dd/mm/aaaa)");
 
 
             String novaDataFim = scan.nextLine();
