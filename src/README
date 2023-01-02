@@ -1,0 +1,70 @@
+-Programa de Egressos UFMA-
+
+Projeto final do segundo período do curso de Ciências da Computação
+Feito por Laura Melo  e Samir Andrade
+
+O QUE É O PROJETO?
+O Programa de Egressos “PDM” é uma aplicação com o intuito de gerenciar alunos egressos da UFMA a partir do registro de
+informações e cadastro de cursos pelos coordenadores responsáveis.Feito com Java, no ambiente de desenvolvimento IntelliJ IDEA.
+
+1. Inicializar aplicação ▶️
+
+2. Selecione a opção “2” para se registrar como administrador, digitando o seu login e senha. O nome para login é “ADM” e a senha é “123”.
+
+3. Crie um coordenador digitando o seu nome e senha.
+
+4. Com um coordenador registrado já é possível selecionar a opção “1” para fazer login como coordenador,
+assim como é possível criar outros coordenadores registrando-se como administrador.
+
+5. Ao fazer login com as credenciais de um coordenador cadastrado, sete opções podem ser selecionadas,
+porém selecione a opção “1 - criar curso” ou “3 - cadastrar egresso” para iniciar:
+
+    CRIAR CURSO:
+    1. Ao selecionar a opção “1 - criar curso”, uma série de informações serão solicitadas para concluir o cadastro do curso:
+        -Tipo do curso (curso complementar, especialização, graduação ou pós-graduação).
+        -Nome do curso.
+        -Instituição em que esse curso foi realizado.
+        -Depoimento sobre o curso (opcional).
+
+    GERENCIAR CURSO
+    1. Ao selecionar a opção “2 - gerenciar curso”, a lista de cursos criados pelo coordenador logado será mostrada.
+    2. Digite o nome do curso que deseja editar, e logo após selecione que informação do cadastro do curso deseja alterar.
+
+    CADASTRAR EGRESSO
+    1. Ao selecionar a opção “3 - cadastrar egresso”, uma série de informações serão solicitadas para concluir o cadastro do egresso:
+        -Nome do egresso.
+        -CPF do egresso.
+        -Data de conclusão.
+        -Contatos (telefone, e-mail ou rede social).
+        -Cursos do egresso.
+        -Ocupações do egresso.
+        -Depoimento sobre o egresso (opcional).
+
+    GERENCIAR EGRESSO
+    1. Ao selecionar a opção “4 - gerenciar egresso”,  a lista de egressos criados pelo coordenador logado será mostrada.
+    2. Selecione um método de pesquisa, sendo eles por nome ou por CPF.
+    3. Após a seleção do tipo de busca, será exibido todos os egressos no sistema com base no tipo escolhido.
+       Exemplo: Selecionando CPF, será mostrado todos os CPFs que foram inseridos no sistema.
+    4. Selecione a opção de edição ou de apagar o egresso do sistema.
+    5. Caso a opção de edição seja selecionada as seguintes opções irão aparecer:
+        -Nome do egresso.
+        -CPF do egresso.
+        -Data de conclusão.
+        -Contatos (telefone, e-mail ou rede social).
+        -Cursos do egresso.
+        -Ocupações do egresso.
+        -Depoimento sobre o egresso (opcional).
+
+    CONSULTAR EGRESSO
+    1. Ao selecionar a opção “5 - consultar egresso”,  a lista de egressos criados pelo coordenador logado será mostrada.
+    2. Selecione um método de pesquisa, sendo eles por nome ou por CPF.
+    3. Após a seleção do tipo de busca, serão exibidas todas as informações cadastradas sobre esse egresso.
+
+    GERAR RELATÓRIOS
+    1. Ao selecionar a opção “6 - gerar relatórios”, três opções irão aparecer, sendo elas:
+            - Listagem de egresso por ano , ordenado pelo nome do egresso, com a opção de ser filtrada por ano.
+            - Listagem de egresso e posições, com a opção de ser filtrada pelo intervalo de tempo da ocupação.
+            - Listagem de posições e salários, ordenada por salário, com a opção de ser filtrada pelo intervalo de tempo da ocupação.
+
+    LOGOFF
+    1. Ao selecionar a opção “7 - logoff”, você será redirecionado ao menu inicial.
