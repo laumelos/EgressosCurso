@@ -16,7 +16,7 @@ public class Cursos {
         String resposta;
         boolean respostaMaisCurso = true;
 
-        coordCurso = Coordenador.coordLogado;
+        //coordCurso = Coordenador.coordLogado;
         System.out.println("coordCurso " + coordCurso);
 /*
         System.out.println("Escolha o tipo do curso: ");
@@ -51,9 +51,7 @@ public class Cursos {
             this.tipoCurso = "Pós-graduação";
         }
 
-
  */
-
 
         System.out.println("nome do curso: ");
         nomeCurso = scan.nextLine();
@@ -81,80 +79,6 @@ public class Cursos {
 
  */
 
-/*
-        do {
-            System.out.println("adicionar outro curso?");
-            System.out.println("1 - sim");
-            System.out.println("2 - não");
-
-            resposta = scan.next();
-
-            if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
-                do {
-                    System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
-                    System.out.println("1 - sim");
-                    System.out.println("2 - não");
-                    resposta = scan.next();
-
-                } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
-            }
-
-            if (resposta.equals("2")) {
-                respostaMaisCurso = false;
-            } else {
-
-                System.out.println("Escolha o tipo do curso: ");
-                System.out.println("1 - curso Complementar");
-                System.out.println("2 - Especialização");
-                System.out.println("3 - Graduação");
-                System.out.println("4 - Pós-graduação");
-
-                this.tipoCurso = scan.nextLine();
-
-                //número inválido
-                if (!(Objects.equals(tipoCurso, "1") || Objects.equals(tipoCurso, "2") || Objects.equals(tipoCurso, "3") || Objects.equals(tipoCurso, "4"))) {
-                    do {
-                        System.out.println("Comando inválido, digite '1' '2' '3' ou '4' para escolher a opção: ");
-                        System.out.println("1 - curso Complementar");
-                        System.out.println("2 - Especialização");
-                        System.out.println("3 - Graduação");
-                        System.out.println("4 - Pós-graduação");
-
-                        tipoCurso = scan.nextLine();
-
-                    } while (!(Objects.equals(tipoCurso, "1") || Objects.equals(tipoCurso, "2") || Objects.equals(tipoCurso, "3") || Objects.equals(tipoCurso, "4")));
-                }
-
-                System.out.println("Nome do curso: ");
-                nomeCurso = scan.nextLine();
-
-                System.out.println("Instituição: ");
-                instituicao = scan.nextLine();
-
-                System.out.println("Quer adicionar um depoimento?");
-                System.out.println("1 - sim");
-                System.out.println("2 - não");
-
-                resposta = scan.nextLine();
-                if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2"))) {
-                    do {
-                        System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
-                        resposta = scan.nextLine();
-                    } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2")));
-                }
-
-                if (Objects.equals(resposta, "1")) {
-                    System.out.println("depoimento: ");
-                    depoimentoCurso = scan.nextLine();
-                }
-
-
-                criarCurso = new Cursos();
-                criarCurso.CriarCurso();
-
-                Coordenador.listaCursos.add(criarCurso);
-
- */
     }
         //}while(respostaMaisCurso);
 
@@ -167,8 +91,6 @@ public class Cursos {
         if (!(Coordenador.listaCursos.isEmpty())) {
 
             System.out.println("lista de cursos:");
-            System.out.println(Coordenador.listaCursos.size());
-            System.out.println(Administrador.listaCoord);
 
             for (int x = 0; x < Coordenador.listaCursos.size(); x++) {
                 if (Objects.equals(Coordenador.listaCursos.get(x).coordCurso, Coordenador.coordLogado)) {
@@ -198,7 +120,7 @@ public class Cursos {
                         System.out.println("2 - nome do curso");
                         System.out.println("3 - instituicao");
                         System.out.println("4 - depoimento");
-                        resposta = scan.nextLine();
+                        //resposta = scan.nextLine();
                         resposta = scan.nextLine();
 
 
@@ -225,11 +147,12 @@ public class Cursos {
                             System.out.println("3 - Graduação");
                             System.out.println("4 - Pós-graduação");
 
-                            String novotipoCurso = scan.nextLine();
-                            Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
+                            resposta = scan.nextLine();
+                            String novotipoCurso;
+
 
                             //número inválido
-                            if (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4"))) {
+                            if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4"))) {
                                 do {
                                     System.out.println("Comando inválido, digite '1' '2' '3' ou '4' para escolher a opção: ");
                                     System.out.println("1 - curso Complementar");
@@ -237,12 +160,33 @@ public class Cursos {
                                     System.out.println("3 - Graduação");
                                     System.out.println("4 - Pós-graduação");
 
-                                    novotipoCurso = scan.nextLine();
+                                    resposta = scan.nextLine();
+                                    if (Objects.equals(resposta, "1")){
+                                        novotipoCurso = "Curso Complementar";
+                                    }else if (Objects.equals(resposta, "2")){
+                                        novotipoCurso = "Especialização";
+                                    }else if (Objects.equals(resposta, "3")){
+                                        novotipoCurso = "Graduação";
+                                    }else{
+                                        novotipoCurso = "Pós-graduação";
+                                    }
                                     Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
 
-                                } while (!(Objects.equals(novotipoCurso, "1") || Objects.equals(novotipoCurso, "2") || Objects.equals(novotipoCurso, "3") || Objects.equals(novotipoCurso, "4")));
+                                } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4")));
                             }
                         }
+
+                        String novotipoCurso;
+                        if (Objects.equals(resposta, "1")){
+                            novotipoCurso = "Curso Complementar";
+                        }else if (Objects.equals(resposta, "2")){
+                            novotipoCurso = "Especialização";
+                        }else if (Objects.equals(resposta, "3")){
+                            novotipoCurso = "Graduação";
+                        }else{
+                            novotipoCurso = "Pós-graduação";
+                        }
+                        Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
 
                         if (Objects.equals(resposta, "2")) {
 
@@ -340,9 +284,9 @@ public class Cursos {
     @Override
     public String toString() {
         return  "Nome do curso: " + nomeCurso +
-                "Tipo do curso: " + tipoCurso +
-                "Instituição='" + instituicao +
-                "Depoimento do curso='" + depoimentoCurso;
+                " Tipo do curso: " + tipoCurso +
+                " Instituição='" + instituicao +
+                " Depoimento do curso='" + depoimentoCurso;
     }
 }
 

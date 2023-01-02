@@ -164,8 +164,8 @@ public class Contato {
     public String toString() {
 
         return  "Telefone: " + telefone +
-                "Email: " + email +
-                "Redes sociais: " + redeSocial +
-                "Lista de contato: " + listaContato;
+                " Email: " + email +
+                " Redes sociais: " + redeSocial +
+                " Lista de contato: " + listaContato;
     }
 }

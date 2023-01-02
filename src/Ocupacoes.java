@@ -353,11 +353,11 @@ public class Ocupacoes {
     public String toString() {
 
         return  "Nome do cargo: " + nomeCargo +
-                "Tipo do cargo: " + tipoCargo +
-                "Salário: " + salario +
-                "Data de início: " + dataInicio +
-                "Local: " + local +
-                "Descrição do cargo: " + descricao +
-                "Depoimento da ocupação: " + depoimentoOcupa;
+                " Tipo do cargo: " + tipoCargo +
+                " Salário: " + salario +
+                " Data de início: " + dataInicio +
+                " Local: " + local +
+                " Descrição do cargo: " + descricao +
+                " Depoimento da ocupação: " + depoimentoOcupa;
     }
 }
