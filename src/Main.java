@@ -24,21 +24,10 @@ public class Main {
         BufferedWriter brCursos = new BufferedWriter(wrCursos); // adiciono a um escritor de buffer
         brCursos.write("CURSOS:");//nome do arquivo txt
 
-        OutputStream cursosEditados = new FileOutputStream("cursosEditados.txt"); // nome do arquivo que será escrito
-        Writer wrCursosEditados = new OutputStreamWriter(cursosEditados); // criação de um escritor
-        BufferedWriter brCursosEditados = new BufferedWriter(wrCursosEditados); // adiciono a um escritor de buffer
-        brCursosEditados.write("CURSOS EDITADOS:");//nome do arquivo txt
-
         OutputStream egresso = new FileOutputStream("egressos.txt"); // nome do arquivo que será escrito
         Writer wrEgresso = new OutputStreamWriter(egresso); // criação de um escritor
         BufferedWriter brEgresso = new BufferedWriter(wrEgresso); // adiciono a um escritor de buffer
         brEgresso.write("EGRESSOS:");//nome do arquivo txt
-
-        OutputStream egressoEditado = new FileOutputStream("egressosEditados.txt"); // nome do arquivo que será escrito
-        Writer wrEgressoEditado = new OutputStreamWriter(egressoEditado); // criação de um escritor
-        BufferedWriter brEgressoEditado = new BufferedWriter(wrEgressoEditado); // adiciono a um escritor de buffer
-        brEgressoEditado.write("EGRESSOS EDITADOS:");//nome do arquivo txt
-
 
         while(sistemaEgressos) {
             System.out.println("Bem-vindo ao sistema de egressos do curso!");
@@ -120,8 +109,8 @@ public class Main {
 
                                         Cursos criarCurso = new Cursos();
                                         criarCurso.CriarCurso();
-                                        //brCursos.newLine();
-                                        //brCursos.write(criarCurso.getNomeCurso() + ", " + criarCurso.getInstituicao());
+                                        brCursos.newLine();
+                                        brCursos.write(criarCurso.getNomeCurso() + ", " + criarCurso.getInstituicao());
                                         System.out.println(" ");
                                         System.out.println("cadastrado");
                                         System.out.println(" ");
@@ -142,18 +131,15 @@ public class Main {
 
                                         System.out.println("-gerenciar curso-");
                                         Cursos gerenciarCurso = new Cursos();
-                                        //brCursosEditados.newLine();
-                                        //brCursosEditados.write(gerenciarCurso.getNomeCurso()+ ", " + gerenciarCurso.getInstituicao());
                                         gerenciarCurso.GerenciarCurso();
 
-                                        //brCursosEditados.close();
                                     } else if (Objects.equals(resposta, "3")) {
 
                                         System.out.println("-cadastrar egresso-");
                                         Egressos criarEgresso = new Egressos();
                                         criarEgresso.CriarEgresso();
-                                        //brEgresso.newLine();
-                                        //brEgresso.write(criarEgresso.getNomeEgresso() + ", " + criarEgresso.getCpf() + ", " + criarEgresso.getDataConclusao());
+                                        brEgresso.newLine();
+                                        brEgresso.write(criarEgresso.getNomeEgresso() + ", " + criarEgresso.getCpf() + ", " + criarEgresso.getDataConclusao());
                                         System.out.println(criarEgresso);
 
                                         System.out.println(" ");
@@ -170,15 +156,13 @@ public class Main {
                                             //System.out.println("listaEgressosCurso" + Cursos.listaEgressosCurso);
                                         }
 
-                                        //brEgresso.close();
+                                        brEgresso.close();
                                     } else if (Objects.equals(resposta, "4")) {
 
                                         System.out.println("-gerenciar egresso-");
                                         Egressos gerenciarEgresso = new Egressos();
-                                        //brEgressoEditado.newLine();
-                                        //brEgressoEditado.write(gerenciarEgresso.getNomeEgresso() + ", "+ gerenciarEgresso.getCpf() + ", " + gerenciarEgresso.getDataConclusao());
                                         gerenciarEgresso.GerenciarEgresso();
-                                        //brEgressoEditado.close();
+
                                     } else if (Objects.equals(resposta, "5")) {
 
                                         System.out.println("-consultar egresso-");
@@ -229,7 +213,7 @@ public class Main {
                     //criar coordenador
                     Coordenador criarCoordenador = new Coordenador();
                     criarCoordenador.Entrar();
-                    //listaCoord.add(criarCoordenador);
+                    listaCoord.add(criarCoordenador);
                     Administrador.listaCoord.add(criarCoordenador);
 
                     System.out.println(" ");
@@ -240,8 +224,8 @@ public class Main {
                     System.out.println(" ");
 
 
-                    //br.newLine();
-                    //br.write(criarCoordenador.getNomeCoordenador());
+                    br.newLine();
+                    br.write(criarCoordenador.getNomeCoordenador());
 
                 }else{
                     System.out.println(" ");

@@ -1,3 +1,4 @@
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -109,7 +110,12 @@ public class Egressos {
 
     }
 
-    public void GerenciarEgresso() {
+    public void GerenciarEgresso() throws IOException {
+
+        OutputStream egressoEditado = new FileOutputStream("egressosEditados.txt"); // nome do arquivo que será escrito
+        Writer wrEgressoEditado = new OutputStreamWriter(egressoEditado); // criação de um escritor
+        BufferedWriter brEgressoEditado = new BufferedWriter(wrEgressoEditado); // adiciono a um escritor de buffer
+        brEgressoEditado.write("EGRESSOS EDITADOS:");//nome do arquivo txt
 
         Scanner scan = new Scanner(System.in);
         String resposta;
@@ -204,7 +210,9 @@ public class Egressos {
 
                                     int novoCpf = scan.nextInt();
                                     Coordenador.listaEgressos.get(x).setCpf(novoCpf);
-
+                                    brEgressoEditado.newLine();
+                                    brEgressoEditado.write("NOVO CPF :"+novoCpf + "");
+                                    brEgressoEditado.close();
                                 } else if (Objects.equals(resposta, "2")) {
 
                                     System.out.println("-editar nome-");
@@ -212,7 +220,9 @@ public class Egressos {
 
                                     String novoNomeEgresso = scan.nextLine();
                                     Coordenador.listaEgressos.get(x).setNomeEgresso(novoNomeEgresso);
-
+                                    brEgressoEditado.newLine();
+                                    brEgressoEditado.write("NOVO NOME:"+novoNomeEgresso+ "");
+                                    brEgressoEditado.close();
                                 } else if (Objects.equals(resposta, "3")) {
 
                                     System.out.println("-editar data de conclusão-");
@@ -220,6 +230,9 @@ public class Egressos {
 
                                     String novaDataConclusao = scan.nextLine();
                                     Coordenador.listaEgressos.get(x).setDataConclusao(novaDataConclusao);
+                                    brEgressoEditado.newLine();
+                                    brEgressoEditado.write("NOVA DATA: "+novaDataConclusao + "");
+                                    brEgressoEditado.close();
                                 } else if (Objects.equals(resposta, "4")) {
                                     Contato editarContato = new Contato();
                                     editarContato.EditarContato();

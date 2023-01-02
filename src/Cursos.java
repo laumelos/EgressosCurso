@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class Cursos {
     public static ArrayList <Egressos> listaEgressosCurso = new ArrayList<Egressos>();
 
 
-    public void CriarCurso(){
+    public void CriarCurso() throws IOException {
         Scanner scan = new Scanner(System.in);
         String resposta;
         boolean respostaMaisCurso = true;
@@ -80,7 +81,12 @@ public class Cursos {
 
     }
 
-    public void GerenciarCurso(){
+    public void GerenciarCurso() throws IOException {
+
+        OutputStream cursosEditados = new FileOutputStream("cursosEditados.txt"); // nome do arquivo que será escrito
+        Writer wrCursosEditados = new OutputStreamWriter(cursosEditados); // criação de um escritor
+        BufferedWriter brCursosEditados = new BufferedWriter(wrCursosEditados); // adiciono a um escritor de buffer
+        brCursosEditados.write("CURSOS EDITADOS:");//nome do arquivo txt
 
         Scanner scan = new Scanner(System.in);
         String resposta;
@@ -168,6 +174,9 @@ public class Cursos {
                                         novotipoCurso = "Pós-graduação";
                                     }
                                     Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
+                                    brCursosEditados.newLine();
+                                    brCursosEditados.write(novotipoCurso);
+                                    brCursosEditados.close();
 
                                 } while (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4")));
                             }
@@ -184,7 +193,9 @@ public class Cursos {
                             novotipoCurso = "Pós-graduação";
                         }
                         Coordenador.listaCursos.get(x).setTipoCurso(novotipoCurso);
-
+                        brCursosEditados.newLine();
+                        brCursosEditados.write(novotipoCurso);
+                        brCursosEditados.close();
                         if (Objects.equals(resposta, "2")) {
 
                             System.out.println(" ");
@@ -195,8 +206,10 @@ public class Cursos {
 
                             String novoNomeCurso = scan.nextLine();
                             Coordenador.listaCursos.get(x).setNomeCurso(novoNomeCurso);
+                            brCursosEditados.newLine();
+                            brCursosEditados.write(novoNomeCurso);
                         }
-
+                        brCursosEditados.close();
                         if (Objects.equals(resposta, "3")) {
 
                             System.out.println(" ");
@@ -207,8 +220,10 @@ public class Cursos {
 
                             String novaInstituicao = scan.nextLine();
                             Coordenador.listaCursos.get(x).setInstituicao(novaInstituicao);
+                            brCursosEditados.newLine();
+                            brCursosEditados.write(novaInstituicao);
                         }
-
+                            brCursosEditados.close();
 
                         if (Objects.equals(resposta, "4")) {
 
@@ -220,8 +235,10 @@ public class Cursos {
 
                             String novoDepoimentoCurso = scan.nextLine();
                             Coordenador.listaCursos.get(x).setDepoimentoCurso(novoDepoimentoCurso);
+                            brCursosEditados.newLine();
+                            brCursosEditados.write(novoDepoimentoCurso);
                         }
-
+                        brCursosEditados.close();
                         System.out.println(" ");
                         System.out.println("edição realizada");
                         System.out.println(" ");
