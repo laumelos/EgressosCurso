@@ -13,6 +13,8 @@ public class Egressos {
     public String coordEgresso;
     public static ArrayList<Cursos> listaCursos = new ArrayList<Cursos>();
     public static ArrayList<Ocupacoes> listaOcupa = new ArrayList<Ocupacoes>();
+    public static ArrayList <Egressos> listaEgressosEditados = new ArrayList<Egressos>();
+
     String depoimentoEgresso;
     String anoConclusao;
 
@@ -262,6 +264,7 @@ public class Egressos {
                                     String novoDepoimentoEgresso = scan.nextLine();
                                     Coordenador.listaEgressos.get(x).setDepoimentoEgresso(novoDepoimentoEgresso);
                                 }
+                                listaEgressosEditados.add(Coordenador.listaEgressos.get(x));
                             }
 
                             //apagar
@@ -392,6 +395,7 @@ public class Egressos {
 
                                     depoimentoEgresso = scan.nextLine();
                                 }
+                                listaEgressosEditados.add(Coordenador.listaEgressos.get(x));
                             }
 
                             //apagar
