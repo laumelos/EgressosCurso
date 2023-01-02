@@ -216,9 +216,6 @@ public class Egressos {
 
                                     int novoCpf = scan.nextInt();
                                     Coordenador.listaEgressos.get(x).setCpf(novoCpf);
-                                    brEgressoEditado.newLine();
-                                    brEgressoEditado.write("NOVO CPF :"+novoCpf + "");
-                                    brEgressoEditado.close();
                                 } else if (Objects.equals(resposta, "2")) {
 
                                     System.out.println("-editar nome-");
@@ -226,9 +223,6 @@ public class Egressos {
 
                                     String novoNomeEgresso = scan.nextLine();
                                     Coordenador.listaEgressos.get(x).setNomeEgresso(novoNomeEgresso);
-                                    brEgressoEditado.newLine();
-                                    brEgressoEditado.write("NOVO NOME:"+novoNomeEgresso+ "");
-                                    brEgressoEditado.close();
                                 } else if (Objects.equals(resposta, "3")) {
 
                                     System.out.println("-editar data de conclusão-");
@@ -244,9 +238,6 @@ public class Egressos {
                                     }while (!(novaDataConclusao.length() == 10));
 
                                     Coordenador.listaEgressos.get(x).setDataConclusao(novaDataConclusao);
-                                    brEgressoEditado.newLine();
-                                    brEgressoEditado.write("NOVA DATA: "+novaDataConclusao + "");
-                                    brEgressoEditado.close();
                                 } else if (Objects.equals(resposta, "4")) {
                                     Contato editarContato = new Contato();
                                     editarContato.EditarContato();
@@ -277,6 +268,13 @@ public class Egressos {
                             System.out.println("egresso não encontrado");
                         }
                     }
+                    listaEgressosEditados.add(Coordenador.listaEgressos.get(x));
+                    // insere txt editado
+                    for (int i=0; i < listaEgressosEditados.size(); i++ ){
+                        brEgressoEditado.newLine();
+                        brEgressoEditado.write(String.valueOf(listaEgressosEditados.get(x)));
+                    }
+                    brEgressoEditado.close();
                 }
 
             //buscar por cpf
@@ -395,9 +393,7 @@ public class Egressos {
 
                                     depoimentoEgresso = scan.nextLine();
                                 }
-                                listaEgressosEditados.add(Coordenador.listaEgressos.get(x));
                             }
-
                             //apagar
                             else {
                                 System.out.println(" ");

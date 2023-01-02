@@ -224,7 +224,7 @@ public class Main {
 
 
                     br.newLine();
-                    br.write("NOME DO COORDENADOR: " +criarCoordenador.getNomeCoordenador());
+                    br.write(criarCoordenador.getNomeCoordenador());
 
                 }else{
                     System.out.println(" ");
