@@ -1,2 +1,0 @@
-RELATORIOS:
-nome do egresso: teste - ano de conclusão do curso: 2022

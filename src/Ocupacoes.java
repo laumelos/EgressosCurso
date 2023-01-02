@@ -30,18 +30,16 @@ public class Ocupacoes {
         this.tipoCargo = scan.nextLine();
 
         //número inválido
-        if (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2"))) {
+        if (!(Objects.equals(this.tipoCargo, "1") || Objects.equals(this.tipoCargo, "2"))){
             do {
-                System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
+                System.out.println("Comando inválido, digite '1' ou '2'para escolher a opção: ");
                 System.out.println("1 - empregado");
                 System.out.println("2 - empregador");
 
-                tipoCargo = scan.nextLine();
+                this.tipoCargo = scan.nextLine();
 
-            } while (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2")));
+            } while (!(Objects.equals(this.tipoCargo, "1") || Objects.equals(this.tipoCargo, "2")));
         }
-
-
 
         System.out.println("salário: ");
         this.salario = scan.nextLine();
@@ -102,9 +100,9 @@ public class Ocupacoes {
         Scanner scan = new Scanner(System.in);
         String resposta;
 
+
         System.out.println("lista de ocupações:");
         System.out.println(" ");
-        System.out.println(Egressos.listaOcupa);
 
         for (int x = 0; x < Egressos.listaOcupa.size(); x++) {
             System.out.println(x + " - " + Egressos.listaOcupa.get(x));
@@ -112,17 +110,17 @@ public class Ocupacoes {
 
         System.out.println("Selecione a ocupação que deseja editar: ");
 
-        resposta = scan.nextLine();
+        String respostaOcupa = scan.nextLine();
 
-        if (Integer.parseInt(resposta) > Egressos.listaOcupa.size()) {
+        if (Integer.parseInt(respostaOcupa) > Egressos.listaOcupa.size()) {
             do {
                 System.out.println("Comando inválido, digite o número referente a uma ocupação para escolher a opção: ");
-                resposta = scan.nextLine();
-            } while (Integer.parseInt(resposta) > Egressos.listaOcupa.size());
+                respostaOcupa = scan.nextLine();
+            } while (Integer.parseInt(respostaOcupa) > Egressos.listaOcupa.size());
         }
 
         System.out.println("selecionado");
-        System.out.println(Egressos.listaOcupa.get(Integer.parseInt(resposta)));
+        System.out.println(Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)));
 
 
         System.out.println("Selecione que informação deseja editar");
@@ -159,9 +157,10 @@ public class Ocupacoes {
             System.out.println(" ");
 
             System.out.println("digite o novo nome do cargo: ");
-
             String novoNomeCargo = scan.nextLine();
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setNomeCargo(novoNomeCargo);
+
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setNomeCargo(novoNomeCargo);
+            System.out.println(nomeCargo);
         }
 
         else if (Objects.equals(resposta, "2")) {
@@ -174,20 +173,19 @@ public class Ocupacoes {
             System.out.println("1 - empregado");
             System.out.println("2 - empregador");
             String novoTipoCargo = scan.nextLine();
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setTipoCargo(novoTipoCargo);
 
             //número inválido
-            if (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2"))) {
+            if (!(Objects.equals(novoTipoCargo, "1") || Objects.equals(novoTipoCargo, "2"))){
                 do {
-                    System.out.println("Comando inválido, digite '1' ou '2' para escolher a opção: ");
+                    System.out.println("Comando inválido, digite '1' ou '2'para escolher a opção: ");
                     System.out.println("1 - empregado");
                     System.out.println("2 - empregador");
 
                     novoTipoCargo = scan.nextLine();
-                    Egressos.listaOcupa.get(Integer.parseInt(resposta)).setTipoCargo(novoTipoCargo);
 
-                } while (!(Objects.equals(tipoCargo, "1") || Objects.equals(tipoCargo, "2")));
+                } while (!(Objects.equals(novoTipoCargo, "1") || Objects.equals(novoTipoCargo, "2")));
             }
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setTipoCargo(novoTipoCargo);
         }
 
         else if (Objects.equals(resposta, "3")) {
@@ -202,7 +200,7 @@ public class Ocupacoes {
             salario = scan.nextLine();
 
             String novoSalario = scan.nextLine();
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setSalario(novoSalario);
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setSalario(novoSalario);
         }
 
         else if (Objects.equals(resposta, "4")) {
@@ -215,10 +213,9 @@ public class Ocupacoes {
 
 
             String novaDataInicio = scan.nextLine();
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setDataInicio(novaDataInicio);
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setDataInicio(novaDataInicio);
             String novoAnoInicio = novaDataInicio.substring(6);
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setAnoInicio(novoAnoInicio);
-            int novoInvervaloOcupa = Integer.parseInt(anoFim) - Integer.parseInt(novoAnoInicio);
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setAnoInicio(novoAnoInicio);
         }
 
         else if (Objects.equals(resposta, "5")) {
@@ -231,10 +228,9 @@ public class Ocupacoes {
 
 
             String novaDataFim = scan.nextLine();
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setDataFim(novaDataFim);
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setDataFim(novaDataFim);
             String novoAnoFim = novaDataFim.substring(6);
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setAnoFim(novoAnoFim);
-            int novoInvervaloOcupa = Integer.parseInt(novoAnoFim) - Integer.parseInt(anoInicio);
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setAnoFim(novoAnoFim);
         }
 
         else if (Objects.equals(resposta, "6")) {
@@ -246,7 +242,7 @@ public class Ocupacoes {
             System.out.println("digite o novo local: ");
 
             String novoLocal = scan.nextLine();
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setLocal(novoLocal);
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setLocal(novoLocal);
         }
 
         else if (Objects.equals(resposta, "7")) {
@@ -258,7 +254,7 @@ public class Ocupacoes {
             System.out.println("digite a nova descricao: ");
 
             String novaDescricao = scan.nextLine();
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setDescricao(novaDescricao);
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setDescricao(novaDescricao);
         }
 
         else{
@@ -271,7 +267,7 @@ public class Ocupacoes {
 
 
             String novoDepoimentoOcupa = scan.nextLine();
-            Egressos.listaOcupa.get(Integer.parseInt(resposta)).setDepoimentoOcupa(novoDepoimentoOcupa);
+            Egressos.listaOcupa.get(Integer.parseInt(respostaOcupa)).setDepoimentoOcupa(novoDepoimentoOcupa);
         }
 
         System.out.println(" ");

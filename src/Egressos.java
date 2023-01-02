@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Egressos {
-    public int cpf;
+    public String cpf;
     String formacoes;
     public String nomeEgresso;
     public String dataConclusao;
@@ -28,13 +28,18 @@ public class Egressos {
         nomeEgresso = scan.nextLine();
 
         System.out.println("cpf do egresso: ");
-        while (!scan.hasNextInt()) scan.nextInt();
-        cpf = scan.nextInt();
+        cpf = scan.nextLine();
+        do{
+            if (!(cpf.length() == 11)) {
+                System.out.println("cpf inválido, digite novamente:");
+                cpf = scan.nextLine();
+            }
+        }while (!(cpf.length() == 11));
 
         System.out.println("data de conclusão do egresso: ");
         System.out.println("Digite a data (dd/mm/aaaa)");
         //SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        dataConclusao = scan.nextLine();
+        //dataConclusao = scan.nextLine();
         dataConclusao = scan.nextLine();
         do{
             if (!(dataConclusao.length() == 10)) {
@@ -113,7 +118,6 @@ public class Egressos {
             System.out.println("depoimento: ");
             depoimentoEgresso = scan.nextLine();
         }
-
     }
 
     public void GerenciarEgresso() throws IOException {
@@ -214,7 +218,16 @@ public class Egressos {
                                     System.out.println("-editar cpf-");
                                     System.out.println("digite o novo cpf: ");
 
-                                    int novoCpf = scan.nextInt();
+                                    String novoCpf = scan.nextLine();
+
+                                    novoCpf = scan.nextLine();
+                                    do{
+                                        if (!(novoCpf.length() == 11)) {
+                                            System.out.println("cpf inválido, digite novamente:");
+                                            novoCpf = scan.nextLine();
+                                        }
+                                    }while (!(novoCpf.length() == 11));
+
                                     Coordenador.listaEgressos.get(x).setCpf(novoCpf);
                                 } else if (Objects.equals(resposta, "2")) {
 
@@ -292,14 +305,14 @@ public class Egressos {
                 //digitar cpf para buscar
                 System.out.println("cpf do egresso: ");
                 //cpf = scan.nextInt();
-                cpf = scan.nextInt();
+                cpf = scan.nextLine();
 
                 //buscar no array
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
                     if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
 
                         //egresso encontrado
-                        if (Coordenador.listaEgressos.get(x).getCpf() == (cpf)) {
+                        if (Objects.equals(Coordenador.listaEgressos.get(x).getCpf(), cpf)) {
                             System.out.println("egresso encontrado");
                             System.out.println(" ");
                             //System.out.println(Coordenador.listaEgressos.get(x));
@@ -354,7 +367,7 @@ public class Egressos {
                                     System.out.println("digite o novo cpf: ");
 
                                     while (!scan.hasNextInt()) scan.nextInt();
-                                    cpf = scan.nextInt();
+                                    cpf = scan.nextLine();
                                 } else if (Objects.equals(resposta, "2")) {
                                     System.out.println(" ");
                                     System.out.println("-editar nome-");
@@ -489,14 +502,14 @@ public class Egressos {
                 //digitar cpf para buscar
                 System.out.println("cpf do egresso: ");
                 while (scan.hasNext()) scan.next();
-                cpf = scan.nextInt();
+                cpf = scan.nextLine();
 
                 //buscar no array
                 for (int x = 0; x < Coordenador.listaEgressos.size(); x++) {
                     if (Objects.equals(Coordenador.listaEgressos.get(x).coordEgresso, Coordenador.coordLogado)) {
 
                         //egresso encontrado
-                        if (Coordenador.listaEgressos.get(x).getCpf() == (cpf)) {
+                        if (Objects.equals(Coordenador.listaEgressos.get(x).getCpf(), cpf)) {
                             System.out.println(" ");
                             System.out.println("egresso encontrado");
                             System.out.println(" ");
@@ -516,11 +529,11 @@ public class Egressos {
     }
 
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
